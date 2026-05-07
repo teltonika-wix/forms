@@ -1,6 +1,5 @@
 import "public/sentry/customElementSentry.js";
 import { createFormWebElement, type FormTagName } from "src/form-build/wix-forms";
-import { wixFormsStyles } from "src/form-build/wix-forms-style";
 
 const PRODUCTION_FORM_ENDPOINT = "/tlt-networks/_functions/form";
 const FAKE_FORM_ENDPOINT = "/_mock/forms";
@@ -13,10 +12,6 @@ declare global {
     };
   }
 }
-
-const style = document.createElement("style");
-style.textContent = wixFormsStyles;
-document.body.appendChild(style);
 
 const formComponents: FormTagName[] = [
   "contact-form",

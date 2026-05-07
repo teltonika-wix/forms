@@ -3,6 +3,7 @@ import { BrowserFormGenerator } from "src/domains/forms/form-ui-generator/compon
 import { Form } from "src/domains/forms/form-ui-generator/components/Form";
 import { FormCodes } from "src/domains/forms/forms-kit";
 import { Spinner } from "src/components/Spinner";
+import { wixFormsStyles } from "src/form-build/wix-forms-style";
 
 const FORM_CODE_BY_TAG = {
   "contact-form": FormCodes.ContactForm,
@@ -21,6 +22,23 @@ export type CreateFormWebElementOptions = {
   isDev?: boolean;
   submitButtonText?: string;
   formCode?: FormCodes;
+};
+
+const WIX_FORMS_STYLE_SELECTOR = "style[data-wix-forms-custom-elements]";
+
+const ensureGlobalStyles = () => {
+  if (typeof document === "undefined") {
+    return;
+  }
+
+  if (document.querySelector(WIX_FORMS_STYLE_SELECTOR)) {
+    return;
+  }
+
+  const style = document.createElement("style");
+  style.dataset.wixFormsCustomElements = "true";
+  style.textContent = wixFormsStyles;
+  document.head.appendChild(style);
 };
 
 const resolveFormCode = (tagName: string, explicitFormCode?: FormCodes): FormCodes => {
@@ -46,6 +64,8 @@ export const createFormWebElement = (
       if (this.app) {
         return;
       }
+
+      ensureGlobalStyles();
 
       const formCode = resolveFormCode(this.localName, options.formCode);
       const mountNode = document.createElement("div");
