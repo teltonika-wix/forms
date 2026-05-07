@@ -1,2 +1,2 @@
-export { default as ServerFormGenerator } from './ServerFormGenerator.vue';
-export type * from './types';
+export { default as ServerFormGenerator } from "./ServerFormGenerator.vue";
+export type * from "./types";

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { type RadioSize, radioTheme } from './radioTheme';
-import { computed } from 'vue';
+import { type RadioSize, radioTheme } from "./radioTheme";
+import { computed } from "vue";
 
 const { size, value } = defineProps<{
   id: string;

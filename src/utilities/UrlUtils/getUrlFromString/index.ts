@@ -1,1 +1,1 @@
-export * from './getUrlFromString';
+export * from "./getUrlFromString";

@@ -1,2 +1,2 @@
-export * from './createBadResponse';
-export * from './isSuccessfulStatusCode';
+export * from "./createBadResponse";
+export * from "./isSuccessfulStatusCode";

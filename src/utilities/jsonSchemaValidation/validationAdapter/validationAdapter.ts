@@ -1,4 +1,4 @@
-import { type OutputUnit, Validator } from '@cfworker/json-schema';
+import { type OutputUnit, Validator } from "@cfworker/json-schema";
 
 export type ValidationErrors = OutputUnit[];
 export type ValidationSchema = {
@@ -14,8 +14,11 @@ export type ValidationReturn<DataType> = {
   isValid: (data: unknown) => data is DataType;
 };
 
-export const validationAdapter = <DataType>(rawData: unknown, schema: ValidationSchema): ValidationReturn<DataType> => {
-  const validator = new Validator(schema, '7', false);
+export const validationAdapter = <DataType>(
+  rawData: unknown,
+  schema: ValidationSchema,
+): ValidationReturn<DataType> => {
+  const validator = new Validator(schema, "7", false);
 
   const { valid: isDataValid, errors } = validator.validate(rawData);
 

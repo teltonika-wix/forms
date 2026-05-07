@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useAttributes } from 'src/vue-utils';
-import type { LinkData } from './types';
-import { extractLinkAttrs } from './utils/extractLinkAttrs';
-import { computed } from 'vue';
+import { useAttributes } from "src/vue-utils";
+import type { LinkData } from "./types";
+import { extractLinkAttrs } from "./utils/extractLinkAttrs";
+import { computed } from "vue";
 
-const { external, documentTarget, relationship, url = '/', ariaLabel } = defineProps<LinkData>();
+const { external, documentTarget, relationship, url = "/", ariaLabel } = defineProps<LinkData>();
 
 const defaultAnchorAttrs = computed(() => {
   return extractLinkAttrs({ external, url, documentTarget, relationship, ariaLabel });

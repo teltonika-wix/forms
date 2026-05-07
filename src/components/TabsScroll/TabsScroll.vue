@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useDebounceFn } from '@vueuse/core';
-import type { TabsScrollProps, TabsScrollTab } from './types';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { useDebounceFn } from "@vueuse/core";
+import type { TabsScrollProps, TabsScrollTab } from "./types";
+import { onMounted, onUnmounted, ref } from "vue";
 
 const props = defineProps<TabsScrollProps>();
 const { tabs, offsetTop = 0 } = props;
-const activeTab = ref<string>(tabs[0]?.text || '');
+const activeTab = ref<string>(tabs[0]?.text || "");
 
 const setTabActive = (tab: TabsScrollTab): void => {
   activeTab.value = tab.text;
@@ -61,7 +61,7 @@ const handleTabClick = (event: MouseEvent, tab: TabsScrollTab) => {
     // Smooth scroll to the section
     window.scrollTo({
       top,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
 
     // Set the tab active
@@ -70,11 +70,11 @@ const handleTabClick = (event: MouseEvent, tab: TabsScrollTab) => {
 };
 
 onMounted(() => {
-  document.addEventListener('scroll', debouncedScroll);
+  document.addEventListener("scroll", debouncedScroll);
 });
 
 onUnmounted(() => {
-  document.removeEventListener('scroll', debouncedScroll);
+  document.removeEventListener("scroll", debouncedScroll);
 });
 </script>
 
@@ -82,7 +82,11 @@ onUnmounted(() => {
   <div class="invisible-scrollbar flex overflow-x-auto">
     <div class="border-grey-400 grow border-b" />
 
-    <div v-for="tab in tabs" :key="tab.text" class="border-grey-400 relative border-b px-4 py-3 md:px-8">
+    <div
+      v-for="tab in tabs"
+      :key="tab.text"
+      class="border-grey-400 relative border-b px-4 py-3 md:px-8"
+    >
       <a
         :href="`#${tab.blockId}`"
         size="medium"

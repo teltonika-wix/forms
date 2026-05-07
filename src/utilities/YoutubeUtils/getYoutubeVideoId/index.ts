@@ -1,1 +1,1 @@
-export * from './getYoutubeVideoId';
+export * from "./getYoutubeVideoId";

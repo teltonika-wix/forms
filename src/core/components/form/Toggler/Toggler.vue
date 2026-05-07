@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { togglerTheme } from './togglerTheme';
-import type { TogglerProps } from './types';
-import { getThemeState } from './utils/getThemeState';
-import { computed } from 'vue';
+import { togglerTheme } from "./togglerTheme";
+import type { TogglerProps } from "./types";
+import { getThemeState } from "./utils/getThemeState";
+import { computed } from "vue";
 
-const isActive = defineModel<boolean>('isActive', { default: false });
+const isActive = defineModel<boolean>("isActive", { default: false });
 const props = defineProps<TogglerProps>();
 
 const state = computed(() => getThemeState(isActive.value, props.isDisabled));
@@ -12,8 +12,18 @@ const classes = computed(() => togglerTheme({ state: state.value }));
 </script>
 
 <template>
-  <label :tabindex="props.isDisabled ? -1 : 0" :class="classes.base()" @keydown.enter="isActive = !isActive">
-    <input v-model="isActive" tabindex="-1" :disabled="props.isDisabled" :class="classes.input()" type="checkbox" />
+  <label
+    :tabindex="props.isDisabled ? -1 : 0"
+    :class="classes.base()"
+    @keydown.enter="isActive = !isActive"
+  >
+    <input
+      v-model="isActive"
+      tabindex="-1"
+      :disabled="props.isDisabled"
+      :class="classes.input()"
+      type="checkbox"
+    />
     <span class="ball-animation" :class="classes.span()"></span>
   </label>
 </template>

@@ -6,7 +6,7 @@ export const getTagName = (stringWithHtml: string): ParsedTagName => {
   const tagMatch = tagPattern.exec(stringWithHtml);
 
   if (!tagMatch || !tagMatch[1]) {
-    return '';
+    return "";
   }
 
   return tagMatch[1];

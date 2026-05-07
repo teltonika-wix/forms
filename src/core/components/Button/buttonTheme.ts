@@ -1,4 +1,4 @@
-import { type VariantProps, tv } from 'tailwind-variants';
+import { type VariantProps, tv } from "tailwind-variants";
 
 const buttonLarge = /*tw*/ `group-[.fixed]:md:px-4 group-[.fixed]:md:py-8 md:text-xl md:leading-8 md:py-4 md:px-8`;
 const buttonMedium = /*tw*/ `group-[.fixed]:md:px-4 group-[.fixed]:md:py-6 md:py-4 md:px-6`;
@@ -155,10 +155,10 @@ export const buttonTheme = tv({
       accent: accent,
       white,
       outlined: outlinedStyles,
-      'outlined-white': outlinedWhite,
+      "outlined-white": outlinedWhite,
     },
     disabled: {
-      true: 'pointer-events-none select-none',
+      true: "pointer-events-none select-none",
     },
     size: {
       large: buttonLarge,
@@ -171,47 +171,47 @@ export const buttonTheme = tv({
     },
     isButtonText: {
       true: {
-        startIcon: '-ml-1',
-        endIcon: '-mr-1',
+        startIcon: "-ml-1",
+        endIcon: "-mr-1",
       },
     },
   },
   compoundVariants: [
     {
       disabled: true,
-      color: 'primary',
-      class: 'bg-grey-400',
+      color: "primary",
+      class: "bg-grey-400",
     },
     {
       disabled: true,
-      color: 'secondary',
-      class: 'bg-grey-400',
+      color: "secondary",
+      class: "bg-grey-400",
     },
     {
       disabled: true,
-      color: 'accent',
-      class: 'bg-electric-100 text-grey-600',
+      color: "accent",
+      class: "bg-electric-100 text-grey-600",
     },
     {
       disabled: true,
-      color: 'white',
-      class: 'bg-wh text-grey-400',
+      color: "white",
+      class: "bg-wh text-grey-400",
     },
     {
       disabled: true,
-      color: 'outlined',
-      class: 'text-grey-400 border-grey-400 bg-transparent',
+      color: "outlined",
+      class: "text-grey-400 border-grey-400 bg-transparent",
     },
     {
       disabled: true,
-      color: 'outlined-white',
-      class: 'bg-transparent text-white',
+      color: "outlined-white",
+      class: "bg-transparent text-white",
     },
   ],
   defaultVariants: {
-    color: 'primary',
-    size: 'large',
-    width: 'auto',
+    color: "primary",
+    size: "large",
+    width: "auto",
     disabled: false,
   },
   slots: {

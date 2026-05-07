@@ -1,5 +1,5 @@
-import { createUrlWithParams, extractErrorMessage } from 'src/utilities';
-import type { ExactFormUrlParameters, FormSecretsParameter } from '../../types/formGeneralTypes';
+import { createUrlWithParams, extractErrorMessage } from "src/utilities";
+import type { ExactFormUrlParameters, FormSecretsParameter } from "../../types/formGeneralTypes";
 
 export type GenerateFormUrlParams = FormSecretsParameter & {
   formUrlParameters?: ExactFormUrlParameters;

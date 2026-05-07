@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Tab } from '../../components/Tab';
+import { Tab } from "../../components/Tab";
 </script>
 
 <template>

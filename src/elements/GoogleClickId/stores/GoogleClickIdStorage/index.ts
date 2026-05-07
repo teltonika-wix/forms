@@ -1,1 +1,1 @@
-export * from './googleClickIdStorage';
+export * from "./googleClickIdStorage";

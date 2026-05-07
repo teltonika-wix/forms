@@ -1,1 +1,1 @@
-export { default as TextComponent } from './TextComponent.vue';
+export { default as TextComponent } from "./TextComponent.vue";

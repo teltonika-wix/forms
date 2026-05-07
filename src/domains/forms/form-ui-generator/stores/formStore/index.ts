@@ -1,4 +1,4 @@
-export type * from './createFormStore';
-export type * from './updateFormInputData';
+export type * from "./createFormStore";
+export type * from "./updateFormInputData";
 
-export * from './useFormStore';
+export * from "./useFormStore";

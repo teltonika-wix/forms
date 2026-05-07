@@ -1,6 +1,6 @@
-import type { VariantProps } from 'tailwind-variants';
-import type { HEADING_TAGS, TEXT_TAGS, TYPOGRAPHY_TAGS } from './constants';
-import type { TEXT_TV_THEME, textTheme } from './textTheme';
+import type { VariantProps } from "tailwind-variants";
+import type { HEADING_TAGS, TEXT_TAGS, TYPOGRAPHY_TAGS } from "./constants";
+import type { TEXT_TV_THEME, textTheme } from "./textTheme";
 
 export type TextThemeProps = VariantProps<typeof textTheme>;
 

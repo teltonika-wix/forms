@@ -1,7 +1,4 @@
-import {
-  createBadResponse,
-  extractErrorMessage,
-} from "src/utilities";
+import { createBadResponse, extractErrorMessage } from "src/utilities";
 import { FormDataService } from "../../FormDataService";
 import { FormUrl } from "../FormUrl";
 import type { BaseFormApiParams } from "../types";
@@ -29,8 +26,7 @@ export const getFormStructure = async ({
 
     return new Response(JSON.stringify(formRenderingData));
   } catch (error) {
-    const errorMessage =
-      extractErrorMessage(error) || "Failed to get form structure";
+    const errorMessage = extractErrorMessage(error) || "Failed to get form structure";
 
     return createBadResponse({ errorMessage });
   }

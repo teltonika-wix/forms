@@ -105,9 +105,7 @@ if (newViolations.length > 0) {
 if (resolvedViolations.length > 0) {
   console.log(`Resolved baseline violations: ${resolvedViolations.length}`);
   if (shouldFailOnResolved) {
-    console.error(
-      "Baseline is stale. Run `vp run arch:baseline` to keep it in sync.",
-    );
+    console.error("Baseline is stale. Run `vp run arch:baseline` to keep it in sync.");
     process.exit(1);
   }
 }
@@ -119,11 +117,7 @@ function collectFiles(dirPath, files) {
   for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
     const fullPath = path.join(dirPath, entry.name);
     if (entry.isDirectory()) {
-      if (
-        entry.name === "node_modules" ||
-        entry.name === "dist" ||
-        entry.name === ".git"
-      ) {
+      if (entry.name === "node_modules" || entry.name === "dist" || entry.name === ".git") {
         continue;
       }
       collectFiles(fullPath, files);

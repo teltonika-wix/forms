@@ -1,2 +1,2 @@
-export { default as SourceComponent } from './SourceComponent.vue';
-export type * from './types';
+export { default as SourceComponent } from "./SourceComponent.vue";
+export type * from "./types";

@@ -1,10 +1,6 @@
 import type { FormInvalidInputsData, FormUrlParameters } from "src/domains/forms/forms-kit";
 
-export type FormSubmitEventStatus =
-  | "beforeSubmit"
-  | "success"
-  | "error"
-  | "unexpectedError";
+export type FormSubmitEventStatus = "beforeSubmit" | "success" | "error" | "unexpectedError";
 
 export type FormBeforeSubmitEvent = { status: "beforeSubmit" };
 export type FormSuccessEvent = {

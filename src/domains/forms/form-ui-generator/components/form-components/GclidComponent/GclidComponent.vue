@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { GoogleClickIdStorage } from 'src/elements/GoogleClickId/stores/GoogleClickIdStorage';
-import type { BaseFormComponentProps } from '../../../types';
-import { onMounted, ref } from 'vue';
+import { GoogleClickIdStorage } from "src/elements/GoogleClickId/stores/GoogleClickIdStorage";
+import type { BaseFormComponentProps } from "../../../types";
+import { onMounted, ref } from "vue";
 
 const { formInputData } = defineProps<BaseFormComponentProps>();
 const { attributes, defaultValue } = formInputData;

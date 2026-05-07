@@ -1,2 +1,2 @@
-export * from './components';
-export * from './tailwind-configurations';
+export * from "./components";
+export * from "./tailwind-configurations";

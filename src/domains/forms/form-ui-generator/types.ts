@@ -8,8 +8,7 @@ export type FormsGeneratorBaseProps = {
   submitButtonText: string;
 };
 
-export type BrowserFormGeneralProps = BrowserFormRenderingParams &
-  FormsGeneratorBaseProps;
+export type BrowserFormGeneralProps = BrowserFormRenderingParams & FormsGeneratorBaseProps;
 
 export type BaseFormComponentProps = {
   formInputData: FormInputComponentData;

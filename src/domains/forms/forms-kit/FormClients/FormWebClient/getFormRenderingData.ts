@@ -1,8 +1,8 @@
-import { isSuccessfulStatusCode } from 'src/utilities';
-import type { FormRenderingDataResponse } from '../../types';
-import { validateFormParams } from '../../utils/validateFormParams';
-import { createFullFormUrl } from './createFullFormUrl';
-import type { FormWebClientParams } from './types';
+import { isSuccessfulStatusCode } from "src/utilities";
+import type { FormRenderingDataResponse } from "../../types";
+import { validateFormParams } from "../../utils/validateFormParams";
+import { createFullFormUrl } from "./createFullFormUrl";
+import type { FormWebClientParams } from "./types";
 
 export type GetFormRenderingDataParams = FormWebClientParams;
 
@@ -12,11 +12,15 @@ export const getFormRenderingData = async ({
   isDev,
 }: GetFormRenderingDataParams): Promise<FormRenderingDataResponse> => {
   const validParameters = validateFormParams(formUrlParameters);
-  const formUrl = createFullFormUrl({ searchParams: validParameters, formWebClientEndpoint, isDev });
+  const formUrl = createFullFormUrl({
+    searchParams: validParameters,
+    formWebClientEndpoint,
+    isDev,
+  });
   const formDataResponse = await fetch(formUrl);
 
   if (!isSuccessfulStatusCode(formDataResponse.status)) {
-    throw new Error('Failed to fetch form structure');
+    throw new Error("Failed to fetch form structure");
   }
 
   const response = await formDataResponse.json();

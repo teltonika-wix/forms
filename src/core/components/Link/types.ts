@@ -1,4 +1,4 @@
-import type { documentTargets } from './constants';
+import type { documentTargets } from "./constants";
 
 export type DocumentTarget = (typeof documentTargets)[number];
 

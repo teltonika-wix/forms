@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { ChevronUpIcon } from '@heroicons/vue/24/outline';
-import { Field } from 'src/legacy/core/components/form/Field';
-import { ErrorMessage, ErrorMessageIcon } from 'src/legacy/core/components/form/ErrorMessage';
+import { ChevronUpIcon } from "@heroicons/vue/24/outline";
+import { Field } from "src/legacy/core/components/form/Field";
+import { ErrorMessage, ErrorMessageIcon } from "src/legacy/core/components/form/ErrorMessage";
 import {
   type SelectDropdownVisibilityChange,
   SelectMenuDropdown,
   type SelectMenuItemChange,
   changeActiveMenuItem,
-} from './components/SelectMenuDropdown';
-import type { SelectMenuProps } from './types';
-import { onMounted, ref, watch } from 'vue';
+} from "./components/SelectMenuDropdown";
+import type { SelectMenuProps } from "./types";
+import { onMounted, ref, watch } from "vue";
 
 const props = defineProps<SelectMenuProps>();
 const menuItemsRef = ref(props.selectMenuOptions);
 const selectInputRef = ref<HTMLInputElement | null>(null);
-const inputValue = ref(props.defaultValue?.value || '');
+const inputValue = ref(props.defaultValue?.value || "");
 const isMenuActive = ref(false);
 const emit = defineEmits<{
   onItemSelect: Parameters<SelectMenuItemChange>;
@@ -24,7 +24,7 @@ const emit = defineEmits<{
 const onItemSelect: SelectMenuItemChange = (event, selectedItem) => {
   inputValue.value = selectedItem.value;
   menuItemsRef.value = changeActiveMenuItem({ menuItems: props.selectMenuOptions, selectedItem });
-  emit('onItemSelect', event, selectedItem);
+  emit("onItemSelect", event, selectedItem);
 };
 
 const onVisibilityChange: SelectDropdownVisibilityChange = (isVisible) => {
@@ -34,7 +34,7 @@ const onVisibilityChange: SelectDropdownVisibilityChange = (isVisible) => {
     selectInputRef.value?.focus();
   }
 
-  emit('onVisibilityChange', isVisible);
+  emit("onVisibilityChange", isVisible);
 };
 
 onMounted(() => {
@@ -55,7 +55,7 @@ watch(
     });
 
     if (!isInputValueExistsInNewMenuOptions) {
-      inputValue.value = props.defaultValue?.value || '';
+      inputValue.value = props.defaultValue?.value || "";
     }
   },
 );

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Heading } from 'src/legacy/core/components/Heading';
-import { Text } from 'src/legacy/core/components/Text';
-import type { BaseFormComponentProps } from '../../../types';
-import { mapToColorClasses } from '../../../utils/mapToColorClasses';
-import { mapToSpacingClasses } from '../../../utils/mapToSpacingClasses';
-import { extractContentProps } from './utils/extractContentProps';
+import { Heading } from "src/legacy/core/components/Heading";
+import { Text } from "src/legacy/core/components/Text";
+import type { BaseFormComponentProps } from "../../../types";
+import { mapToColorClasses } from "../../../utils/mapToColorClasses";
+import { mapToSpacingClasses } from "../../../utils/mapToSpacingClasses";
+import { extractContentProps } from "./utils/extractContentProps";
 
 const { formInputData } = defineProps<BaseFormComponentProps>();
 const { attributes, props } = formInputData;

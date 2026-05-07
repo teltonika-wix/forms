@@ -1,6 +1,6 @@
-export { default as Checkbox } from './Checkbox.vue';
+export { default as Checkbox } from "./Checkbox.vue";
 
-export * from './checkboxConstants';
-export * from './checkboxTheme';
-export * from './useCheckbox';
-export type * from './types';
+export * from "./checkboxConstants";
+export * from "./checkboxTheme";
+export * from "./useCheckbox";
+export type * from "./types";

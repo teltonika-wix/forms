@@ -1,4 +1,4 @@
-import type { FormInputData } from './createInputData';
+import type { FormInputData } from "./createInputData";
 
 export type FormInputsState = { [key in string]?: FormInputData };
 

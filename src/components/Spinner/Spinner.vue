@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { dashesBySize, spinnerSizes, strokesBySize } from './spinnerTheme';
-import type { SpinnerProps } from './types';
-import { computed } from 'vue';
+import { dashesBySize, spinnerSizes, strokesBySize } from "./spinnerTheme";
+import type { SpinnerProps } from "./types";
+import { computed } from "vue";
 
-const { size = 'small' } = defineProps<SpinnerProps>();
+const { size = "small" } = defineProps<SpinnerProps>();
 
 const spinnerSize = computed<number>(() => {
   return spinnerSizes[size];

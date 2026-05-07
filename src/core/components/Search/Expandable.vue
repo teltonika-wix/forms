@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/vue/24/outline';
-import { useMountedRefWidth } from 'src/vue-utils';
-import { useDebounceFn } from '@vueuse/core';
-import { type ExpandableSearchProps, type SearchEmits } from './types';
-import { nextTick, ref, watch } from 'vue';
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+import { useMountedRefWidth } from "src/vue-utils";
+import { useDebounceFn } from "@vueuse/core";
+import { type ExpandableSearchProps, type SearchEmits } from "./types";
+import { nextTick, ref, watch } from "vue";
 
-const isExpanded = defineModel<boolean>('expanded');
-const { label = 'Search', debounce = 0, modelValue } = defineProps<ExpandableSearchProps>();
+const isExpanded = defineModel<boolean>("expanded");
+const { label = "Search", debounce = 0, modelValue } = defineProps<ExpandableSearchProps>();
 
 const emits = defineEmits<SearchEmits>();
 const labelRef = ref<HTMLInputElement | null>(null);
@@ -24,7 +24,7 @@ watch(isExpanded, (newValue) => {
 
 const setInputDebounced = useDebounceFn((event: Event): void => {
   const target = event.target as HTMLInputElement;
-  emits('update:modelValue', target.value);
+  emits("update:modelValue", target.value);
 }, debounce);
 
 const toggleInput = (): void => {
@@ -33,7 +33,7 @@ const toggleInput = (): void => {
 
 const clearInput = (): void => {
   toggleInput();
-  emits('update:modelValue', '');
+  emits("update:modelValue", "");
 };
 </script>
 
@@ -42,7 +42,11 @@ const clearInput = (): void => {
     class="flex items-center space-x-2 md:relative md:w-max"
     :class="isExpanded ? 'absolute left-0 top-0 flex w-full' : 'relative'"
   >
-    <button class="h-6 w-6 cursor-pointer select-none" aria-label="Open searchable input" @click.enter="toggleInput">
+    <button
+      class="h-6 w-6 cursor-pointer select-none"
+      aria-label="Open searchable input"
+      @click.enter="toggleInput"
+    >
       <MagnifyingGlassIcon class="text-grey-800 dark:text-white" />
     </button>
     <TransitionGroup>
@@ -61,7 +65,10 @@ const clearInput = (): void => {
         :class="[isExpanded ? 'w-[calc(100vw-65px)] md:w-60' : 'w-0']"
       >
         <div v-if="isExpanded" class="bg-grey-800 absolute h-[1.125rem] w-px dark:bg-white"></div>
-        <div class="h-6 flex-grow transition-all duration-200" :class="{ 'opacity-0': !isExpanded }">
+        <div
+          class="h-6 flex-grow transition-all duration-200"
+          :class="{ 'opacity-0': !isExpanded }"
+        >
           <input
             ref="searchInputRef"
             class="placeholder:text-grey-600 dark:placeholder:text-grey-400 w-full bg-transparent outline-none md:w-[12.5rem] dark:text-white"

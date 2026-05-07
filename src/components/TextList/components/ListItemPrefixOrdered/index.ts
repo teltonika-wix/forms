@@ -1,3 +1,3 @@
-export { default as ListItemPrefixOrdered } from './ListItemPrefixOrdered.vue';
+export { default as ListItemPrefixOrdered } from "./ListItemPrefixOrdered.vue";
 
-export type * from './types';
+export type * from "./types";

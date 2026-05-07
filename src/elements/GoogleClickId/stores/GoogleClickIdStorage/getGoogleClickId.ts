@@ -1,4 +1,4 @@
-import { isObject, isString } from 'src/utilities';
+import { isObject, isString } from "src/utilities";
 
 export const getGoogleClickId = (storageKey: string): string | null => {
   try {
@@ -13,7 +13,7 @@ export const getGoogleClickId = (storageKey: string): string | null => {
     if (
       !isObject(googleClickIdRecord) ||
       !isString(googleClickIdRecord?.googleClickId) ||
-      typeof googleClickIdRecord?.expiryDate !== 'number'
+      typeof googleClickIdRecord?.expiryDate !== "number"
     ) {
       return null;
     }

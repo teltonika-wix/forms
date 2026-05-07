@@ -1,1 +1,1 @@
-export * from './createBadResponse';
+export * from "./createBadResponse";

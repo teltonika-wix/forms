@@ -1,6 +1,6 @@
-import { tv } from 'tailwind-variants';
+import { tv } from "tailwind-variants";
 
-const base = 'text-pink-700 dark:text-pink-300';
+const base = "text-pink-700 dark:text-pink-300";
 
 const ERROR_MESSAGE_THEME = {
   slots: {

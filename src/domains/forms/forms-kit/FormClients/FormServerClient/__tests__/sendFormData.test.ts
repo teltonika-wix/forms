@@ -1,30 +1,30 @@
-import { type Mock, vi } from 'vitest';
-import type { FormSecrets, FormUrlParameters } from '../../../types/formGeneralTypes';
-import { validateFormParams } from '../../../utils/validateFormParams';
-import { generateFormUrl } from '../generateFormUrl';
-import { sendFormData } from '../sendFormData';
+import { type Mock, vi } from "vitest";
+import type { FormSecrets, FormUrlParameters } from "../../../types/formGeneralTypes";
+import { validateFormParams } from "../../../utils/validateFormParams";
+import { generateFormUrl } from "../generateFormUrl";
+import { sendFormData } from "../sendFormData";
 
-vi.mock('../../../utils/validateFormParams', () => ({
+vi.mock("../../../utils/validateFormParams", () => ({
   validateFormParams: vi.fn(),
 }));
 
-vi.mock('../generateFormUrl', () => ({
+vi.mock("../generateFormUrl", () => ({
   generateFormUrl: vi.fn(),
 }));
 
 const validateFormParamsMock = validateFormParams as unknown as Mock;
 const generateFormUrlMock = generateFormUrl as unknown as Mock;
 
-describe('sendFormData', () => {
-  const mockEndpoint = '/form/submit';
-  const mockFormMicroserviceUrl = 'https://form-service.com';
-  const mockFormMicroserviceToken = 'secret-token';
+describe("sendFormData", () => {
+  const mockEndpoint = "/form/submit";
+  const mockFormMicroserviceUrl = "https://form-service.com";
+  const mockFormMicroserviceToken = "secret-token";
   const mockFormSecrets: FormSecrets = {
     formMicroserviceUrl: mockFormMicroserviceUrl,
     formMicroserviceToken: mockFormMicroserviceToken,
   };
-  const mockFormCode = 'ContactForm';
-  const mockFormUrlParameters: FormUrlParameters = { language: 'en', form: mockFormCode };
+  const mockFormCode = "ContactForm";
+  const mockFormUrlParameters: FormUrlParameters = { language: "en", form: mockFormCode };
   const mockFormData = new FormData();
   const mockFormUrl = `${mockFormMicroserviceUrl}${mockEndpoint}?language=en&form=${mockFormCode}&token=${mockFormSecrets.formMicroserviceToken}`;
 
@@ -35,7 +35,7 @@ describe('sendFormData', () => {
     vi.clearAllMocks();
   });
 
-  it('should send form data successfully', async () => {
+  it("should send form data successfully", async () => {
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     generateFormUrlMock.mockResolvedValue(mockFormUrl);
 
@@ -57,7 +57,7 @@ describe('sendFormData', () => {
       formSecrets: mockFormSecrets,
     });
     expect(fetchMock).toHaveBeenCalledWith(mockFormUrl, {
-      method: 'POST',
+      method: "POST",
       body: mockFormData,
     });
     expect(result).toEqual({
@@ -66,8 +66,8 @@ describe('sendFormData', () => {
     });
   });
 
-  it('should throw an error if form validation fails', async () => {
-    const mockErrorMessage = 'Form parameters validation error';
+  it("should throw an error if form validation fails", async () => {
+    const mockErrorMessage = "Form parameters validation error";
     validateFormParamsMock.mockImplementation(() => {
       throw new Error(mockErrorMessage);
     });
@@ -81,10 +81,10 @@ describe('sendFormData', () => {
     ).rejects.toThrow(mockErrorMessage);
   });
 
-  it('should throw an error if the fetch fails', async () => {
+  it("should throw an error if the fetch fails", async () => {
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     generateFormUrlMock.mockResolvedValue(mockFormUrl);
-    fetchMock.mockRejectedValue(new Error('Fetch error'));
+    fetchMock.mockRejectedValue(new Error("Fetch error"));
 
     await expect(
       sendFormData({
@@ -92,6 +92,6 @@ describe('sendFormData', () => {
         formUrlParameters: mockFormUrlParameters,
         formSecrets: mockFormSecrets,
       }),
-    ).rejects.toThrow('Fetch error');
+    ).rejects.toThrow("Fetch error");
   });
 });

@@ -1,1 +1,1 @@
-export * from './isSuccessfulStatusCode';
+export * from "./isSuccessfulStatusCode";

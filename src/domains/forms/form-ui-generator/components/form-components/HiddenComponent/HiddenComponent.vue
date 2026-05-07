@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseFormComponentProps } from '../../../types';
+import type { BaseFormComponentProps } from "../../../types";
 
 const { formInputData } = defineProps<BaseFormComponentProps>();
 const { attributes, defaultValue } = formInputData;

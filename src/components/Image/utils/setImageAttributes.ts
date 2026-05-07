@@ -1,7 +1,7 @@
-import { type ImageProps } from '../types';
-import { formatSizes } from './formatSizes';
-import { formatSrcSet } from './formatSrcSet';
-import { type ImgHTMLAttributes } from 'vue';
+import { type ImageProps } from "../types";
+import { formatSizes } from "./formatSizes";
+import { formatSrcSet } from "./formatSrcSet";
+import { type ImgHTMLAttributes } from "vue";
 
 export const setImageAttributes = ({
   src,
@@ -18,15 +18,15 @@ export const setImageAttributes = ({
   };
 
   if (lazyLoad) {
-    attributes['loading'] = 'lazy';
+    attributes["loading"] = "lazy";
   }
 
   if (width) {
-    attributes['width'] = width;
+    attributes["width"] = width;
   }
 
   if (height) {
-    attributes['height'] = height;
+    attributes["height"] = height;
   }
 
   const formattedSrcSet = formatSrcSet({ src, srcSetSizes });
@@ -35,13 +35,13 @@ export const setImageAttributes = ({
     return attributes;
   }
 
-  attributes['srcset'] = formattedSrcSet;
+  attributes["srcset"] = formattedSrcSet;
 
   if (srcSetSizes?.length && sizes) {
     const formattedSizes = formatSizes(sizes);
 
     if (formattedSizes) {
-      attributes['sizes'] = formattedSizes;
+      attributes["sizes"] = formattedSizes;
     }
   }
 

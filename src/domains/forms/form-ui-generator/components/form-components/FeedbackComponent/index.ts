@@ -1,1 +1,1 @@
-export { default as FeedbackComponent } from './FeedbackComponent.vue';
+export { default as FeedbackComponent } from "./FeedbackComponent.vue";

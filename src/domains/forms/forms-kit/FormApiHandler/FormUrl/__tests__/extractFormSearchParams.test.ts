@@ -14,9 +14,7 @@ const validateFormParamsMock = validateFormParams as Mock;
 const formCodeMock = "ContactForm";
 
 describe("extractFormSearchParams", () => {
-  const mockUrl = new URL(
-    `https://example.com?language=en&form=${formCodeMock}`,
-  );
+  const mockUrl = new URL(`https://example.com?language=en&form=${formCodeMock}`);
 
   beforeEach(() => {
     vi.clearAllMocks();

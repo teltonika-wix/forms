@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ChevronDown16PxIcon } from 'src/components/Icons';
-import { Text } from '../Text';
-import { readMoreTheme } from './readMoreTheme';
-import type { ReadMoreProps } from './types';
-import { computed } from 'vue';
+import { ChevronDown16PxIcon } from "src/components/Icons";
+import { Text } from "../Text";
+import { readMoreTheme } from "./readMoreTheme";
+import type { ReadMoreProps } from "./types";
+import { computed } from "vue";
 
-const { type = 'withArrow', textOpened, textClosed, linesShown = 4 } = defineProps<ReadMoreProps>();
+const { type = "withArrow", textOpened, textClosed, linesShown = 4 } = defineProps<ReadMoreProps>();
 
 const isOpened = defineModel({
   default: false,
@@ -35,7 +35,7 @@ const textBlockStyles = computed(() => {
   }
 
   return {
-    '-webkit-line-clamp': linesShown,
+    "-webkit-line-clamp": linesShown,
   };
 });
 </script>

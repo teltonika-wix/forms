@@ -1,7 +1,4 @@
-import {
-  createBadResponse,
-  extractErrorMessage,
-} from "src/utilities";
+import { createBadResponse, extractErrorMessage } from "src/utilities";
 import { FormDataService } from "../../FormDataService";
 import { FormUrl } from "../FormUrl";
 import type { BaseFormApiParams } from "../types";
@@ -34,8 +31,7 @@ export const submitFormData = async ({
 
     return response;
   } catch (error) {
-    const errorMessage =
-      extractErrorMessage(error) || "Failed to send form data.";
+    const errorMessage = extractErrorMessage(error) || "Failed to send form data.";
 
     return createBadResponse({ errorMessage });
   }

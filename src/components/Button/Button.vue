@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { isSlotEmpty } from 'src/vue-utils';
-import { buttonTheme, defaultVariants } from './buttonTheme';
-import type { ButtonProps } from './types';
-import { computed, ref, useSlots } from 'vue';
+import { isSlotEmpty } from "src/vue-utils";
+import { buttonTheme, defaultVariants } from "./buttonTheme";
+import type { ButtonProps } from "./types";
+import { computed, ref, useSlots } from "vue";
 
 const {
-  color = defaultVariants['color'],
-  size = defaultVariants['size'],
-  width = defaultVariants['width'],
-  disabled = defaultVariants['disabled'],
-  type = 'button',
+  color = defaultVariants["color"],
+  size = defaultVariants["size"],
+  width = defaultVariants["width"],
+  disabled = defaultVariants["disabled"],
+  type = "button",
 } = defineProps<ButtonProps>();
 const slots = useSlots();
 const buttonRef = ref<HTMLButtonElement | null>(null);

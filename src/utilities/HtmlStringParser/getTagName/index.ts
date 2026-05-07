@@ -1,1 +1,1 @@
-export * from './getTagName';
+export * from "./getTagName";

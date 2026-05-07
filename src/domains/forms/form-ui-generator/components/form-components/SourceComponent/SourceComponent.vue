@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SourceComponentProps } from './types';
+import type { SourceComponentProps } from "./types";
 
 const { formInputData, clientFullUrl } = defineProps<SourceComponentProps>();
 const { attributes } = formInputData;

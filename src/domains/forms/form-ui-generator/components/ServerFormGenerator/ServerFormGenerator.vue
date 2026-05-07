@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useServerFormRenderingData } from '../../composables/useServerFormRenderingData';
-import { Form, type FormSubmitEventHandler } from '../Form';
-import { StaticFailureScreen } from '../form-completion-screens';
-import type { ServerFormGeneratorProps } from './types';
+import { useServerFormRenderingData } from "../../composables/useServerFormRenderingData";
+import { Form, type FormSubmitEventHandler } from "../Form";
+import { StaticFailureScreen } from "../form-completion-screens";
+import type { ServerFormGeneratorProps } from "./types";
 
 const {
   clientIp,
@@ -24,7 +24,8 @@ const { state: formRenderingData, isLoading } = useServerFormRenderingData({
   formSecrets,
 });
 
-const onFormSubmitEvent: FormSubmitEventHandler = (...parameters) => emit('onFormSubmitEvent', ...parameters);
+const onFormSubmitEvent: FormSubmitEventHandler = (...parameters) =>
+  emit("onFormSubmitEvent", ...parameters);
 </script>
 
 <template>

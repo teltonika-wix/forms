@@ -1,1 +1,1 @@
-export { default as HiddenComponent } from './HiddenComponent.vue';
+export { default as HiddenComponent } from "./HiddenComponent.vue";

@@ -1,20 +1,20 @@
-import { isObject } from 'src/utilities';
-import { type Mock, vi } from 'vitest';
-import { getValidationData } from '../getValidationData';
+import { isObject } from "src/utilities";
+import { type Mock, vi } from "vitest";
+import { getValidationData } from "../getValidationData";
 
-vi.mock('src/utilities', () => ({
+vi.mock("src/utilities", () => ({
   isObject: vi.fn(),
 }));
 
 const isObjectMock = isObject as unknown as Mock;
 
-describe('getValidationData', () => {
+describe("getValidationData", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('should return validation data when response is valid', async () => {
-    const mockErrors = { field1: 'Error message' };
+  it("should return validation data when response is valid", async () => {
+    const mockErrors = { field1: "Error message" };
     const mockResponseData = { data: { errors: mockErrors } };
 
     const response = {
@@ -30,7 +30,7 @@ describe('getValidationData', () => {
     expect(isObjectMock).toHaveBeenCalledWith(mockErrors);
   });
 
-  it('should return an empty object if response data is invalid', async () => {
+  it("should return an empty object if response data is invalid", async () => {
     const mockResponseData = { data: { errors: [] } };
 
     const response = {
@@ -46,10 +46,10 @@ describe('getValidationData', () => {
     expect(isObjectMock).toHaveBeenCalledWith([]);
   });
 
-  it('should return an empty object if JSON parsing fails', async () => {
+  it("should return an empty object if JSON parsing fails", async () => {
     const response = {
       json: vi.fn().mockImplementation(() => {
-        throw new Error('JSON parse error');
+        throw new Error("JSON parse error");
       }),
     } as unknown as Response;
 

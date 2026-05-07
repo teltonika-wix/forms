@@ -1,16 +1,16 @@
-import { mount } from '@vue/test-utils';
-import Spinner from '../Spinner.vue';
-import { spinnerSizes } from '../spinnerTheme';
+import { mount } from "@vue/test-utils";
+import Spinner from "../Spinner.vue";
+import { spinnerSizes } from "../spinnerTheme";
 
 const SIZES = Object.keys(spinnerSizes);
 
-describe('Spinner Component', () => {
-  it('renders properly', () => {
+describe("Spinner Component", () => {
+  it("renders properly", () => {
     const wrapper = mount(Spinner, {});
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('works with different sizes', async () => {
+  it("works with different sizes", async () => {
     const wrapper = mount(Spinner, {});
 
     for (let i = 0; i <= SIZES.length; i++) {

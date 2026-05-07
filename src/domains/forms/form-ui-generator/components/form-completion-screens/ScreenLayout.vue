@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Heading } from 'src/legacy/core/components/Heading';
-import { Text } from 'src/legacy/core/components/Text';
+import { Heading } from "src/legacy/core/components/Heading";
+import { Text } from "src/legacy/core/components/Text";
 
 const { title, message } = defineProps<{ title: string; message: string }>();
 </script>

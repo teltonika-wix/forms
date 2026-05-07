@@ -1,17 +1,22 @@
-import type { AnchorHTMLAttributes } from 'vue';
+import type { AnchorHTMLAttributes } from "vue";
 
 export type LinkData = {
   external?: boolean;
   url: string;
-  documentTarget?: '_blank' | '_self' | '_parent' | '_top';
+  documentTarget?: "_blank" | "_self" | "_parent" | "_top";
   relationship?: string;
 };
 
-export const extractLinkAttrs = ({ external, url, documentTarget, relationship }: LinkData): AnchorHTMLAttributes => {
+export const extractLinkAttrs = ({
+  external,
+  url,
+  documentTarget,
+  relationship,
+}: LinkData): AnchorHTMLAttributes => {
   if (external) {
     return {
-      target: '_blank',
-      rel: 'noopener noreferrer',
+      target: "_blank",
+      rel: "noopener noreferrer",
       href: url,
     };
   }

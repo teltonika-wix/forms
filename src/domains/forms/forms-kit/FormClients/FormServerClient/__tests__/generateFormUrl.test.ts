@@ -1,9 +1,9 @@
-import { createUrlWithParams, extractErrorMessage } from 'src/utilities';
-import { type Mock, vi } from 'vitest';
-import type { ExactFormUrlParameters, FormSecrets } from '../../../types/formGeneralTypes';
-import { generateFormUrl } from '../generateFormUrl';
+import { createUrlWithParams, extractErrorMessage } from "src/utilities";
+import { type Mock, vi } from "vitest";
+import type { ExactFormUrlParameters, FormSecrets } from "../../../types/formGeneralTypes";
+import { generateFormUrl } from "../generateFormUrl";
 
-vi.mock('src/utilities', () => ({
+vi.mock("src/utilities", () => ({
   createUrlWithParams: vi.fn(),
   extractErrorMessage: vi.fn(),
 }));
@@ -11,12 +11,12 @@ vi.mock('src/utilities', () => ({
 const createUrlWithParamsMock = createUrlWithParams as Mock;
 const extractErrorMessageMock = extractErrorMessage as Mock;
 
-describe('generateFormUrl', () => {
-  const mockFormMicroserviceUrl = 'https://form-service.com';
-  const mockFormMicroserviceToken = 'secret-token';
-  const mockFormCode = 'ContactForm';
-  const mockFormUrlParameters = { language: 'en', form: mockFormCode } as ExactFormUrlParameters;
-  const mockEndpoint = '/submit';
+describe("generateFormUrl", () => {
+  const mockFormMicroserviceUrl = "https://form-service.com";
+  const mockFormMicroserviceToken = "secret-token";
+  const mockFormCode = "ContactForm";
+  const mockFormUrlParameters = { language: "en", form: mockFormCode } as ExactFormUrlParameters;
+  const mockEndpoint = "/submit";
   const mockFormSecrets: FormSecrets = {
     formMicroserviceUrl: mockFormMicroserviceUrl,
     formMicroserviceToken: mockFormMicroserviceToken,
@@ -26,7 +26,7 @@ describe('generateFormUrl', () => {
     vi.clearAllMocks();
   });
 
-  it('should generate a form URL with the provided parameters', async () => {
+  it("should generate a form URL with the provided parameters", async () => {
     const expectedUrl = `${mockFormMicroserviceUrl}${mockEndpoint}?language=en&form=${mockFormCode}&token=${mockFormMicroserviceToken}`;
     createUrlWithParamsMock.mockReturnValue(expectedUrl);
 
@@ -47,12 +47,12 @@ describe('generateFormUrl', () => {
     expect(result).toBe(expectedUrl);
   });
 
-  it('should throw an error when createUrlWithParams fails', async () => {
-    const mockError = new Error('URL generation error');
+  it("should throw an error when createUrlWithParams fails", async () => {
+    const mockError = new Error("URL generation error");
     createUrlWithParamsMock.mockImplementation(() => {
       throw mockError;
     });
-    extractErrorMessageMock.mockReturnValue('Error occurred');
+    extractErrorMessageMock.mockReturnValue("Error occurred");
 
     await expect(
       generateFormUrl({
@@ -60,7 +60,7 @@ describe('generateFormUrl', () => {
         endpoint: mockEndpoint,
         formSecrets: mockFormSecrets,
       }),
-    ).rejects.toThrow('Failed to generate form url: Error occurred');
+    ).rejects.toThrow("Failed to generate form url: Error occurred");
 
     expect(extractErrorMessageMock).toHaveBeenCalledWith(mockError);
   });

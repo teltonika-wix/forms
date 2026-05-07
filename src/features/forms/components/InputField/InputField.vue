@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { Field } from 'src/legacy/core/components/form/Field';
-import { InputHelper } from 'src/legacy/core/components/form/InputHelper';
-import { extractInputValue } from '../utils/extractInputValue';
-import type { InputFieldProps, InputFiledEmits } from './types';
-import { toRefs } from 'vue';
+import { Field } from "src/legacy/core/components/form/Field";
+import { InputHelper } from "src/legacy/core/components/form/InputHelper";
+import { extractInputValue } from "../utils/extractInputValue";
+import type { InputFieldProps, InputFiledEmits } from "./types";
+import { toRefs } from "vue";
 
 const props = defineProps<InputFieldProps>();
 const emits = defineEmits<InputFiledEmits>();
-const { inputValue, error, maxLength, label, comment, disabled, readonly, name, id, placeholder } = toRefs(props);
+const { inputValue, error, maxLength, label, comment, disabled, readonly, name, id, placeholder } =
+  toRefs(props);
 
 const valueUpdateHandler = (event: Event) => {
   const value = extractInputValue(event);
-  emits('onValueUpdate', event, value);
+  emits("onValueUpdate", event, value);
 };
 </script>
 

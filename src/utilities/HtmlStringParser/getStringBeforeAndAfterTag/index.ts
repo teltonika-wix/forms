@@ -1,1 +1,1 @@
-export * from './getStringBeforeAndAfterTag';
+export * from "./getStringBeforeAndAfterTag";

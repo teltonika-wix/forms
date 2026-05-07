@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core';
-import { InputField } from '../../../InputField';
-import { SelectMenuItem } from '../SelectMenuItem';
-import { useMenuFloating } from './composables/useMenuFloating';
-import { useMenuVisibility } from './composables/useMenuVisibility';
+import { onClickOutside } from "@vueuse/core";
+import { InputField } from "../../../InputField";
+import { SelectMenuItem } from "../SelectMenuItem";
+import { useMenuFloating } from "./composables/useMenuFloating";
+import { useMenuVisibility } from "./composables/useMenuVisibility";
 import type {
   BaseSelectMenuOption,
   SelectDropdownVisibilityChange,
   SelectMenuDropdownProps,
   SelectMenuItemChange,
   SelectMenuOption,
-} from './types';
-import { selectMenuKeydownHandler } from './utils/selectMenuKeydownHandler';
-import { computed, isProxy, ref, toRaw } from 'vue';
+} from "./types";
+import { selectMenuKeydownHandler } from "./utils/selectMenuKeydownHandler";
+import { computed, isProxy, ref, toRaw } from "vue";
 
-const searchText = ref<string>('');
+const searchText = ref<string>("");
 const { selectMenuOptions, disabled, search = false } = defineProps<SelectMenuDropdownProps>();
 const emit = defineEmits<{
   onItemSelect: Parameters<SelectMenuItemChange>;
@@ -23,7 +23,7 @@ const emit = defineEmits<{
 const { isMenuVisible, hideMenu, showMenu, toggleMenuVisibility } = useMenuVisibility({
   disabled,
   onVisibilityChange: (isVisible) => {
-    emit('onVisibilityChange', isVisible);
+    emit("onVisibilityChange", isVisible);
   },
 });
 const { menuOpenerRef, menuContainerRef, floatingStyles } = useMenuFloating();
@@ -32,7 +32,7 @@ onClickOutside(menuContainerRef, hideMenu, { ignore: [menuOpenerRef] });
 
 const onItemClick: SelectMenuItemChange = (event, menuItem) => {
   const menuItemData = isProxy(menuItem) ? toRaw(menuItem) : menuItem;
-  emit('onItemSelect', event, menuItemData);
+  emit("onItemSelect", event, menuItemData);
   hideMenu();
 };
 
@@ -46,7 +46,7 @@ const openerClickHandler = (event: MouseEvent) => {
 };
 
 const options = computed<SelectMenuOption<BaseSelectMenuOption>[]>(() => {
-  if (!search && searchText.value === '') selectMenuOptions;
+  if (!search && searchText.value === "") selectMenuOptions;
 
   return selectMenuOptions.filter((option) =>
     option.label?.toLocaleLowerCase().includes(searchText.value.toLocaleLowerCase()),
@@ -55,7 +55,12 @@ const options = computed<SelectMenuOption<BaseSelectMenuOption>[]>(() => {
 </script>
 
 <template>
-  <div ref="menuOpenerRef" class="w-full cursor-pointer" @click="openerClickHandler" @keydown="keydownHandler">
+  <div
+    ref="menuOpenerRef"
+    class="w-full cursor-pointer"
+    @click="openerClickHandler"
+    @keydown="keydownHandler"
+  >
     <slot />
   </div>
   <Transition>
@@ -75,7 +80,11 @@ const options = computed<SelectMenuOption<BaseSelectMenuOption>[]>(() => {
         />
       </div>
       <ul class="max-h-[16.75rem] list-none overflow-y-auto py-1">
-        <TransitionGroup name="dropdown" tag="div" class="select-menu-dropdown flex flex-col space-y-1">
+        <TransitionGroup
+          name="dropdown"
+          tag="div"
+          class="select-menu-dropdown flex flex-col space-y-1"
+        >
           <SelectMenuItem
             v-for="selectMenuOption in options"
             :key="selectMenuOption.value"

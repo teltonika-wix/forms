@@ -1,1 +1,1 @@
-export { default as GclidComponent } from './GclidComponent.vue';
+export { default as GclidComponent } from "./GclidComponent.vue";

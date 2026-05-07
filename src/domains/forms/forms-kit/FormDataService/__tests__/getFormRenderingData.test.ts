@@ -1,29 +1,29 @@
-import { type Mock, vi } from 'vitest';
-import { FormServerClient } from '../../FormClients/FormServerClient';
-import { FormWebClient } from '../../FormClients/FormWebClient';
-import type { FormSecrets } from '../../types';
-import type { ServerFormRenderingParams } from '../../types/formInputParams';
-import { addDefaultLocation } from '../defaultValues/addDefaultLocation';
-import { getFormRenderingData } from '../getFormRenderingData';
-import { type IPAddressInfo, getIpInfo } from '../ipInfo';
+import { type Mock, vi } from "vitest";
+import { FormServerClient } from "../../FormClients/FormServerClient";
+import { FormWebClient } from "../../FormClients/FormWebClient";
+import type { FormSecrets } from "../../types";
+import type { ServerFormRenderingParams } from "../../types/formInputParams";
+import { addDefaultLocation } from "../defaultValues/addDefaultLocation";
+import { getFormRenderingData } from "../getFormRenderingData";
+import { type IPAddressInfo, getIpInfo } from "../ipInfo";
 
-vi.mock('../../FormClients/FormServerClient', () => ({
+vi.mock("../../FormClients/FormServerClient", () => ({
   FormServerClient: {
     getFormRenderingData: vi.fn(),
   },
 }));
 
-vi.mock('../../FormClients/FormWebClient', () => ({
+vi.mock("../../FormClients/FormWebClient", () => ({
   FormWebClient: {
     getFormRenderingData: vi.fn(),
   },
 }));
 
-vi.mock('../ipInfo', () => ({
+vi.mock("../ipInfo", () => ({
   getIpInfo: vi.fn(),
 }));
 
-vi.mock('../defaultValues/addDefaultLocation', () => ({
+vi.mock("../defaultValues/addDefaultLocation", () => ({
   addDefaultLocation: vi.fn(),
 }));
 
@@ -34,18 +34,18 @@ const addDefaultLocationMock = addDefaultLocation as unknown as Mock;
 
 const createFormRenderingData = (): { inputs: never[] } => ({ inputs: [] });
 
-describe('getFormRenderingData', () => {
-  const mockFormMicroserviceUrl = 'https://form-service.com';
-  const mockFormMicroserviceToken = 'secret-token';
-  const mockFormCode = 'ContactForm';
+describe("getFormRenderingData", () => {
+  const mockFormMicroserviceUrl = "https://form-service.com";
+  const mockFormMicroserviceToken = "secret-token";
+  const mockFormCode = "ContactForm";
   const mockFormSecrets: FormSecrets = {
     formMicroserviceUrl: mockFormMicroserviceUrl,
     formMicroserviceToken: mockFormMicroserviceToken,
   };
-  const mockFormUrlParameters = { language: 'en', form: mockFormCode };
-  const mockFormWebClientEndpoint = '/form-endpoint';
+  const mockFormUrlParameters = { language: "en", form: mockFormCode };
+  const mockFormWebClientEndpoint = "/form-endpoint";
 
-  const mockClientIp = '192.168.1.1';
+  const mockClientIp = "192.168.1.1";
   const mockServerParams: ServerFormRenderingParams = {
     formSecrets: mockFormSecrets,
     formUrlParameters: mockFormUrlParameters,
@@ -54,18 +54,18 @@ describe('getFormRenderingData', () => {
 
   const mockIpInfo: IPAddressInfo = {
     bogon: false,
-    countryCode: 'US',
-    countryName: 'United States',
+    countryCode: "US",
+    countryName: "United States",
     ip: mockClientIp,
-    loc: '37.7749,-122.4194',
-    region: 'California',
+    loc: "37.7749,-122.4194",
+    region: "California",
   };
 
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('should fetch form rendering data on the browser side', async () => {
+  it("should fetch form rendering data on the browser side", async () => {
     getBrowserFormRenderingDataMock.mockResolvedValue(createFormRenderingData());
     globalThis.window = {} as unknown as Window & typeof globalThis;
 
@@ -81,21 +81,21 @@ describe('getFormRenderingData', () => {
     expect(result).toEqual(createFormRenderingData());
   });
 
-  it('should throw an error if formWebClientEndpoint is not provided in the browser', async () => {
+  it("should throw an error if formWebClientEndpoint is not provided in the browser", async () => {
     const getFormRenderingDataParams = {
       formUrlParameters: mockFormUrlParameters,
-      formWebClientEndpoint: '',
+      formWebClientEndpoint: "",
     };
 
     await expect(getFormRenderingData(getFormRenderingDataParams)).rejects.toThrow(
-      'To fetch form data on the browser side, the form api endpoint must be provided.',
+      "To fetch form data on the browser side, the form api endpoint must be provided.",
     );
 
     globalThis.window = undefined as unknown as Window & typeof globalThis;
   });
 
-  it('should fetch form rendering data on the server side and add default location', async () => {
-    const formRenderingDataWithLocations = { inputs: [{ defaultValue: 'defaultValue' }] };
+  it("should fetch form rendering data on the server side and add default location", async () => {
+    const formRenderingDataWithLocations = { inputs: [{ defaultValue: "defaultValue" }] };
     getServerFormRenderingDataMock.mockResolvedValue(createFormRenderingData());
     getIpInfoMock.mockResolvedValue(mockIpInfo);
     addDefaultLocationMock.mockReturnValue(formRenderingDataWithLocations.inputs);
@@ -117,7 +117,7 @@ describe('getFormRenderingData', () => {
     expect(result).toEqual(formRenderingDataWithLocations);
   });
 
-  it('should throw an error if formSecrets are not provided in the server', async () => {
+  it("should throw an error if formSecrets are not provided in the server", async () => {
     const getFormRenderingDataParams = {
       formSecrets: undefined as unknown as FormSecrets,
       formUrlParameters: mockFormUrlParameters,
@@ -125,11 +125,11 @@ describe('getFormRenderingData', () => {
     };
 
     await expect(getFormRenderingData(getFormRenderingDataParams)).rejects.toThrow(
-      'To fetch form data on the server side, the form secrets must be provided.',
+      "To fetch form data on the server side, the form secrets must be provided.",
     );
   });
 
-  it('should return form rendering data without adding default location if ipInfo is null', async () => {
+  it("should return form rendering data without adding default location if ipInfo is null", async () => {
     const formRenderingDataMock = createFormRenderingData();
     getServerFormRenderingDataMock.mockResolvedValue(formRenderingDataMock);
     getIpInfoMock.mockResolvedValue(null);

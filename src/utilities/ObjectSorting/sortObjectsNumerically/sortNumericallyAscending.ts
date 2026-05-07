@@ -1,5 +1,5 @@
-import { compareNumerically } from './compareNumerically';
-import type { SortNumericallyBaseParams } from './types';
+import { compareNumerically } from "./compareNumerically";
+import type { SortNumericallyBaseParams } from "./types";
 
 export type SortNumericallyAscendingParams<T extends object> = SortNumericallyBaseParams<T>;
 

@@ -1,27 +1,27 @@
-import { mount } from '@vue/test-utils';
-import Text from '../Text.vue';
-import { TEXT_TV_THEME } from '../textTheme';
-import type { TextTag } from '../types';
+import { mount } from "@vue/test-utils";
+import Text from "../Text.vue";
+import { TEXT_TV_THEME } from "../textTheme";
+import type { TextTag } from "../types";
 
-const TEXT_TAGS: TextTag[] = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'label'];
+const TEXT_TAGS: TextTag[] = ["p", "span", "h1", "h2", "h3", "h4", "h5", "h6", "label"];
 
-describe('Text', () => {
-  it('renders properly', () => {
+describe("Text", () => {
+  it("renders properly", () => {
     const wrapper = mount(Text, {});
     expect(wrapper.html()).toMatchSnapshot();
   });
-  it('renders properly with different props', () => {
+  it("renders properly with different props", () => {
     const wrapper = mount(Text, {
       props: {
-        size: 'large',
-        weight: 'bold',
-        tag: 'span',
-        default: 'Hello text',
+        size: "large",
+        weight: "bold",
+        tag: "span",
+        default: "Hello text",
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
-  it('renders properly with various props', () => {
+  it("renders properly with various props", () => {
     type TSize = keyof typeof TEXT_TV_THEME.variants.size;
     const sizes = Object.keys(TEXT_TV_THEME.variants.size) as TSize[];
 

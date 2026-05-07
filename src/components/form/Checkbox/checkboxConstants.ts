@@ -1,4 +1,4 @@
 export const DEFAULT_CHECKBOX_PROPS = {
   value: null,
-  size: 'small',
+  size: "small",
 } as const;

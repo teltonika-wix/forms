@@ -1,5 +1,5 @@
-import { isString } from 'src/utilities';
-import { HEADING_TAGS, type HeadingTags } from '../../Text';
+import { isString } from "src/utilities";
+import { HEADING_TAGS, type HeadingTags } from "../../Text";
 
 export const isValidHeadingTag = (tag: unknown): tag is HeadingTags => {
   if (!isString(tag)) {

@@ -14,10 +14,7 @@ const textWeightMap: TextWeightMap = {
   bold: "bold",
 };
 
-export type TextSizeMapKey = Extract<
-  FormInputTypographyVariant,
-  "l" | "m" | "s" | "xs"
->;
+export type TextSizeMapKey = Extract<FormInputTypographyVariant, "l" | "m" | "s" | "xs">;
 type TextSizeMap = {
   [key in TextSizeMapKey]: TextProps["size"];
 };

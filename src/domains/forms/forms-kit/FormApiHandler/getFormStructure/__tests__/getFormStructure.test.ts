@@ -1,7 +1,4 @@
-import {
-  createBadResponse,
-  extractErrorMessage,
-} from "src/utilities";
+import { createBadResponse, extractErrorMessage } from "src/utilities";
 import { type Mock, vi } from "vitest";
 import { FormDataService } from "../../../FormDataService";
 import type { FormSecrets, FormUrlParameters } from "../../../types";
@@ -32,9 +29,7 @@ const extractFormSearchParamsMock = FormUrl.extractFormSearchParams as Mock;
 
 describe("getFormStructure", () => {
   const mockFormCode = "ContactForm";
-  const mockUrl = new URL(
-    `https://example.com?language=en&form=${mockFormCode}`,
-  );
+  const mockUrl = new URL(`https://example.com?language=en&form=${mockFormCode}`);
   const mockClientIp = "127.0.0.1";
   const mockFormSecrets: FormSecrets = {
     formMicroserviceUrl: "https://form-service.com",

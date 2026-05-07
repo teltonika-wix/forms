@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { tv } from 'tailwind-variants';
-import { Text } from '../../Text';
-import { INPUT_LABEL_THEME } from './InputLabelTheme';
-import type { InputLabelProps } from './types';
-import { geLabelColorVariant } from './utils/getLabelColorVariant';
-import { computed, toRefs } from 'vue';
+import { tv } from "tailwind-variants";
+import { Text } from "../../Text";
+import { INPUT_LABEL_THEME } from "./InputLabelTheme";
+import type { InputLabelProps } from "./types";
+import { geLabelColorVariant } from "./utils/getLabelColorVariant";
+import { computed, toRefs } from "vue";
 
 const props = defineProps<InputLabelProps>();
 const { error, disabled } = toRefs(props);

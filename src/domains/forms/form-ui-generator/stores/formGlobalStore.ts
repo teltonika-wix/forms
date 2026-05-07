@@ -1,5 +1,5 @@
-import type { FormStore } from './formStore/createFormStore';
-import { reactive } from 'vue';
+import type { FormStore } from "./formStore/createFormStore";
+import { reactive } from "vue";
 
 export type FormGlobalState = { [key in string]?: FormStore };
 

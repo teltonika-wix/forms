@@ -10,7 +10,7 @@ export const createInputData = (params?: Partial<FormInputData>): FormInputData 
   const { errorMessage, value } = params || {};
 
   return {
-    errorMessage: errorMessage || '',
-    value: value === undefined ? '' : value,
+    errorMessage: errorMessage || "",
+    value: value === undefined ? "" : value,
   };
 };

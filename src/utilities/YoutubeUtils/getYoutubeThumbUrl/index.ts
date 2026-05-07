@@ -1,1 +1,1 @@
-export * from './getYoutubeThumbUrl';
+export * from "./getYoutubeThumbUrl";

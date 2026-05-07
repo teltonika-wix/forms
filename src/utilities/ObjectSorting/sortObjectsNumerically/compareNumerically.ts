@@ -1,4 +1,4 @@
-import type { KeyWithNumberValue } from '../types';
+import type { KeyWithNumberValue } from "../types";
 
 export type CompareNumericallyParams<T> = {
   firstObject: T;

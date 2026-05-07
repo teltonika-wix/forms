@@ -17,10 +17,7 @@
       "message": "Use src/features/forms/components instead of src/elements/form-components.",
       "appliesToPrefixes": ["src/"],
       "excludePrefixes": ["src/elements/", "src/legacy/"],
-      "forbiddenImportPrefixes": [
-        "src/elements/form-components",
-        "src/elements/form-components/"
-      ],
+      "forbiddenImportPrefixes": ["src/elements/form-components", "src/elements/form-components/"],
       "allowedImportPrefixes": []
     },
     {
@@ -47,10 +44,7 @@
       "message": "Use src/features/navigation/hyperlinks instead of src/elements/hyperlinks.",
       "appliesToPrefixes": ["src/"],
       "excludePrefixes": ["src/elements/", "src/legacy/"],
-      "forbiddenImportPrefixes": [
-        "src/elements/hyperlinks",
-        "src/elements/hyperlinks/"
-      ],
+      "forbiddenImportPrefixes": ["src/elements/hyperlinks", "src/elements/hyperlinks/"],
       "allowedImportPrefixes": []
     }
   ]

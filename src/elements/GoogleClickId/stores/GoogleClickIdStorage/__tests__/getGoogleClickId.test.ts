@@ -1,8 +1,8 @@
-import { isObject, isString } from 'src/utilities';
-import { type Mock, vi } from 'vitest';
-import { getGoogleClickId } from '../getGoogleClickId';
+import { isObject, isString } from "src/utilities";
+import { type Mock, vi } from "vitest";
+import { getGoogleClickId } from "../getGoogleClickId";
 
-vi.mock('src/utilities', () => ({
+vi.mock("src/utilities", () => ({
   isObject: vi.fn(),
   isString: vi.fn(),
 }));
@@ -10,9 +10,9 @@ vi.mock('src/utilities', () => ({
 const isStringMock = isString as unknown as Mock;
 const isObjectMock = isObject as unknown as Mock;
 
-describe('getGoogleClickId', () => {
-  const mockStorageKey = 'mockStorageKey';
-  const mockGoogleClickId = 'mockGoogleClickId';
+describe("getGoogleClickId", () => {
+  const mockStorageKey = "mockStorageKey";
+  const mockGoogleClickId = "mockGoogleClickId";
   const validGoogleClickIdRecord = {
     googleClickId: mockGoogleClickId,
     expiryDate: new Date().getTime() + 10000,
@@ -26,12 +26,12 @@ describe('getGoogleClickId', () => {
     localStorage.clear();
   });
 
-  it('should return null if localStorage does not have the key', () => {
+  it("should return null if localStorage does not have the key", () => {
     const result = getGoogleClickId(mockStorageKey);
     expect(result).toBeNull();
   });
 
-  it('should return null if the stored value is not a string', () => {
+  it("should return null if the stored value is not a string", () => {
     localStorage.setItem(mockStorageKey, JSON.stringify(validGoogleClickIdRecord));
     isStringMock.mockReturnValueOnce(false); // Simulate that the value is not a string
 
@@ -39,7 +39,7 @@ describe('getGoogleClickId', () => {
     expect(result).toBeNull();
   });
 
-  it('should return null if the parsed value is not an object', () => {
+  it("should return null if the parsed value is not an object", () => {
     localStorage.setItem(mockStorageKey, JSON.stringify(validGoogleClickIdRecord));
     isStringMock.mockReturnValueOnce(true); // Simulate valid string
     isObjectMock.mockReturnValueOnce(false); // Simulate invalid object
@@ -48,7 +48,7 @@ describe('getGoogleClickId', () => {
     expect(result).toBeNull();
   });
 
-  it('should return null if the googleClickId is not a string', () => {
+  it("should return null if the googleClickId is not a string", () => {
     const invalidGoogleClickIdRecord = { ...validGoogleClickIdRecord, googleClickId: 123 };
     localStorage.setItem(mockStorageKey, JSON.stringify(invalidGoogleClickIdRecord));
     isStringMock.mockReturnValueOnce(true); // Simulate valid string
@@ -59,8 +59,8 @@ describe('getGoogleClickId', () => {
     expect(result).toBeNull();
   });
 
-  it('should return null if expiryDate is not a number', () => {
-    const invalidGoogleClickIdRecord = { ...validGoogleClickIdRecord, expiryDate: 'invalid' };
+  it("should return null if expiryDate is not a number", () => {
+    const invalidGoogleClickIdRecord = { ...validGoogleClickIdRecord, expiryDate: "invalid" };
     localStorage.setItem(mockStorageKey, JSON.stringify(invalidGoogleClickIdRecord));
     isStringMock.mockReturnValueOnce(true);
     isObjectMock.mockReturnValueOnce(true);
@@ -70,7 +70,7 @@ describe('getGoogleClickId', () => {
     expect(result).toBeNull();
   });
 
-  it('should return null if googleClickId is expired', () => {
+  it("should return null if googleClickId is expired", () => {
     localStorage.setItem(mockStorageKey, JSON.stringify(expiredGoogleClickIdRecord));
     isStringMock.mockReturnValueOnce(true);
     isObjectMock.mockReturnValueOnce(true);
@@ -80,7 +80,7 @@ describe('getGoogleClickId', () => {
     expect(result).toBeNull();
   });
 
-  it('should return the googleClickId if valid', () => {
+  it("should return the googleClickId if valid", () => {
     localStorage.setItem(mockStorageKey, JSON.stringify(validGoogleClickIdRecord));
     isStringMock.mockReturnValueOnce(true);
     isObjectMock.mockReturnValueOnce(true);

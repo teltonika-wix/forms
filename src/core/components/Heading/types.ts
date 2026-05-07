@@ -1,6 +1,6 @@
-import type { VariantProps } from 'tailwind-variants';
-import type { TypographyTag } from '../Text';
-import type { HEADING_TV_THEME, headingTheme } from './headingTheme';
+import type { VariantProps } from "tailwind-variants";
+import type { TypographyTag } from "../Text";
+import type { HEADING_TV_THEME, headingTheme } from "./headingTheme";
 
 export type HeadingThemeProps = VariantProps<typeof headingTheme>;
 

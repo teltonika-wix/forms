@@ -1,5 +1,5 @@
-import type { SelectDropdownVisibilityChange } from '../types';
-import { type Ref, ref } from 'vue';
+import type { SelectDropdownVisibilityChange } from "../types";
+import { type Ref, ref } from "vue";
 
 export type UseMenuVisibilityReturn = {
   isMenuVisible: Ref<boolean>;
@@ -7,7 +7,10 @@ export type UseMenuVisibilityReturn = {
   showMenu: () => void;
   toggleMenuVisibility: () => void;
 };
-export type UseMenuVisibilityParams = { disabled?: boolean; onVisibilityChange: SelectDropdownVisibilityChange };
+export type UseMenuVisibilityParams = {
+  disabled?: boolean;
+  onVisibilityChange: SelectDropdownVisibilityChange;
+};
 
 export const useMenuVisibility = ({
   disabled,

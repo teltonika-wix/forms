@@ -1,8 +1,8 @@
-import type { GoogleClickIdUrlParams } from '../../types';
-import { getGoogleClickId } from './getGoogleClickId';
-import { storeGoogleClickId } from './storeGoogleClickId';
+import type { GoogleClickIdUrlParams } from "../../types";
+import { getGoogleClickId } from "./getGoogleClickId";
+import { storeGoogleClickId } from "./storeGoogleClickId";
 
-const STORAGE_KEY = 'google_click_id';
+const STORAGE_KEY = "google_click_id";
 
 export const GoogleClickIdStorage = {
   getId: (): ReturnType<typeof getGoogleClickId> => getGoogleClickId(STORAGE_KEY),

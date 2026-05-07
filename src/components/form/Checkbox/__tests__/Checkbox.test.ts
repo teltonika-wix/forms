@@ -1,14 +1,14 @@
-import { mount } from '@vue/test-utils';
-import { default as Checkbox } from '../Checkbox.vue';
+import { mount } from "@vue/test-utils";
+import { default as Checkbox } from "../Checkbox.vue";
 
-describe('Checkbox', () => {
-  it('renders properly', () => {
+describe("Checkbox", () => {
+  it("renders properly", () => {
     const wrapper = mount(Checkbox, {
       props: {
         modelValue: false,
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot('Checkbox is empty');
+    expect(wrapper.html()).toMatchSnapshot("Checkbox is empty");
   });
 });

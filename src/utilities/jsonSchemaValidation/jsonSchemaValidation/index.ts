@@ -1,2 +1,2 @@
-export * from './jsonSchemaValidation';
-export type * from './jsonSchemaValidation';
+export * from "./jsonSchemaValidation";
+export type * from "./jsonSchemaValidation";

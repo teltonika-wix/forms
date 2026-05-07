@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Counter } from '../Counter';
-import { ErrorMessage, ErrorMessageIcon } from '../ErrorMessage';
-import type { InputHelperProps } from './types';
+import { Counter } from "../Counter";
+import { ErrorMessage, ErrorMessageIcon } from "../ErrorMessage";
+import type { InputHelperProps } from "./types";
 
 const { errorMessage, valueLength, maxValueLength } = defineProps<InputHelperProps>();
 </script>
@@ -12,6 +12,11 @@ const { errorMessage, valueLength, maxValueLength } = defineProps<InputHelperPro
     <div>
       <ErrorMessage v-if="errorMessage">{{ errorMessage }}</ErrorMessage>
     </div>
-    <Counter v-if="maxValueLength" class="text-end" :current="valueLength || 0" :max="maxValueLength"></Counter>
+    <Counter
+      v-if="maxValueLength"
+      class="text-end"
+      :current="valueLength || 0"
+      :max="maxValueLength"
+    ></Counter>
   </div>
 </template>

@@ -1,5 +1,5 @@
-import type { LinkData } from '../types';
-import type { AnchorHTMLAttributes } from 'vue';
+import type { LinkData } from "../types";
+import type { AnchorHTMLAttributes } from "vue";
 
 export const extractLinkAttrs = ({
   external,
@@ -21,12 +21,12 @@ export const extractLinkAttrs = ({
   }
 
   if (external) {
-    baseAttrs.target = '_blank';
-    baseAttrs.rel = 'noopener noreferrer';
+    baseAttrs.target = "_blank";
+    baseAttrs.rel = "noopener noreferrer";
   }
 
   if (ariaLabel) {
-    baseAttrs['aria-label'] = ariaLabel;
+    baseAttrs["aria-label"] = ariaLabel;
   }
 
   return baseAttrs;

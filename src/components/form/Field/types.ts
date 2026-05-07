@@ -1,4 +1,4 @@
-import { type LabelProps } from '../../Text';
+import { type LabelProps } from "../../Text";
 
 // TODO: divide to public and private FieldProps. Add FieldExternalProps that should be used in parent components
 export interface FieldProps extends LabelProps {

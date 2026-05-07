@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ExclamationCircleIcon } from '@heroicons/vue/24/solid';
-import { Tooltip, type TooltipProps } from '../../Tooltip';
+import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
+import { Tooltip, type TooltipProps } from "../../Tooltip";
 
-const { placement = 'top', content, dataTestId } = defineProps<TooltipProps>();
+const { placement = "top", content, dataTestId } = defineProps<TooltipProps>();
 </script>
 
 <template>

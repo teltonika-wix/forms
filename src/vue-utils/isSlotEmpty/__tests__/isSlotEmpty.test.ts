@@ -1,27 +1,27 @@
-import { mount } from '@vue/test-utils';
-import { isSlotEmpty } from '../isSlotEmpty';
+import { mount } from "@vue/test-utils";
+import { isSlotEmpty } from "../isSlotEmpty";
 
-describe('isSlotEmpty', () => {
-  it('should return true if slot is empty', () => {
+describe("isSlotEmpty", () => {
+  it("should return true if slot is empty", () => {
     const slot = mount({
-      template: '<div></div>',
+      template: "<div></div>",
     });
 
-    expect(isSlotEmpty(slot.vm.$slots['default'])).toBe(true);
+    expect(isSlotEmpty(slot.vm.$slots["default"])).toBe(true);
   });
 
-  it('should return false if slot is not empty', () => {
+  it("should return false if slot is not empty", () => {
     const slot = mount(
       {
-        template: '<div><slot/></div>',
+        template: "<div><slot/></div>",
       },
       {
         slots: {
-          default: '<div>Content</div>',
+          default: "<div>Content</div>",
         },
       },
     );
 
-    expect(isSlotEmpty(slot.vm.$slots['default'])).toBe(false);
+    expect(isSlotEmpty(slot.vm.$slots["default"])).toBe(false);
   });
 });

@@ -43,9 +43,7 @@ describe("jsonSchemaValidation", () => {
     const invalidData = { name: 123 };
 
     validationAdapterMock.mockReturnValue({
-      errors: [
-        { message: "Invalid type for property name", instancePath: "/name" },
-      ],
+      errors: [{ message: "Invalid type for property name", instancePath: "/name" }],
       isValid: () => false,
       isDataValid: false,
     });
@@ -53,9 +51,7 @@ describe("jsonSchemaValidation", () => {
     const result = jsonSchemaValidation(invalidData, mockSchema);
 
     expect(result).toEqual({
-      errors: [
-        { message: "Invalid type for property name", instancePath: "/name" },
-      ],
+      errors: [{ message: "Invalid type for property name", instancePath: "/name" }],
       isDataValid: false,
     });
     expect(validationAdapterMock).toHaveBeenCalledWith(invalidData, mockSchema);
@@ -94,10 +90,7 @@ describe("jsonSchemaValidation", () => {
       errors: [{ message: "Invalid data: undefined value", instancePath: "" }],
       isDataValid: false,
     });
-    expect(validationAdapterMock).toHaveBeenCalledWith(
-      undefinedData,
-      mockSchema,
-    );
+    expect(validationAdapterMock).toHaveBeenCalledWith(undefinedData, mockSchema);
   });
 
   it("should return valid data when schema does not require validation", () => {
@@ -121,9 +114,6 @@ describe("jsonSchemaValidation", () => {
       data: validData,
       isDataValid: true,
     });
-    expect(validationAdapterMock).toHaveBeenCalledWith(
-      validData,
-      schemaWithoutRequiredFields,
-    );
+    expect(validationAdapterMock).toHaveBeenCalledWith(validData, schemaWithoutRequiredFields);
   });
 });

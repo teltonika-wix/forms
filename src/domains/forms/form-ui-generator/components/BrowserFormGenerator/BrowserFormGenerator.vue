@@ -20,19 +20,17 @@ const emit = defineEmits<{
   onFormSubmitEvent: Parameters<FormSubmitEventHandler>;
 }>();
 
-const { isLoading, formRenderingData, clientFullUrl } =
-  useBrowserFormRenderingData({
-    formUrlParameters,
-    formWebClientEndpoint,
-    isDev,
-  });
+const { isLoading, formRenderingData, clientFullUrl } = useBrowserFormRenderingData({
+  formUrlParameters,
+  formWebClientEndpoint,
+  isDev,
+});
 
 const prefilledFormRenderingData = computed<FormRenderingDataResponse>(() => {
   if (prefills) {
     formRenderingData.value?.inputs.forEach((inputStructure) => {
       if (Object.keys(prefills).includes(inputStructure.attributes.name)) {
-        inputStructure.defaultValue =
-          prefills[inputStructure.attributes.name] ?? "";
+        inputStructure.defaultValue = prefills[inputStructure.attributes.name] ?? "";
       }
     });
   }

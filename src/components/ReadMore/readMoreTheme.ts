@@ -1,4 +1,4 @@
-import { tv } from 'tailwind-variants';
+import { tv } from "tailwind-variants";
 
 export const base = /*tw*/ `
   relative
@@ -41,7 +41,7 @@ export const READ_MORE_TV_THEME = {
     },
   },
   defaultVariants: {
-    type: 'withArrow',
+    type: "withArrow",
   },
 } as const;
 

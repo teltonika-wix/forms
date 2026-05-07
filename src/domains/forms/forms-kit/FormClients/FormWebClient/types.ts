@@ -1,4 +1,4 @@
-import type { FormUrlParameters } from '../../types';
+import type { FormUrlParameters } from "../../types";
 
 export type FormWebClientParams = {
   formUrlParameters: FormUrlParameters;

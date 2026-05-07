@@ -1,4 +1,8 @@
-import { type ValidationErrors, type ValidationSchema, validationAdapter } from '../validationAdapter';
+import {
+  type ValidationErrors,
+  type ValidationSchema,
+  validationAdapter,
+} from "../validationAdapter";
 
 export type ValidData<DataType> = { data: DataType; errors?: undefined; isDataValid: boolean };
 export type InvalidData = { errors: ValidationErrors; data?: undefined; isDataValid: boolean };

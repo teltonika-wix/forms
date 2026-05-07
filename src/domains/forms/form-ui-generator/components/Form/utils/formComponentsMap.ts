@@ -16,18 +16,17 @@ import type { defineComponent } from "vue";
 
 export type VueComponent = ReturnType<typeof defineComponent>;
 
-export const formComponentsMap: Record<FormInputComponentNames, VueComponent> =
-  {
-    ContentComponent,
-    GroupErrorComponent,
-    LocationSelectComponent,
-    SelectInput: LocationSelectComponent,
-    SourceComponent,
-    HiddenComponent,
-    GclidComponent,
-    TextComponent,
-    TextareaComponent,
-    CheckboxComponent,
-    CheckboxesComponent,
-    FeedbackComponent,
-  };
+export const formComponentsMap: Record<FormInputComponentNames, VueComponent> = {
+  ContentComponent,
+  GroupErrorComponent,
+  LocationSelectComponent,
+  SelectInput: LocationSelectComponent,
+  SourceComponent,
+  HiddenComponent,
+  GclidComponent,
+  TextComponent,
+  TextareaComponent,
+  CheckboxComponent,
+  CheckboxesComponent,
+  FeedbackComponent,
+};

@@ -1,1 +1,1 @@
-export { default as InfoTooltip } from './InfoTooltip.vue';
+export { default as InfoTooltip } from "./InfoTooltip.vue";

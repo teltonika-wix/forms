@@ -1,13 +1,13 @@
-import type { FormSecretsParameter, FormUrlParameters } from '../../types/formGeneralTypes';
-import { validateFormParams } from '../../utils/validateFormParams';
-import { generateFormUrl } from './generateFormUrl';
+import type { FormSecretsParameter, FormUrlParameters } from "../../types/formGeneralTypes";
+import { validateFormParams } from "../../utils/validateFormParams";
+import { generateFormUrl } from "./generateFormUrl";
 
 export type SendFormDataParams = FormSecretsParameter & {
   formData: FormData;
   formUrlParameters: FormUrlParameters;
 };
 
-export const FORMS_SUBMIT_ENDPOINT = '/form/submit';
+export const FORMS_SUBMIT_ENDPOINT = "/form/submit";
 
 export const sendFormData = async ({
   formData,
@@ -22,7 +22,7 @@ export const sendFormData = async ({
   });
 
   return fetch(formUrl, {
-    method: 'POST',
+    method: "POST",
     body: formData,
   });
 };

@@ -1,4 +1,4 @@
-import { type Side } from '@floating-ui/vue';
+import { type Side } from "@floating-ui/vue";
 
 export type TooltipProps = {
   content: string;

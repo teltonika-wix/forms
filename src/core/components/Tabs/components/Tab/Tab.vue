@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import type { RemoveTab, TabData, UpsertTab } from '../../types';
-import type { TabProps } from './types';
-import { type Ref, computed, inject, onBeforeUnmount, onMounted, ref } from 'vue';
+import type { RemoveTab, TabData, UpsertTab } from "../../types";
+import type { TabProps } from "./types";
+import { type Ref, computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
 
-const { name = '' } = defineProps<TabProps>();
+const { name = "" } = defineProps<TabProps>();
 
-const upsertTab = inject<UpsertTab>('upsertTab');
-const removeTab = inject<RemoveTab>('removeTab');
-const activeTabName = inject<Ref<string>>('activeTabName');
-const tabs = inject<Ref<TabData[]>>('tabs');
+const upsertTab = inject<UpsertTab>("upsertTab");
+const removeTab = inject<RemoveTab>("removeTab");
+const activeTabName = inject<Ref<string>>("activeTabName");
+const tabs = inject<Ref<TabData[]>>("tabs");
 
 const refTab = ref();
 

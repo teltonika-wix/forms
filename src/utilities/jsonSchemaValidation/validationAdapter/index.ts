@@ -1,2 +1,2 @@
-export * from './validationAdapter';
-export type * from './validationAdapter';
+export * from "./validationAdapter";
+export type * from "./validationAdapter";

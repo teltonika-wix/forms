@@ -1,1 +1,1 @@
-export * from './isIntegerString';
+export * from "./isIntegerString";

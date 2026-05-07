@@ -1,19 +1,19 @@
-import { isSuccessfulStatusCode } from 'src/utilities';
-import { type Mock, vi } from 'vitest';
-import type { FormRenderingDataResponse } from '../../../types/formDataTypes';
-import { validateFormParams } from '../../../utils/validateFormParams';
-import { createFullFormUrl } from '../createFullFormUrl';
-import { getFormRenderingData } from '../getFormRenderingData';
+import { isSuccessfulStatusCode } from "src/utilities";
+import { type Mock, vi } from "vitest";
+import type { FormRenderingDataResponse } from "../../../types/formDataTypes";
+import { validateFormParams } from "../../../utils/validateFormParams";
+import { createFullFormUrl } from "../createFullFormUrl";
+import { getFormRenderingData } from "../getFormRenderingData";
 
-vi.mock('src/utilities', () => ({
+vi.mock("src/utilities", () => ({
   isSuccessfulStatusCode: vi.fn(),
 }));
 
-vi.mock('../../../utils/validateFormParams', () => ({
+vi.mock("../../../utils/validateFormParams", () => ({
   validateFormParams: vi.fn(),
 }));
 
-vi.mock('../createFullFormUrl', () => ({
+vi.mock("../createFullFormUrl", () => ({
   createFullFormUrl: vi.fn(),
 }));
 
@@ -21,13 +21,16 @@ const validateFormParamsMock = validateFormParams as unknown as Mock;
 const createFullFormUrlMock = createFullFormUrl as unknown as Mock;
 const isSuccessfulStatusCodeMock = isSuccessfulStatusCode as unknown as Mock;
 
-describe('getFormRenderingData', () => {
-  const mockFormWebClientEndpoint = '/form-endpoint';
-  const mockOrigin = 'https://example.com';
-  const mockFormCode = 'ContactForm';
-  const mockFormUrlParameters = { language: 'en', form: mockFormCode };
+describe("getFormRenderingData", () => {
+  const mockFormWebClientEndpoint = "/form-endpoint";
+  const mockOrigin = "https://example.com";
+  const mockFormCode = "ContactForm";
+  const mockFormUrlParameters = { language: "en", form: mockFormCode };
   const mockFormUrl = `${mockOrigin}${mockFormWebClientEndpoint}?language=en&form=${mockFormCode}`;
-  const mockResponseData = { field1: 'data1', field2: 'data2' } as unknown as FormRenderingDataResponse;
+  const mockResponseData = {
+    field1: "data1",
+    field2: "data2",
+  } as unknown as FormRenderingDataResponse;
 
   globalThis.fetch = vi.fn();
   const fetchMock = globalThis.fetch as Mock;
@@ -36,7 +39,7 @@ describe('getFormRenderingData', () => {
     vi.clearAllMocks();
   });
 
-  it('should fetch form rendering data successfully', async () => {
+  it("should fetch form rendering data successfully", async () => {
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     createFullFormUrlMock.mockReturnValue(mockFormUrl);
     isSuccessfulStatusCodeMock.mockReturnValue(true);
@@ -60,7 +63,7 @@ describe('getFormRenderingData', () => {
     expect(result).toEqual(mockResponseData);
   });
 
-  it('should throw an error if the response status is not successful', async () => {
+  it("should throw an error if the response status is not successful", async () => {
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     createFullFormUrlMock.mockReturnValue(mockFormUrl);
     isSuccessfulStatusCodeMock.mockReturnValue(false);
@@ -75,12 +78,12 @@ describe('getFormRenderingData', () => {
         formUrlParameters: mockFormUrlParameters,
         formWebClientEndpoint: mockFormWebClientEndpoint,
       }),
-    ).rejects.toThrow('Failed to fetch form structure');
+    ).rejects.toThrow("Failed to fetch form structure");
 
     expect(fetchMock).toHaveBeenCalledWith(mockFormUrl);
   });
 
-  it('should throw an error if response data is not provided', async () => {
+  it("should throw an error if response data is not provided", async () => {
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     createFullFormUrlMock.mockReturnValue(mockFormUrl);
     isSuccessfulStatusCodeMock.mockReturnValue(true);

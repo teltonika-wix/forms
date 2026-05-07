@@ -1,2 +1,2 @@
-export { default as CheckboxLabel } from './CheckboxLabel.vue';
-export type * from './types';
+export { default as CheckboxLabel } from "./CheckboxLabel.vue";
+export type * from "./types";

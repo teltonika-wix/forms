@@ -32,14 +32,11 @@ describe("validationAdapter", () => {
 
     ValidatorMock.mockImplementation(function () {
       return {
-      validate: () => ({ valid: true, errors: [] }),
+        validate: () => ({ valid: true, errors: [] }),
       };
     });
 
-    const result: ValidationReturn<typeof mockData> = validationAdapter(
-      mockData,
-      mockSchema,
-    );
+    const result: ValidationReturn<typeof mockData> = validationAdapter(mockData, mockSchema);
 
     expect(result.isDataValid).toBe(true);
     expect(result.errors).toEqual([]);
@@ -52,12 +49,10 @@ describe("validationAdapter", () => {
 
     ValidatorMock.mockImplementation(function () {
       return {
-      validate: () => ({
-        valid: false,
-        errors: [
-          { message: "Invalid type for property name", instancePath: "/name" },
-        ],
-      }),
+        validate: () => ({
+          valid: false,
+          errors: [{ message: "Invalid type for property name", instancePath: "/name" }],
+        }),
       };
     });
 
@@ -74,10 +69,10 @@ describe("validationAdapter", () => {
 
     ValidatorMock.mockImplementation(function () {
       return {
-      validate: () => ({
-        valid: false,
-        errors: [{ message: "Invalid data: null value", instancePath: "" }],
-      }),
+        validate: () => ({
+          valid: false,
+          errors: [{ message: "Invalid data: null value", instancePath: "" }],
+        }),
       };
     });
 
@@ -94,12 +89,10 @@ describe("validationAdapter", () => {
 
     ValidatorMock.mockImplementation(function () {
       return {
-      validate: () => ({
-        valid: false,
-        errors: [
-          { message: "Invalid data: undefined value", instancePath: "" },
-        ],
-      }),
+        validate: () => ({
+          valid: false,
+          errors: [{ message: "Invalid data: undefined value", instancePath: "" }],
+        }),
       };
     });
 

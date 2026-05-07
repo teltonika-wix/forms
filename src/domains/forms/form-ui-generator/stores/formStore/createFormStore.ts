@@ -20,10 +20,7 @@ export type FormStore = {
   getFormMessagesState: () => FormMessages;
   getIsFormActive: () => ComputedRef<boolean>;
   updateFormInputValue: (inputName: string, value: FormInputValue) => void;
-  updateFormInputError: (
-    inputName: string,
-    errorMessage: FormInputErrorMessage,
-  ) => void;
+  updateFormInputError: (inputName: string, errorMessage: FormInputErrorMessage) => void;
   addFormInput: (inputName: string, value: FormInputValue) => void;
   addFormMessage: <Key extends keyof FormMessages>(
     messageKey: Key,
@@ -38,10 +35,8 @@ export const createFormStore = (): FormStore => {
   const formState = FormStateFactory.createFormState();
 
   const getFormState: FormStore["getFormState"] = () => formState;
-  const getFormInputsState: FormStore["getFormInputsState"] = () =>
-    formState.inputsState;
-  const getFormMessagesState: FormStore["getFormMessagesState"] = () =>
-    formState.formMessages;
+  const getFormInputsState: FormStore["getFormInputsState"] = () => formState.inputsState;
+  const getFormMessagesState: FormStore["getFormMessagesState"] = () => formState.formMessages;
   const formInputsState = getFormInputsState();
   const formMessagesState = getFormMessagesState();
 

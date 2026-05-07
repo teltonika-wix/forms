@@ -1,3 +1,3 @@
-export { default as ExternalHyperlink } from './ExternalHyperlink.vue';
+export { default as ExternalHyperlink } from "./ExternalHyperlink.vue";
 
-export type * from './types';
+export type * from "./types";

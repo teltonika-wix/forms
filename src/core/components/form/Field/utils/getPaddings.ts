@@ -1,7 +1,7 @@
-import type { FieldThemePaddingsKeys } from '../fieldTheme';
+import type { FieldThemePaddingsKeys } from "../fieldTheme";
 
 export const getPaddings = (isLabel: boolean): FieldThemePaddingsKeys => {
-  if (isLabel) return 'default';
+  if (isLabel) return "default";
 
-  return 'verticalSmall';
+  return "verticalSmall";
 };

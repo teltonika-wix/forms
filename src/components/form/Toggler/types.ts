@@ -1,7 +1,11 @@
 export type TogglerProps = {
   isDisabled?: boolean;
 };
-export type TogglerState = 'activeEnabled' | 'inactiveEnabled' | 'activeDisabled' | 'inactiveDisabled';
+export type TogglerState =
+  | "activeEnabled"
+  | "inactiveEnabled"
+  | "activeDisabled"
+  | "inactiveDisabled";
 
 export interface TogglerVariants {
   state: TogglerState;

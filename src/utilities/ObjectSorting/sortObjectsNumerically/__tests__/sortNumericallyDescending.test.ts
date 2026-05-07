@@ -1,8 +1,8 @@
-import { type Mock, describe, expect, it, vi } from 'vitest';
-import { type CompareNumericallyParams, compareNumerically } from '../compareNumerically';
-import { sortNumericallyDescending } from '../sortNumericallyDescending';
+import { type Mock, describe, expect, it, vi } from "vitest";
+import { type CompareNumericallyParams, compareNumerically } from "../compareNumerically";
+import { sortNumericallyDescending } from "../sortNumericallyDescending";
 
-vi.mock('../compareNumerically', () => ({
+vi.mock("../compareNumerically", () => ({
   compareNumerically: vi.fn(),
 }));
 
@@ -10,11 +10,11 @@ const compareNumericallyMock = compareNumerically as Mock;
 
 type MockListItem = { value: number };
 
-describe('sortNumericallyDescending', () => {
+describe("sortNumericallyDescending", () => {
   const mockList: MockListItem[] = [{ value: 1 }, { value: 3 }, { value: 2 }];
 
-  it('sorts the list in descending order using compareNumerically', () => {
-    const mockSortByKey = 'value';
+  it("sorts the list in descending order using compareNumerically", () => {
+    const mockSortByKey = "value";
 
     // Mock the behavior of compareNumerically
     compareNumericallyMock.mockImplementation(
@@ -34,8 +34,8 @@ describe('sortNumericallyDescending', () => {
     expect(result).toEqual([{ value: 3 }, { value: 2 }, { value: 1 }]);
   });
 
-  it('does not mutate the original list', () => {
-    const mockSortByKey = 'value';
+  it("does not mutate the original list", () => {
+    const mockSortByKey = "value";
     const originalList = [...mockList];
 
     sortNumericallyDescending({

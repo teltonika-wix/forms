@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Button } from '../Button';
-import type { ButtonEmits, ButtonProps } from '../Button/types';
+import { Button } from "../Button";
+import type { ButtonEmits, ButtonProps } from "../Button/types";
 
-const { size = 'medium', ...restProps } = defineProps<ButtonProps>();
+const { size = "medium", ...restProps } = defineProps<ButtonProps>();
 const allProps = { ...restProps, size };
 
 const emits = defineEmits<ButtonEmits>();

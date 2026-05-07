@@ -8,11 +8,11 @@ declare namespace grecaptcha {
   type RenderParameters = {
     sitekey: string;
     badge?: BadgePosition | string;
-    size?: 'invisible' | 'compact' | 'normal';
+    size?: "invisible" | "compact" | "normal";
     tabindex?: number;
     callback?: (token: string) => void;
-    'expired-callback'?: () => void;
-    'error-callback'?: () => void;
+    "expired-callback"?: () => void;
+    "error-callback"?: () => void;
   };
 
   type ExecuteParameters = {

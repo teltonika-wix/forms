@@ -1,4 +1,4 @@
-import type { KeyWithStringValue } from './types';
+import type { KeyWithStringValue } from "./types";
 
 export type CompareAlphabeticallyParams<T> = {
   firstObject: T;

@@ -1,6 +1,6 @@
-import { getFormStructure } from './getFormStructure/getFormStructure';
-import { submitFormData } from './submitFormData/submitFormData';
+import { getFormStructure } from "./getFormStructure/getFormStructure";
+import { submitFormData } from "./submitFormData/submitFormData";
 
-export type * from './types';
+export type * from "./types";
 
 export const FormApiHandler = { getFormStructure, submitFormData };

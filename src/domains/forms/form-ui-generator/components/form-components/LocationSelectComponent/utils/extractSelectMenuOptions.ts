@@ -1,8 +1,7 @@
 import type { FormRenderingDataInputOption } from "src/domains/forms/forms-kit";
 import type { SelectMenuOption } from "src/features/forms/components/SelectMenu";
 
-export type LocationSelectOption =
-  SelectMenuOption<FormRenderingDataInputOption>;
+export type LocationSelectOption = SelectMenuOption<FormRenderingDataInputOption>;
 
 export type MenuOptionsMapByParent = {
   independent: LocationSelectOption[];

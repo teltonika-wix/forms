@@ -1,4 +1,4 @@
-import type { LabelProps } from '../../Text';
+import type { LabelProps } from "../../Text";
 
 export interface InputLabelProps extends LabelProps {
   error?: boolean | undefined;

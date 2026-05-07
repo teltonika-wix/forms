@@ -1,2 +1,2 @@
-export * from './jsonSchemaValidation';
-export * from './validationAdapter';
+export * from "./jsonSchemaValidation";
+export * from "./validationAdapter";

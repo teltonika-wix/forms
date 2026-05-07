@@ -39,8 +39,7 @@ const { submitHandler, isSubmitting } = useFormSubmit({
 
 onMounted(() => {
   addFormInputsToStore({ formCode, formInputs });
-  const { successMessageData, errorMessageData } =
-    extractFormMessages(formRenderingData);
+  const { successMessageData, errorMessageData } = extractFormMessages(formRenderingData);
   addFormMessage("successfullySent", successMessageData);
   addFormMessage("failedSent", errorMessageData);
 });
@@ -50,10 +49,7 @@ const isFormActive = getIsFormActive();
 
 <template>
   <form v-if="isFormActive" class="w-full" @submit.prevent="submitHandler">
-    <template
-      v-for="formInputData in formInputs"
-      :key="formInputData.component"
-    >
+    <template v-for="formInputData in formInputs" :key="formInputData.component">
       <SourceComponent
         v-if="formInputData.component === 'SourceComponent'"
         :formInputData="formInputData"
@@ -68,13 +64,7 @@ const isFormActive = getIsFormActive();
       />
     </template>
     <FormSubmitError :formCode="formCode" class="mb-4 mt-2" />
-    <Button
-      color="primary"
-      size="medium"
-      type="submit"
-      :disabled="isSubmitting"
-      class="mt-6"
-    >
+    <Button color="primary" size="medium" type="submit" :disabled="isSubmitting" class="mt-6">
       {{ submitButtonText }}
     </Button>
   </form>

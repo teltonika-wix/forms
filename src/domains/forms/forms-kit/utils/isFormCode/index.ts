@@ -1,1 +1,1 @@
-export * from './isFormCode';
+export * from "./isFormCode";

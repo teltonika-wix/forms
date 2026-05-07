@@ -1,10 +1,10 @@
-import { type UseFloatingReturn, size, useFloating } from '@floating-ui/vue';
-import { type Ref, ref } from 'vue';
+import { type UseFloatingReturn, size, useFloating } from "@floating-ui/vue";
+import { type Ref, ref } from "vue";
 
 export type UseMenuFloatingReturn = {
   menuOpenerRef: Ref<HTMLButtonElement | null>;
   menuContainerRef: Ref<HTMLDivElement | null>;
-  floatingStyles: UseFloatingReturn['floatingStyles'];
+  floatingStyles: UseFloatingReturn["floatingStyles"];
 };
 
 export const useMenuFloating = (): UseMenuFloatingReturn => {

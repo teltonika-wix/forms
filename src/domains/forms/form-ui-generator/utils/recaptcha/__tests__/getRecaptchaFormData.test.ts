@@ -1,5 +1,5 @@
-describe('getRecaptchaFormData', () => {
-  it('add test', () => {
+describe("getRecaptchaFormData", () => {
+  it("add test", () => {
     return true;
   });
 });

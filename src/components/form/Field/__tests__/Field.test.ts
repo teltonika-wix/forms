@@ -1,63 +1,63 @@
-import { mount } from '@vue/test-utils';
-import Field from '../Field.vue';
+import { mount } from "@vue/test-utils";
+import Field from "../Field.vue";
 
-describe('Form field', () => {
-  it('Should render without any props and slots', () => {
+describe("Form field", () => {
+  it("Should render without any props and slots", () => {
     const wrapper = mount(Field, {
       shallow: true,
     });
 
-    expect(wrapper.html()).toMatchSnapshot('Default props');
+    expect(wrapper.html()).toMatchSnapshot("Default props");
   });
 
-  it('should render default field with input element in slot', () => {
+  it("should render default field with input element in slot", () => {
     const wrapper = mount(Field, {
       slots: {
         default: '<input type="text">',
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot('Input element in slot');
+    expect(wrapper.html()).toMatchSnapshot("Input element in slot");
   });
 
-  it('should render default field with input element in slot and information tooltip', () => {
+  it("should render default field with input element in slot and information tooltip", () => {
     const wrapper = mount(Field, {
       slots: {
         default: '<input type="text">',
       },
       props: {
-        comment: 'Information message',
+        comment: "Information message",
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot('Input element in slot and information tooltip');
+    expect(wrapper.html()).toMatchSnapshot("Input element in slot and information tooltip");
   });
 
-  it('should render default field with textarea element in slot and information tooltip', () => {
+  it("should render default field with textarea element in slot and information tooltip", () => {
     const wrapper = mount(Field, {
       slots: {
-        default: '<textarea></textarea>',
+        default: "<textarea></textarea>",
       },
       props: {
-        comment: 'Information message',
+        comment: "Information message",
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot('Input element in slot and information tooltip');
+    expect(wrapper.html()).toMatchSnapshot("Input element in slot and information tooltip");
   });
 
-  it('should render error field', () => {
+  it("should render error field", () => {
     const wrapper = mount(Field, {
       shallow: true,
       props: {
-        error: 'Error message',
+        error: "Error message",
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot('Error field');
+    expect(wrapper.html()).toMatchSnapshot("Error field");
   });
 
-  it('should render disabled field', () => {
+  it("should render disabled field", () => {
     const wrapper = mount(Field, {
       shallow: true,
       props: {
@@ -65,6 +65,6 @@ describe('Form field', () => {
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot('Disabled field');
+    expect(wrapper.html()).toMatchSnapshot("Disabled field");
   });
 });

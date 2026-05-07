@@ -1,18 +1,19 @@
 <script lang="ts" setup>
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline';
-import { useScroll } from '@vueuse/core';
-import { Text } from '../Text';
-import type { RemoveTab, TabData, TabsProps, UpsertTab } from './types';
-import { provide, ref } from 'vue';
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/outline";
+import { useScroll } from "@vueuse/core";
+import { Text } from "../Text";
+import type { RemoveTab, TabData, TabsProps, UpsertTab } from "./types";
+import { provide, ref } from "vue";
 
-const activeTabName = defineModel('activeTabName');
-const { isHorizontalLineHidden, isHorizontalArrowScrollEnabled, alignLeft } = defineProps<TabsProps>();
+const activeTabName = defineModel("activeTabName");
+const { isHorizontalLineHidden, isHorizontalArrowScrollEnabled, alignLeft } =
+  defineProps<TabsProps>();
 
 const tabs = ref<TabData[]>([]);
 
 const tabsElement = ref<HTMLElement | null>(null);
 
-const { x: xPosition } = useScroll(tabsElement, { behavior: 'smooth' });
+const { x: xPosition } = useScroll(tabsElement, { behavior: "smooth" });
 
 const upsertTab: UpsertTab = (tabIndex: number, tab: TabData) => {
   tabs.value.splice(tabIndex, 0, tab);
@@ -30,10 +31,10 @@ const removeTab: RemoveTab = (tabName: string) => {
   });
 };
 
-provide('upsertTab', upsertTab);
-provide('removeTab', removeTab);
-provide('activeTabName', activeTabName);
-provide('tabs', tabs);
+provide("upsertTab", upsertTab);
+provide("removeTab", removeTab);
+provide("activeTabName", activeTabName);
+provide("tabs", tabs);
 
 const setTabActive = (targetTab: TabData) => {
   activeTabName.value = targetTab.name;

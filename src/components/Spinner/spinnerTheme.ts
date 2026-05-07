@@ -1,4 +1,4 @@
-import type { Sizes } from './types';
+import type { Sizes } from "./types";
 
 export const spinnerSizes: Sizes<number> = {
   small: 24,
@@ -13,7 +13,7 @@ export const strokesBySize: Sizes<number> = {
 };
 
 export const dashesBySize: Sizes<string> = {
-  small: '20,100',
-  medium: '60,200',
-  large: '100,200',
+  small: "20,100",
+  medium: "60,200",
+  large: "100,200",
 };

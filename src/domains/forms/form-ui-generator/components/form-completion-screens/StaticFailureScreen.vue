@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FailureScreen from './FailureScreen.vue';
+import FailureScreen from "./FailureScreen.vue";
 </script>
 
 <template>

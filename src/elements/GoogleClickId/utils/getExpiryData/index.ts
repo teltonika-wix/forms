@@ -1,1 +1,1 @@
-export * from './getExpiryData';
+export * from "./getExpiryData";

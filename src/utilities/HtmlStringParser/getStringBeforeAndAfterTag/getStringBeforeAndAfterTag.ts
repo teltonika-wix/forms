@@ -1,4 +1,4 @@
-import { isString } from '../../isString';
+import { isString } from "../../isString";
 
 export type ParsedText = {
   stringBeforeTag?: string;
@@ -15,15 +15,15 @@ export const getStringBeforeAndAfterTag = ({
   tagName,
 }: GetStringBeforeAndAfterTagParams): ParsedText => {
   // Regular expression to match text before and after the specified tag
-  const tagPattern = new RegExp(`(.*?)<${tagName}[^>]*>.*?<\\/${tagName}>(.*)`, 's');
+  const tagPattern = new RegExp(`(.*?)<${tagName}[^>]*>.*?<\\/${tagName}>(.*)`, "s");
   const match = stringWithHtml.match(tagPattern);
 
   if (!match) {
     return {};
   }
 
-  const stringBeforeTag = isString(match[1]) ? match[1].trimStart() : '';
-  const stringAfterTag = isString(match[2]) ? match[2].trimEnd() : '';
+  const stringBeforeTag = isString(match[1]) ? match[1].trimStart() : "";
+  const stringAfterTag = isString(match[2]) ? match[2].trimEnd() : "";
 
   return { stringBeforeTag, stringAfterTag };
 };

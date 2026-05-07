@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Field } from 'src/legacy/core/components/form/Field';
-import { InputHelper } from 'src/legacy/core/components/form/InputHelper';
-import { extractInputValue } from '../utils/extractInputValue';
-import type { TextareaFieldEmits, TextareaFieldProps } from './types';
+import { Field } from "src/legacy/core/components/form/Field";
+import { InputHelper } from "src/legacy/core/components/form/InputHelper";
+import { extractInputValue } from "../utils/extractInputValue";
+import type { TextareaFieldEmits, TextareaFieldProps } from "./types";
 
 const {
   inputValue,
@@ -21,7 +21,7 @@ const emits = defineEmits<TextareaFieldEmits>();
 
 const valueUpdateHandler = (event: Event): void => {
   const newValue = extractInputValue(event);
-  emits('onValueUpdate', event, newValue);
+  emits("onValueUpdate", event, newValue);
 };
 </script>
 

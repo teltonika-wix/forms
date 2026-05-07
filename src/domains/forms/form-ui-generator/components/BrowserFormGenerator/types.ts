@@ -1,3 +1,3 @@
-import type { BrowserFormGeneralProps } from '../../types';
+import type { BrowserFormGeneralProps } from "../../types";
 
 export type BrowserFormGeneratorProps = BrowserFormGeneralProps;

@@ -1,29 +1,29 @@
-import { mount } from '@vue/test-utils';
-import type { TextTag } from '../../Text';
-import Heading from '../Heading.vue';
-import { HEADING_TV_THEME } from '../headingTheme';
+import { mount } from "@vue/test-utils";
+import type { TextTag } from "../../Text";
+import Heading from "../Heading.vue";
+import { HEADING_TV_THEME } from "../headingTheme";
 
-const TEXT_TAGS: TextTag[] = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'label'];
+const TEXT_TAGS: TextTag[] = ["p", "span", "h1", "h2", "h3", "h4", "h5", "h6", "label"];
 
-describe('Heading', () => {
-  it('renders properly', () => {
+describe("Heading", () => {
+  it("renders properly", () => {
     const wrapper = mount(Heading, {});
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders properly with different props', () => {
+  it("renders properly with different props", () => {
     const wrapper = mount(Heading, {
       props: {
-        size: 'h1',
-        weight: 'light',
-        tag: 'h1',
-        default: 'Hello world',
+        size: "h1",
+        weight: "light",
+        tag: "h1",
+        default: "Hello world",
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders properly with various props', () => {
+  it("renders properly with various props", () => {
     type Size = keyof typeof HEADING_TV_THEME.variants.size;
     const sizes = Object.keys(HEADING_TV_THEME.variants.size) as Size[];
 

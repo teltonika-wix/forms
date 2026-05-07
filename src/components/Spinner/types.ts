@@ -1,4 +1,4 @@
-export type SpinnerSizes = 'small' | 'medium' | 'large';
+export type SpinnerSizes = "small" | "medium" | "large";
 
 export type Sizes<T> = {
   [key in SpinnerSizes]: T;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ErrorMessage, ErrorMessageIcon } from 'src/legacy/core/components/form/ErrorMessage';
-import { useFormStore } from '../../../stores/formStore';
-import type { BaseFormComponentProps } from '../../../types';
-import { mapToSpacingClasses } from '../../../utils/mapToSpacingClasses';
-import { computed } from 'vue';
+import { ErrorMessage, ErrorMessageIcon } from "src/legacy/core/components/form/ErrorMessage";
+import { useFormStore } from "../../../stores/formStore";
+import type { BaseFormComponentProps } from "../../../types";
+import { mapToSpacingClasses } from "../../../utils/mapToSpacingClasses";
+import { computed } from "vue";
 
 const { formInputData, formCode } = defineProps<BaseFormComponentProps>();
 const { translations, attributes, props } = formInputData;

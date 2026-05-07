@@ -1,5 +1,5 @@
-import { extractErrorMessage } from 'src/utilities';
-import type { ClientIp } from '../types';
+import { extractErrorMessage } from "src/utilities";
+import type { ClientIp } from "../types";
 
 export type FormatFormDataParams = {
   formData: FormData;
@@ -11,11 +11,14 @@ export type FormatFormDataReturn = Promise<{
   formattedFormData?: FormData;
 }>;
 
-export const formatFormData = async ({ formData, clientIp }: FormatFormDataParams): FormatFormDataReturn => {
+export const formatFormData = async ({
+  formData,
+  clientIp,
+}: FormatFormDataParams): FormatFormDataReturn => {
   try {
-    formData.append('client_ip', clientIp);
+    formData.append("client_ip", clientIp);
 
-    return { formattedFormData: formData, errorMessage: '' };
+    return { formattedFormData: formData, errorMessage: "" };
   } catch (error) {
     const errorMessage = extractErrorMessage(error);
 

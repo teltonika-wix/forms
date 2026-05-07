@@ -1,7 +1,9 @@
-import { isObject } from 'src/utilities';
-import type { FormValidationErrorData, FormValidationErrorResponse } from '../types';
+import { isObject } from "src/utilities";
+import type { FormValidationErrorData, FormValidationErrorResponse } from "../types";
 
-export const getValidationData = async (response: Response): Promise<Partial<FormValidationErrorData>> => {
+export const getValidationData = async (
+  response: Response,
+): Promise<Partial<FormValidationErrorData>> => {
   try {
     const responseData = (await response.json()) as FormValidationErrorResponse;
 

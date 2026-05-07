@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { SelectMenu, type SelectMenuItemChange } from 'src/features/forms/components/SelectMenu';
-import { useFormStore } from '../../../stores/formStore';
-import type { BaseFormComponentProps } from '../../../types';
-import { mapToSpacingClasses } from '../../../utils/mapToSpacingClasses';
-import { extractSelectMenuOptions } from './utils/extractSelectMenuOptions';
-import { switchMenuOptionsSet } from './utils/switchMenuOptionsSet';
-import { computed } from 'vue';
+import { SelectMenu, type SelectMenuItemChange } from "src/features/forms/components/SelectMenu";
+import { useFormStore } from "../../../stores/formStore";
+import type { BaseFormComponentProps } from "../../../types";
+import { mapToSpacingClasses } from "../../../utils/mapToSpacingClasses";
+import { extractSelectMenuOptions } from "./utils/extractSelectMenuOptions";
+import { switchMenuOptionsSet } from "./utils/switchMenuOptionsSet";
+import { computed } from "vue";
 
 const { formInputData, formCode } = defineProps<BaseFormComponentProps>();
 const { attributes, translations, options, props, defaultValue } = formInputData || {};

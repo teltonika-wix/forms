@@ -1,7 +1,4 @@
-import {
-  type BrowserFormRenderingParams,
-  FormDataService,
-} from "src/domains/forms/forms-kit";
+import { type BrowserFormRenderingParams, FormDataService } from "src/domains/forms/forms-kit";
 import { isSuccessfulStatusCode } from "src/utilities";
 import { useFormStore } from "../../../stores/formStore";
 import { FormValidationError } from "../../../utils/FormValidationError";

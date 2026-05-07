@@ -1,7 +1,4 @@
-import type {
-  CheckboxProps,
-  CheckboxValueChange,
-} from 'src/legacy/core/components/form/Checkbox';
+import type { CheckboxProps, CheckboxValueChange } from "src/legacy/core/components/form/Checkbox";
 
 export type InputCheckboxEmits = {
   onValueChange: Parameters<CheckboxValueChange>;

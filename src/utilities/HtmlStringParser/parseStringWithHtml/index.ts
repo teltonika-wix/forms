@@ -1,1 +1,1 @@
-export * from './parseStringWithHtml';
+export * from "./parseStringWithHtml";

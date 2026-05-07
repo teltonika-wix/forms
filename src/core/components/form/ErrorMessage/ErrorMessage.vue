@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Text } from '../../Text';
-import { errorMessageTheme } from './errorMessageTheme';
+import { Text } from "../../Text";
+import { errorMessageTheme } from "./errorMessageTheme";
 
 const classes = errorMessageTheme();
 </script>

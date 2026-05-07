@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { arrow, flip, offset, shift, useFloating } from '@floating-ui/vue';
-import { useAttributes } from 'src/vue-utils';
-import type { TooltipProps } from './types';
-import { type GetArrowStylesParams, getArrowStyles } from './utils/getArrowStyles';
-import { computed, ref, watch } from 'vue';
+import { arrow, flip, offset, shift, useFloating } from "@floating-ui/vue";
+import { useAttributes } from "src/vue-utils";
+import type { TooltipProps } from "./types";
+import { type GetArrowStylesParams, getArrowStyles } from "./utils/getArrowStyles";
+import { computed, ref, watch } from "vue";
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const { placement = 'top', dataTestId = 0 } = defineProps<TooltipProps>();
+const { placement = "top", dataTestId = 0 } = defineProps<TooltipProps>();
 
 const reference = ref(null);
 const floating = ref(null);
@@ -34,7 +34,8 @@ const show = () => {
 watch(
   () => middlewareData.value,
   (newVal) => {
-    isFlipped.value = (typeof newVal?.flip === 'object' && Object.keys(newVal?.flip).length !== 0) || false;
+    isFlipped.value =
+      (typeof newVal?.flip === "object" && Object.keys(newVal?.flip).length !== 0) || false;
   },
 );
 const arrowStyles = computed(() => {

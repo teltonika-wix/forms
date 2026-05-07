@@ -1,5 +1,5 @@
-import type { VariantProps } from 'tailwind-variants';
-import type { feedbackTheme } from './feedbackTheme';
+import type { VariantProps } from "tailwind-variants";
+import type { feedbackTheme } from "./feedbackTheme";
 
 export type FeedbackThemeProps = VariantProps<typeof feedbackTheme>;
 

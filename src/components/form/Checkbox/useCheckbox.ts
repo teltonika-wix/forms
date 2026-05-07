@@ -1,8 +1,8 @@
-import type { CheckboxProps, CheckboxValueChange } from './types';
-import { type Ref, ref } from 'vue';
+import type { CheckboxProps, CheckboxValueChange } from "./types";
+import { type Ref, ref } from "vue";
 
 export type UseCheckboxParams = {
-  value: CheckboxProps['value'];
+  value: CheckboxProps["value"];
   onChange: CheckboxValueChange;
 };
 

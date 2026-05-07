@@ -1,3 +1,3 @@
-export * from './validateIpInfoData';
+export * from "./validateIpInfoData";
 
-export type * from './types';
+export type * from "./types";

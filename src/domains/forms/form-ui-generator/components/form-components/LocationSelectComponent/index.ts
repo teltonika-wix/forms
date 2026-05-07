@@ -1,1 +1,1 @@
-export { default as LocationSelectComponent } from './LocationSelectComponent.vue';
+export { default as LocationSelectComponent } from "./LocationSelectComponent.vue";

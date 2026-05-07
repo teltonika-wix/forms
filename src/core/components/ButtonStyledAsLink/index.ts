@@ -1,1 +1,1 @@
-export { default as ButtonStyledAsLink } from './ButtonStyledAsLink.vue';
+export { default as ButtonStyledAsLink } from "./ButtonStyledAsLink.vue";

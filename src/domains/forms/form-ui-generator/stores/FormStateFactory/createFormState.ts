@@ -1,6 +1,6 @@
-import { type FormMessages, FormMessagesFactory } from '../FormMessagesFactory';
-import { type FormInputsState, createDefaultInputsState } from './createDefaultInputsState';
-import { reactive } from 'vue';
+import { type FormMessages, FormMessagesFactory } from "../FormMessagesFactory";
+import { type FormInputsState, createDefaultInputsState } from "./createDefaultInputsState";
+import { reactive } from "vue";
 
 export type FormState = { inputsState: FormInputsState; formMessages: FormMessages };
 

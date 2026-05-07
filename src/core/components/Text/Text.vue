@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { textTheme } from './textTheme';
-import type { TextProps } from './types';
-import { computed } from 'vue';
+import { textTheme } from "./textTheme";
+import type { TextProps } from "./types";
+import { computed } from "vue";
 
-const { size, weight, labelFor, tag = 'p' } = defineProps<TextProps>();
+const { size, weight, labelFor, tag = "p" } = defineProps<TextProps>();
 
 const classes = computed(() => {
   return textTheme({ size, weight });

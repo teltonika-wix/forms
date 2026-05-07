@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { isString } from 'src/utilities';
-import { InputField, type InputFieldValueChange } from 'src/features/forms/components/InputField';
-import { useFormStore } from '../../../stores/formStore';
-import type { BaseFormComponentProps } from '../../../types';
-import { mapToSpacingClasses } from '../../../utils/mapToSpacingClasses';
-import { computed } from 'vue';
+import { isString } from "src/utilities";
+import { InputField, type InputFieldValueChange } from "src/features/forms/components/InputField";
+import { useFormStore } from "../../../stores/formStore";
+import type { BaseFormComponentProps } from "../../../types";
+import { mapToSpacingClasses } from "../../../utils/mapToSpacingClasses";
+import { computed } from "vue";
 
 const { formInputData, formCode } = defineProps<BaseFormComponentProps>();
 const { translations, attributes, props } = formInputData;
@@ -16,7 +16,7 @@ const inputValue = computed(() => formInputsState?.[name]?.value);
 const errorMessage = computed(() => formInputsState?.[name]?.errorMessage);
 
 const inputValueChange: InputFieldValueChange = (_event, value) => {
-  const newValue = value || '';
+  const newValue = value || "";
   updateFormInputValue(name, newValue);
 };
 </script>

@@ -1,1 +1,1 @@
-export { default as ReadMore } from './ReadMore.vue';
+export { default as ReadMore } from "./ReadMore.vue";

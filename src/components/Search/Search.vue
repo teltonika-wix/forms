@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/vue/24/outline';
-import { useDebounceFn } from '@vueuse/core';
-import { searchTheme } from './searchTheme';
-import { type SearchEmits, type SearchProps } from './types';
-import { computed } from 'vue';
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+import { useDebounceFn } from "@vueuse/core";
+import { searchTheme } from "./searchTheme";
+import { type SearchEmits, type SearchProps } from "./types";
+import { computed } from "vue";
 
-const { label = 'Search', debounce = 0, size = 'large', modelValue } = defineProps<SearchProps>();
+const { label = "Search", debounce = 0, size = "large", modelValue } = defineProps<SearchProps>();
 
 const emits = defineEmits<SearchEmits>();
 
 const setInputDebounced = useDebounceFn((event: Event): void => {
   const target = event.target as HTMLInputElement;
-  emits('update:modelValue', target.value);
+  emits("update:modelValue", target.value);
 }, debounce);
 
 const clearInput = (): void => {
-  emits('update:modelValue', '');
+  emits("update:modelValue", "");
 };
 
 const classes = computed(() =>

@@ -1,30 +1,30 @@
-import { type Mock, describe, expect, it, vi } from 'vitest';
-import { sortNumericallyAscending } from '../sortNumericallyAscending';
-import { sortNumericallyDescending } from '../sortNumericallyDescending';
-import { sortObjectsNumerically } from '../sortObjectsNumerically';
+import { type Mock, describe, expect, it, vi } from "vitest";
+import { sortNumericallyAscending } from "../sortNumericallyAscending";
+import { sortNumericallyDescending } from "../sortNumericallyDescending";
+import { sortObjectsNumerically } from "../sortObjectsNumerically";
 
-vi.mock('../sortNumericallyAscending', () => ({
+vi.mock("../sortNumericallyAscending", () => ({
   sortNumericallyAscending: vi.fn(),
 }));
 
-vi.mock('../sortNumericallyDescending', () => ({
+vi.mock("../sortNumericallyDescending", () => ({
   sortNumericallyDescending: vi.fn(),
 }));
 
 const sortNumericallyAscendingMock = sortNumericallyAscending as Mock;
 const sortNumericallyDescendingMock = sortNumericallyDescending as Mock;
 
-describe('sortObjectsNumerically', () => {
+describe("sortObjectsNumerically", () => {
   const mockList = [{ value: 3 }, { value: 1 }, { value: 2 }];
 
   it('calls sortNumericallyAscending when direction is "ascending"', () => {
-    const mockSortByKey = 'value';
+    const mockSortByKey = "value";
     sortNumericallyAscendingMock.mockReturnValue([{ value: 1 }, { value: 2 }, { value: 3 }]);
 
     const result = sortObjectsNumerically({
       list: mockList,
       sortByKey: mockSortByKey,
-      direction: 'ascending',
+      direction: "ascending",
     });
 
     expect(sortNumericallyAscending).toHaveBeenCalledWith({
@@ -36,13 +36,13 @@ describe('sortObjectsNumerically', () => {
   });
 
   it('calls sortNumericallyDescending when direction is "descending"', () => {
-    const mockSortByKey = 'value';
+    const mockSortByKey = "value";
     sortNumericallyDescendingMock.mockReturnValue([{ value: 3 }, { value: 2 }, { value: 1 }]);
 
     const result = sortObjectsNumerically({
       list: mockList,
       sortByKey: mockSortByKey,
-      direction: 'descending',
+      direction: "descending",
     });
 
     expect(sortNumericallyDescending).toHaveBeenCalledWith({

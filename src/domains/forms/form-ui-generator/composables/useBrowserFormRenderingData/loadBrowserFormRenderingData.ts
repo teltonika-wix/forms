@@ -11,9 +11,7 @@ export const loadBrowserFormRenderingData = async ({
   formWebClientEndpoint,
   formUrlParameters,
   isDev,
-}: LoadBrowserFormRenderingDataParams): Promise<
-  FormRenderingDataResponse | undefined
-> => {
+}: LoadBrowserFormRenderingDataParams): Promise<FormRenderingDataResponse | undefined> => {
   const formCacheKey = JSON.stringify(formUrlParameters);
   const cachedData = FormRenderingDataCache.get(formCacheKey);
 

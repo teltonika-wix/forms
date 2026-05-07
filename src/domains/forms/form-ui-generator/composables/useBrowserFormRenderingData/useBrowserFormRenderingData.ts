@@ -11,8 +11,7 @@ export type UseBrowserFormRenderingDataReturn = {
   clientFullUrl: string;
 };
 
-export type UseBrowserFormRenderingDataParams =
-  LoadBrowserFormRenderingDataParams;
+export type UseBrowserFormRenderingDataParams = LoadBrowserFormRenderingDataParams;
 
 export const useBrowserFormRenderingData = (
   parameters: UseBrowserFormRenderingDataParams,

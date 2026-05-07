@@ -1,1 +1,1 @@
-export * from './extractUrlData';
+export * from "./extractUrlData";

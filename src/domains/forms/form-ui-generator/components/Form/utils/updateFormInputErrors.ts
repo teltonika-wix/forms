@@ -13,8 +13,7 @@ export const updateFormInputErrorStates = ({
   errors,
   recaptchaKey,
 }: UpdateFormInputErrorStatesParams): void => {
-  const { updateFormInputError, addFormMessage, getFormInputNames } =
-    useFormStore(formCode);
+  const { updateFormInputError, addFormMessage, getFormInputNames } = useFormStore(formCode);
 
   const recaptchaErrorMessage = errors[recaptchaKey];
 

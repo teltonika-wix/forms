@@ -1,4 +1,4 @@
-import type { FieldProps } from 'src/legacy/core/components/form/Field';
+import type { FieldProps } from "src/legacy/core/components/form/Field";
 
 export type InputFieldProps = FieldProps & {
   name?: string;

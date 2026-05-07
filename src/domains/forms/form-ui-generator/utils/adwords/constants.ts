@@ -1,1 +1,1 @@
-export const ADWORDS_KEY = 'adwords';
+export const ADWORDS_KEY = "adwords";

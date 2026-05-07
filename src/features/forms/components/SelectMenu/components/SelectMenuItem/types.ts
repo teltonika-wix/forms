@@ -1,3 +1,3 @@
-import type { SelectMenuItemThemeProps } from './selectMenuItemTheme';
+import type { SelectMenuItemThemeProps } from "./selectMenuItemTheme";
 
-export type SelectMenuItemProps = { isSelected: SelectMenuItemThemeProps['isSelected'] };
+export type SelectMenuItemProps = { isSelected: SelectMenuItemThemeProps["isSelected"] };

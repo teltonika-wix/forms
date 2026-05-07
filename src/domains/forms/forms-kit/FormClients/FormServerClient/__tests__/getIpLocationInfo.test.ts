@@ -1,28 +1,28 @@
-import { isSuccessfulStatusCode } from 'src/utilities';
-import { type Mock, vi } from 'vitest';
-import type { FormSecrets } from '../../../types';
-import { generateFormUrl } from '../generateFormUrl';
-import { getIpLocationInfo } from '../getIpLocationInfo';
+import { isSuccessfulStatusCode } from "src/utilities";
+import { type Mock, vi } from "vitest";
+import type { FormSecrets } from "../../../types";
+import { generateFormUrl } from "../generateFormUrl";
+import { getIpLocationInfo } from "../getIpLocationInfo";
 
-vi.mock('src/utilities', () => ({
+vi.mock("src/utilities", () => ({
   isSuccessfulStatusCode: vi.fn(),
 }));
 
-vi.mock('../generateFormUrl', () => ({
+vi.mock("../generateFormUrl", () => ({
   generateFormUrl: vi.fn(),
 }));
 
 const isSuccessfulStatusCodeMock = isSuccessfulStatusCode as unknown as Mock;
 const generateFormUrlMock = generateFormUrl as unknown as Mock;
 
-describe('getIpLocationInfo', () => {
-  const mockFormMicroserviceUrl = 'https://form-service.com';
-  const mockFormMicroserviceToken = 'secret-token';
+describe("getIpLocationInfo", () => {
+  const mockFormMicroserviceUrl = "https://form-service.com";
+  const mockFormMicroserviceToken = "secret-token";
   const mockFormSecrets: FormSecrets = {
     formMicroserviceUrl: mockFormMicroserviceUrl,
     formMicroserviceToken: mockFormMicroserviceToken,
   };
-  const mockUserIp = '127.0.0.1';
+  const mockUserIp = "127.0.0.1";
   const mockEndpoint = `/location/${mockUserIp}`;
   const mockFormUrl = `${mockFormMicroserviceUrl}${mockEndpoint}`;
 
@@ -33,7 +33,7 @@ describe('getIpLocationInfo', () => {
     vi.clearAllMocks();
   });
 
-  it('should fetch IP location info successfully', async () => {
+  it("should fetch IP location info successfully", async () => {
     generateFormUrlMock.mockResolvedValue(mockFormUrl);
     isSuccessfulStatusCodeMock.mockReturnValue(true);
     fetchMock.mockResolvedValue({
@@ -57,7 +57,7 @@ describe('getIpLocationInfo', () => {
     });
   });
 
-  it('should throw an error if the response status is not successful', async () => {
+  it("should throw an error if the response status is not successful", async () => {
     generateFormUrlMock.mockResolvedValue(mockFormUrl);
     isSuccessfulStatusCodeMock.mockReturnValue(false);
     fetchMock.mockResolvedValue({
@@ -70,7 +70,7 @@ describe('getIpLocationInfo', () => {
         userIp: mockUserIp,
         formSecrets: mockFormSecrets,
       }),
-    ).rejects.toThrow('Failed to fetch form structure');
+    ).rejects.toThrow("Failed to fetch form structure");
 
     expect(fetchMock).toHaveBeenCalledWith(mockFormUrl);
   });

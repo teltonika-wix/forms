@@ -1,4 +1,4 @@
-import { type VariantProps, tv } from 'tailwind-variants';
+import { type VariantProps, tv } from "tailwind-variants";
 
 export const SELECT_MENU_ITEM_TV_THEME = {
   base: /*tw*/ `px-3 py-2 hover:bg-blue-100 dark:hover:bg-grey-700 cursor-pointer duration-200`,

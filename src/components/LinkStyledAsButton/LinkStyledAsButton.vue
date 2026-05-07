@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-import { isSlotEmpty, useAttributes } from 'src/vue-utils';
-import { extractLinkAttrs } from '../Link';
-import { defaultVariants, linkStyledAsButtonTheme } from './linkStyledAsButtonTheme';
-import { type LinkStyledAsButtonProps } from './types';
-import { computed, useSlots } from 'vue';
+import { isSlotEmpty, useAttributes } from "src/vue-utils";
+import { extractLinkAttrs } from "../Link";
+import { defaultVariants, linkStyledAsButtonTheme } from "./linkStyledAsButtonTheme";
+import { type LinkStyledAsButtonProps } from "./types";
+import { computed, useSlots } from "vue";
 
 const {
-  size = defaultVariants['size'],
-  color = defaultVariants['color'],
-  width = defaultVariants['width'],
+  size = defaultVariants["size"],
+  color = defaultVariants["color"],
+  width = defaultVariants["width"],
   external,
   documentTarget,
   relationship,
   disabled,
-  url = '/',
+  url = "/",
   ariaLabel,
 } = defineProps<LinkStyledAsButtonProps>();
 const slots = useSlots();
@@ -43,7 +43,7 @@ const rootClasses = computed(() => {
   const allClasses = [classes.value.base()];
 
   if (disabled) {
-    allClasses.push('disabled');
+    allClasses.push("disabled");
   }
 
   return allClasses;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from "vue";
 
-const isOpen = defineModel<boolean>('isOpen', { default: false });
+const isOpen = defineModel<boolean>("isOpen", { default: false });
 const contentElement = ref<HTMLElement | null>(null);
 const maxHeight = ref(0);
 
@@ -24,7 +24,12 @@ const currentHeight = computed(() => (isOpen.value ? maxHeight.value : 0));
 
 <template>
   <div>
-    <div class="cursor-pointer select-none" tabindex="0" @click="toggleVisibility" @keyup.enter="toggleVisibility">
+    <div
+      class="cursor-pointer select-none"
+      tabindex="0"
+      @click="toggleVisibility"
+      @keyup.enter="toggleVisibility"
+    >
       <slot name="head" :isOpen="isOpen"> </slot>
     </div>
 

@@ -1,12 +1,12 @@
-import { EXPIRY_PERIOD_IN_MS, getExpiryData } from '../getExpiryData';
+import { EXPIRY_PERIOD_IN_MS, getExpiryData } from "../getExpiryData";
 
-describe('getExpiryData', () => {
-  it('should return a correct expiry date 90 days from now', () => {
+describe("getExpiryData", () => {
+  it("should return a correct expiry date 90 days from now", () => {
     const currentTime = Date.now();
     const expectedExpiryDate = currentTime + EXPIRY_PERIOD_IN_MS;
 
     // Mock Date.now to return the current time
-    vi.spyOn(Date, 'now').mockReturnValue(currentTime);
+    vi.spyOn(Date, "now").mockReturnValue(currentTime);
 
     const result = getExpiryData();
 

@@ -1,1 +1,1 @@
-export * from './extractGoogleClickIdParams';
+export * from "./extractGoogleClickIdParams";

@@ -1,1 +1,1 @@
-export * from './getUrlFromBrowser';
+export * from "./getUrlFromBrowser";

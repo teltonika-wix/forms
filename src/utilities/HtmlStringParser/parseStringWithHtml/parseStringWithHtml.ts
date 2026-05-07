@@ -1,8 +1,8 @@
-import { isString } from '../../isString';
-import { type ParsedInnerContent, getInnerContent } from '../getInnerContent';
-import { type ParsedText, getStringBeforeAndAfterTag } from '../getStringBeforeAndAfterTag';
-import { type ParsedTagAttributesData, getTagAttributes } from '../getTagAttributes';
-import { type ParsedTagName, getTagName } from '../getTagName';
+import { isString } from "../../isString";
+import { type ParsedInnerContent, getInnerContent } from "../getInnerContent";
+import { type ParsedText, getStringBeforeAndAfterTag } from "../getStringBeforeAndAfterTag";
+import { type ParsedTagAttributesData, getTagAttributes } from "../getTagAttributes";
+import { type ParsedTagName, getTagName } from "../getTagName";
 
 export type ParsedHtmlStringData = ParsedText & {
   tagName?: ParsedTagName;
@@ -27,7 +27,7 @@ export const parseStringWithHtml = (stringWithHtml: string): ParsedHtmlStringDat
   const isSelfClosingTag = /\/\s*>$/.test(stringWithHtml);
 
   if (isSelfClosingTag) {
-    return { tagName, tagAttributes, innerContent: '', stringBeforeTag: '', stringAfterTag: '' };
+    return { tagName, tagAttributes, innerContent: "", stringBeforeTag: "", stringAfterTag: "" };
   }
 
   const innerContent = getInnerContent(stringWithTagParams);

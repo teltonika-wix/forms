@@ -1,1 +1,1 @@
-export { default as ExpandableBlock } from './ExpandableBlock.vue';
+export { default as ExpandableBlock } from "./ExpandableBlock.vue";

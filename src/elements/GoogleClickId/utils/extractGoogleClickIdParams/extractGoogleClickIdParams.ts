@@ -1,7 +1,7 @@
-import { extractSearchParams, getUrlFromBrowser } from 'src/utilities';
-import type { GoogleClickIdUrlParams } from '../../types';
+import { extractSearchParams, getUrlFromBrowser } from "src/utilities";
+import type { GoogleClickIdUrlParams } from "../../types";
 
-export const GOOGLE_CLICK_ID_PARAMS = ['gclid', 'gclsrc'];
+export const GOOGLE_CLICK_ID_PARAMS = ["gclid", "gclsrc"];
 
 export const extractGoogleClickIdParams = (): GoogleClickIdUrlParams | undefined => {
   try {
@@ -11,9 +11,13 @@ export const extractGoogleClickIdParams = (): GoogleClickIdUrlParams | undefined
       return;
     }
 
-    const [googleClickId, googleClickIdSource] = extractSearchParams(currentUrl, GOOGLE_CLICK_ID_PARAMS);
+    const [googleClickId, googleClickIdSource] = extractSearchParams(
+      currentUrl,
+      GOOGLE_CLICK_ID_PARAMS,
+    );
 
-    const isValidClickIdSource = !googleClickIdSource || (googleClickIdSource ?? '').indexOf('aw') !== -1;
+    const isValidClickIdSource =
+      !googleClickIdSource || (googleClickIdSource ?? "").indexOf("aw") !== -1;
 
     if (!googleClickId || !isValidClickIdSource) {
       return;

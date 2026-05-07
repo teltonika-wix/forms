@@ -1,3 +1,3 @@
-export { default as CheckboxWrapper } from './CheckboxWrapper.vue';
-export * from './checkboxWrapperTheme';
-export type * from './types';
+export { default as CheckboxWrapper } from "./CheckboxWrapper.vue";
+export * from "./checkboxWrapperTheme";
+export type * from "./types";

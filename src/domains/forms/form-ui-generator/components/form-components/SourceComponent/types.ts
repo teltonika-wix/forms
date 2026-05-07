@@ -1,3 +1,3 @@
-import type { BaseFormComponentProps } from '../../../types';
+import type { BaseFormComponentProps } from "../../../types";
 
 export type SourceComponentProps = BaseFormComponentProps & { clientFullUrl: string };

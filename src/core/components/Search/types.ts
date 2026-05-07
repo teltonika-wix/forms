@@ -1,4 +1,4 @@
-import type { SearchSize } from './searchTheme';
+import type { SearchSize } from "./searchTheme";
 
 export type SearchProps = {
   modelValue: string;
@@ -12,5 +12,5 @@ export type ExpandableSearchProps = SearchProps & {
 };
 
 export type SearchEmits = {
-  'update:modelValue': [modelValue: SearchProps['modelValue']];
+  "update:modelValue": [modelValue: SearchProps["modelValue"]];
 };

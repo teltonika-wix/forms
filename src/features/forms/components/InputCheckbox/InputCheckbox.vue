@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { isSlotEmpty } from 'src/vue-utils';
+import { isSlotEmpty } from "src/vue-utils";
 import {
   Checkbox,
   type CheckboxValueChange,
   DEFAULT_CHECKBOX_PROPS,
-} from 'src/legacy/core/components/form/Checkbox';
-import { CheckboxWrapper } from 'src/legacy/core/components/form/CheckboxWrapper';
-import { ErrorMessage, ErrorMessageIcon } from 'src/legacy/core/components/form/ErrorMessage';
-import { inputCheckboxTheme } from './inputCheckboxTheme';
-import type { InputCheckboxEmits, InputCheckboxProps } from './types';
-import { computed, useSlots } from 'vue';
+} from "src/legacy/core/components/form/Checkbox";
+import { CheckboxWrapper } from "src/legacy/core/components/form/CheckboxWrapper";
+import { ErrorMessage, ErrorMessageIcon } from "src/legacy/core/components/form/ErrorMessage";
+import { inputCheckboxTheme } from "./inputCheckboxTheme";
+import type { InputCheckboxEmits, InputCheckboxProps } from "./types";
+import { computed, useSlots } from "vue";
 
 const {
-  value = DEFAULT_CHECKBOX_PROPS['value'],
-  size = DEFAULT_CHECKBOX_PROPS['size'],
+  value = DEFAULT_CHECKBOX_PROPS["value"],
+  size = DEFAULT_CHECKBOX_PROPS["size"],
   id,
   dataTestId,
   ...restProps
@@ -26,7 +26,7 @@ const classes = computed(() => {
 });
 
 const valueChangeHandler: CheckboxValueChange = (...params) => {
-  emits('onValueChange', ...params);
+  emits("onValueChange", ...params);
 };
 
 const slots = useSlots();
@@ -41,7 +41,9 @@ const slots = useSlots();
       <slot name="label" />
     </template>
     <template v-if="!isSlotEmpty(slots.errorMessage)" #errorMessage>
-      <ErrorMessageIcon class="mx-auto mt-1" /><ErrorMessage><slot name="errorMessage" /></ErrorMessage>
+      <ErrorMessageIcon class="mx-auto mt-1" /><ErrorMessage
+        ><slot name="errorMessage"
+      /></ErrorMessage>
     </template>
   </CheckboxWrapper>
 </template>

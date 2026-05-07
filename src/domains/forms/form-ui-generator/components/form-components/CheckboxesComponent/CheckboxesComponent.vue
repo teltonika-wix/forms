@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Text } from 'src/legacy/core/components/Text';
-import { InputCheckbox } from 'src/features/forms/components/InputCheckbox';
-import type { BaseFormComponentProps } from '../../../types';
-import { mapToSpacingClasses } from '../../../utils/mapToSpacingClasses';
-import { CheckboxLabel } from '../CheckboxComponent/components';
-import { ref } from 'vue';
+import { Text } from "src/legacy/core/components/Text";
+import { InputCheckbox } from "src/features/forms/components/InputCheckbox";
+import type { BaseFormComponentProps } from "../../../types";
+import { mapToSpacingClasses } from "../../../utils/mapToSpacingClasses";
+import { CheckboxLabel } from "../CheckboxComponent/components";
+import { ref } from "vue";
 
 const { formInputData } = defineProps<BaseFormComponentProps>();
 const { attributes, options, props, translations } = formInputData;
@@ -25,7 +25,9 @@ const checkboxValueChange = (_: Event, value: string): void => {
 
 <template>
   <div class="mb-6 md:inline-block md:w-2/4 md:pr-6" :class="classes">
-    <Text v-if="translations.label" weight="bold" class="mb-2 text-blue-800">{{ translations.label }}</Text>
+    <Text v-if="translations.label" weight="bold" class="mb-2 text-blue-800">{{
+      translations.label
+    }}</Text>
     <input
       v-for="selected in selectedCheckboxes"
       :key="selected"

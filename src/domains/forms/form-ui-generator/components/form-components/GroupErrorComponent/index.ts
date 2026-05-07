@@ -1,1 +1,1 @@
-export { default as GroupErrorComponent } from './GroupErrorComponent.vue';
+export { default as GroupErrorComponent } from "./GroupErrorComponent.vue";

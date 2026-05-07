@@ -48,9 +48,7 @@ describe("Toggler", () => {
 
     await wrapper.find("label").trigger("keydown.enter");
 
-    expect(wrapper.html()).toMatchSnapshot(
-      "Active state after Enter key press",
-    );
+    expect(wrapper.html()).toMatchSnapshot("Active state after Enter key press");
     expect(wrapper.find("input").element.checked).toBe(true);
   });
 });

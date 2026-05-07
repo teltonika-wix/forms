@@ -1,1 +1,1 @@
-export * from './isKeyInObject';
+export * from "./isKeyInObject";

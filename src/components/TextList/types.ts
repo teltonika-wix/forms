@@ -1,6 +1,11 @@
-import type { Component } from 'vue';
+import type { Component } from "vue";
 
-export type TextListType = 'ordered' | 'unordered' | 'icon-arrow-double' | 'icon-arrow-single' | 'icon-checked';
+export type TextListType =
+  | "ordered"
+  | "unordered"
+  | "icon-arrow-double"
+  | "icon-arrow-single"
+  | "icon-checked";
 
 export type TextListTypeToListItemPrefixComponentMap = {
   [Key in TextListType]: Component;

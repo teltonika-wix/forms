@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/solid';
-import { TextLink } from 'src/legacy/core';
-import type { ExternalHyperlinkProps } from './types';
-import type { ExtractPublicPropTypes } from 'vue';
+import { ArrowTopRightOnSquareIcon } from "@heroicons/vue/24/solid";
+import { TextLink } from "src/legacy/core";
+import type { ExternalHyperlinkProps } from "./types";
+import type { ExtractPublicPropTypes } from "vue";
 
-const { url = '', enableVisitedStyles } = defineProps<ExtractPublicPropTypes<ExternalHyperlinkProps>>();
+const { url = "", enableVisitedStyles } =
+  defineProps<ExtractPublicPropTypes<ExternalHyperlinkProps>>();
 const props = { url, enableVisitedStyles };
 </script>
 

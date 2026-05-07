@@ -1,2 +1,2 @@
-export { default as InputHelper } from './InputHelper.vue';
-export type * from './types';
+export { default as InputHelper } from "./InputHelper.vue";
+export type * from "./types";

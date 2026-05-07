@@ -1,6 +1,10 @@
-import { getYoutubeVideoId } from '../getYoutubeVideoId';
+import { getYoutubeVideoId } from "../getYoutubeVideoId";
 
-export const getYoutubeEmbeddedUrl = (url: string, autoplay = true, enablejsapi = false): string => {
+export const getYoutubeEmbeddedUrl = (
+  url: string,
+  autoplay = true,
+  enablejsapi = false,
+): string => {
   const videoID = getYoutubeVideoId(url);
   let link = `https://www.youtube.com/embed/${videoID}`;
 

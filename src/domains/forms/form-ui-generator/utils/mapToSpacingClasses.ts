@@ -29,9 +29,7 @@ const bottomSpacings = {
   32: "mb-8",
 };
 
-export const mapToSpacingClasses = (
-  spacing?: FormInputSpacingProperty,
-): string => {
+export const mapToSpacingClasses = (spacing?: FormInputSpacingProperty): string => {
   if (!spacing) {
     return "my-2";
   }

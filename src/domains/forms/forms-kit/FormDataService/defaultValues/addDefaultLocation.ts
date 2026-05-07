@@ -1,5 +1,5 @@
-import type { FormInputComponentData } from '../../types';
-import type { IPAddressInfo } from '../ipInfo';
+import type { FormInputComponentData } from "../../types";
+import type { IPAddressInfo } from "../ipInfo";
 
 export type AddDefaultLocationParams = {
   formInputComponents: FormInputComponentData[];
@@ -11,7 +11,7 @@ export const addDefaultLocation = ({
   ipInfo,
 }: AddDefaultLocationParams): FormInputComponentData[] => {
   return formInputComponents.map((input) => {
-    if (input.component === 'LocationSelectComponent') {
+    if (input.component === "LocationSelectComponent") {
       input.defaultValue = ipInfo.countryName;
     }
 

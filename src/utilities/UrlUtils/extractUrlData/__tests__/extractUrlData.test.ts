@@ -1,23 +1,23 @@
-import { type Mock, vi } from 'vitest';
-import { getUrlFromBrowser } from '../../getUrlFromBrowser';
-import { getUrlFromString } from '../../getUrlFromString';
-import { extractUrlData } from '../extractUrlData';
+import { type Mock, vi } from "vitest";
+import { getUrlFromBrowser } from "../../getUrlFromBrowser";
+import { getUrlFromString } from "../../getUrlFromString";
+import { extractUrlData } from "../extractUrlData";
 
-vi.mock('../../getUrlFromBrowser');
-vi.mock('../../getUrlFromString');
+vi.mock("../../getUrlFromBrowser");
+vi.mock("../../getUrlFromString");
 
 const getUrlFromBrowserMock = getUrlFromBrowser as Mock;
 const getUrlFromStringMock = getUrlFromString as Mock;
 
-const baseUrlMock = 'https://example.com';
-const fullUrlMock = 'https://example.com/path?query=1';
+const baseUrlMock = "https://example.com";
+const fullUrlMock = "https://example.com/path?query=1";
 
-describe('extractUrlData', () => {
+describe("extractUrlData", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('should return baseUrl and fullUrl from getUrlFromBrowser', () => {
+  it("should return baseUrl and fullUrl from getUrlFromBrowser", () => {
     const mockUrl = new URL(fullUrlMock);
     getUrlFromBrowserMock.mockReturnValueOnce(mockUrl);
 
@@ -30,7 +30,7 @@ describe('extractUrlData', () => {
     expect(getUrlFromBrowserMock).toHaveBeenCalled();
   });
 
-  it('should return baseUrl and fullUrl from getUrlFromString', () => {
+  it("should return baseUrl and fullUrl from getUrlFromString", () => {
     const mockUrlString = fullUrlMock;
     const mockUrl = new URL(mockUrlString);
     getUrlFromStringMock.mockReturnValueOnce(mockUrl);
@@ -44,22 +44,22 @@ describe('extractUrlData', () => {
     expect(getUrlFromStringMock).toHaveBeenCalledWith(mockUrlString);
   });
 
-  it('should return empty baseUrl and fullUrl if urlInstance is null', () => {
+  it("should return empty baseUrl and fullUrl if urlInstance is null", () => {
     getUrlFromBrowserMock.mockReturnValueOnce(null);
 
     const result = extractUrlData();
 
     expect(result).toEqual({
-      baseUrl: '',
-      fullUrl: '',
+      baseUrl: "",
+      fullUrl: "",
     });
     expect(getUrlFromBrowserMock).toHaveBeenCalled();
   });
 
-  it('should return empty baseUrl and fullUrl if href is empty', () => {
+  it("should return empty baseUrl and fullUrl if href is empty", () => {
     const emptyMockUrl = {
-      origin: '',
-      href: '',
+      origin: "",
+      href: "",
       searchParams: new URLSearchParams(),
     } as unknown as URL;
     getUrlFromBrowserMock.mockReturnValueOnce(emptyMockUrl);
@@ -67,8 +67,8 @@ describe('extractUrlData', () => {
     const result = extractUrlData();
 
     expect(result).toEqual({
-      baseUrl: '',
-      fullUrl: '',
+      baseUrl: "",
+      fullUrl: "",
     });
     expect(getUrlFromBrowserMock).toHaveBeenCalled();
   });

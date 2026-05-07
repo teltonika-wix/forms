@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { CheckIcon, ChevronDoubleRightIcon, ChevronRightIcon } from '@heroicons/vue/24/outline';
-import { Text } from '../../../Text';
-import type { TextListNestedProps, TextListTypeToListItemPrefixComponentMap } from '../../types';
-import ListItemPrefixOrdered from '../ListItemPrefixOrdered/ListItemPrefixOrdered.vue';
-import ListItemPrefixUnordered from '../ListItemPrefixUnordered/ListItemPrefixUnordered.vue';
-import { useListNested } from './composables/useListNested';
-import { computed } from 'vue';
+import { CheckIcon, ChevronDoubleRightIcon, ChevronRightIcon } from "@heroicons/vue/24/outline";
+import { Text } from "../../../Text";
+import type { TextListNestedProps, TextListTypeToListItemPrefixComponentMap } from "../../types";
+import ListItemPrefixOrdered from "../ListItemPrefixOrdered/ListItemPrefixOrdered.vue";
+import ListItemPrefixUnordered from "../ListItemPrefixUnordered/ListItemPrefixUnordered.vue";
+import { useListNested } from "./composables/useListNested";
+import { computed } from "vue";
 
 const listTypeToListItemPrefixComponentMap: TextListTypeToListItemPrefixComponentMap = {
   ordered: ListItemPrefixOrdered,
   unordered: ListItemPrefixUnordered,
-  'icon-checked': CheckIcon,
-  'icon-arrow-double': ChevronDoubleRightIcon,
-  'icon-arrow-single': ChevronRightIcon,
+  "icon-checked": CheckIcon,
+  "icon-arrow-double": ChevronDoubleRightIcon,
+  "icon-arrow-single": ChevronRightIcon,
 };
 
-const { type = 'unordered', items, punctuation, level } = defineProps<TextListNestedProps>();
+const { type = "unordered", items, punctuation, level } = defineProps<TextListNestedProps>();
 
 const allProps = computed(() => {
   return { items, punctuation, level, type };

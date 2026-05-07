@@ -1,19 +1,19 @@
-import { createBadResponse, extractErrorMessage } from 'src/utilities';
-import { type Mock, vi } from 'vitest';
-import { validateFormParams } from '../../../utils/validateFormParams';
-import { createFullFormUrl } from '../createFullFormUrl';
-import { sendFormData } from '../sendFormData';
+import { createBadResponse, extractErrorMessage } from "src/utilities";
+import { type Mock, vi } from "vitest";
+import { validateFormParams } from "../../../utils/validateFormParams";
+import { createFullFormUrl } from "../createFullFormUrl";
+import { sendFormData } from "../sendFormData";
 
-vi.mock('src/utilities', () => ({
+vi.mock("src/utilities", () => ({
   createBadResponse: vi.fn(),
   extractErrorMessage: vi.fn(),
 }));
 
-vi.mock('../../../utils/validateFormParams', () => ({
+vi.mock("../../../utils/validateFormParams", () => ({
   validateFormParams: vi.fn(),
 }));
 
-vi.mock('../createFullFormUrl', () => ({
+vi.mock("../createFullFormUrl", () => ({
   createFullFormUrl: vi.fn(),
 }));
 
@@ -22,11 +22,11 @@ const createFullFormUrlMock = createFullFormUrl as unknown as Mock;
 const createBadResponseMock = createBadResponse as unknown as Mock;
 const extractErrorMessageMock = extractErrorMessage as unknown as Mock;
 
-describe('sendFormData', () => {
-  const mockFormWebClientEndpoint = '/form-endpoint';
-  const mockOrigin = 'https://example.com';
-  const mockFormCode = 'ContactForm';
-  const mockFormUrlParameters = { language: 'en', form: mockFormCode };
+describe("sendFormData", () => {
+  const mockFormWebClientEndpoint = "/form-endpoint";
+  const mockOrigin = "https://example.com";
+  const mockFormCode = "ContactForm";
+  const mockFormUrlParameters = { language: "en", form: mockFormCode };
   const mockFormData = new FormData();
   const mockFullUrl = `${mockOrigin}${mockFormWebClientEndpoint}?language=en&form=${mockFormCode}`;
 
@@ -37,7 +37,7 @@ describe('sendFormData', () => {
     vi.clearAllMocks();
   });
 
-  it('should send form data successfully', async () => {
+  it("should send form data successfully", async () => {
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     createFullFormUrlMock.mockReturnValue(mockFullUrl);
 
@@ -58,7 +58,7 @@ describe('sendFormData', () => {
       formWebClientEndpoint: mockFormWebClientEndpoint,
     });
     expect(fetchMock).toHaveBeenCalledWith(mockFullUrl, {
-      method: 'POST',
+      method: "POST",
       body: mockFormData,
     });
     expect(result).toEqual({
@@ -67,8 +67,8 @@ describe('sendFormData', () => {
     });
   });
 
-  it('should return a bad response if form validation fails', async () => {
-    const mockErrorMessage = 'Validation error';
+  it("should return a bad response if form validation fails", async () => {
+    const mockErrorMessage = "Validation error";
     validateFormParamsMock.mockImplementation(() => {
       throw new Error(mockErrorMessage);
     });
@@ -84,12 +84,12 @@ describe('sendFormData', () => {
     expect(result).toEqual(createBadResponseMock());
   });
 
-  it('should return a bad response if the fetch fails', async () => {
-    const mockFetchError = new Error('Fetch error');
+  it("should return a bad response if the fetch fails", async () => {
+    const mockFetchError = new Error("Fetch error");
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     createFullFormUrlMock.mockReturnValue(mockFullUrl);
     fetchMock.mockRejectedValue(mockFetchError);
-    extractErrorMessageMock.mockReturnValue('Fetch error occurred');
+    extractErrorMessageMock.mockReturnValue("Fetch error occurred");
 
     const result = await sendFormData({
       formData: mockFormData,
@@ -97,7 +97,7 @@ describe('sendFormData', () => {
       formWebClientEndpoint: mockFormWebClientEndpoint,
     });
 
-    expect(createBadResponseMock).toHaveBeenCalledWith({ errorMessage: 'Fetch error occurred' });
+    expect(createBadResponseMock).toHaveBeenCalledWith({ errorMessage: "Fetch error occurred" });
     expect(result).toEqual(createBadResponseMock());
   });
 });

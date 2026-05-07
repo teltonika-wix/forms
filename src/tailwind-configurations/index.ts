@@ -1,1 +1,1 @@
-export { default as tailwindPreset } from './tailwindPreset';
+export { default as tailwindPreset } from "./tailwindPreset";

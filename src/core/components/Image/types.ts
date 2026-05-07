@@ -1,6 +1,18 @@
-export type ImageSizes = ('312' | '424' | '536' | '648' | '760' | '872' | '984' | '1096' | '1208' | '1320' | '1920')[];
+export type ImageSizes = (
+  | "312"
+  | "424"
+  | "536"
+  | "648"
+  | "760"
+  | "872"
+  | "984"
+  | "1096"
+  | "1208"
+  | "1320"
+  | "1920"
+)[];
 
-export type BreakpointNames = 'sm' | 'md' | 'lg' | 'xl';
+export type BreakpointNames = "sm" | "md" | "lg" | "xl";
 
 export type SizesVariants = {
   [key in BreakpointNames]?: string;

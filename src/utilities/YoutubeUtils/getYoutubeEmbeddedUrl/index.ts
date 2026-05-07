@@ -1,1 +1,1 @@
-export * from './getYoutubeEmbeddedUrl';
+export * from "./getYoutubeEmbeddedUrl";

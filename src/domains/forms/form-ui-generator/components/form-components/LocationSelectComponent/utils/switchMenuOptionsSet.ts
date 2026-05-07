@@ -1,7 +1,7 @@
-import { isString } from 'src/utilities';
-import type { FormInputsState } from '../../../../stores/FormStateFactory';
-import type { LocationSelectOption, MenuOptionsMapByParent } from './extractSelectMenuOptions';
-import { type ComputedRef, computed } from 'vue';
+import { isString } from "src/utilities";
+import type { FormInputsState } from "../../../../stores/FormStateFactory";
+import type { LocationSelectOption, MenuOptionsMapByParent } from "./extractSelectMenuOptions";
+import { type ComputedRef, computed } from "vue";
 
 export type SwitchMenuOptionsSetParams = {
   menuOptions: MenuOptionsMapByParent;

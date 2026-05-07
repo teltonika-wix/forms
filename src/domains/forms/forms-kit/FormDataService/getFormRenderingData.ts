@@ -1,12 +1,20 @@
-import { FormServerClient } from '../FormClients/FormServerClient';
-import { FormWebClient } from '../FormClients/FormWebClient';
-import type { BrowserFormRenderingParams, FormRenderingDataResponse, ServerFormRenderingParams } from '../types';
-import { addDefaultLocation } from './defaultValues/addDefaultLocation';
-import { getIpInfo } from './ipInfo';
+import { FormServerClient } from "../FormClients/FormServerClient";
+import { FormWebClient } from "../FormClients/FormWebClient";
+import type {
+  BrowserFormRenderingParams,
+  FormRenderingDataResponse,
+  ServerFormRenderingParams,
+} from "../types";
+import { addDefaultLocation } from "./defaultValues/addDefaultLocation";
+import { getIpInfo } from "./ipInfo";
 
 export type GetFormRenderingData = {
-  (parameters: BrowserFormRenderingParams & Partial<ServerFormRenderingParams>): Promise<FormRenderingDataResponse>;
-  (parameters: ServerFormRenderingParams & Partial<BrowserFormRenderingParams>): Promise<FormRenderingDataResponse>;
+  (
+    parameters: BrowserFormRenderingParams & Partial<ServerFormRenderingParams>,
+  ): Promise<FormRenderingDataResponse>;
+  (
+    parameters: ServerFormRenderingParams & Partial<BrowserFormRenderingParams>,
+  ): Promise<FormRenderingDataResponse>;
 };
 
 export const getFormRenderingData: GetFormRenderingData = async ({
@@ -16,16 +24,18 @@ export const getFormRenderingData: GetFormRenderingData = async ({
   formUrlParameters,
   isDev,
 }) => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     if (!formWebClientEndpoint) {
-      throw new Error('To fetch form data on the browser side, the form api endpoint must be provided.');
+      throw new Error(
+        "To fetch form data on the browser side, the form api endpoint must be provided.",
+      );
     }
 
     return FormWebClient.getFormRenderingData({ formUrlParameters, formWebClientEndpoint, isDev });
   }
 
   if (!formSecrets) {
-    throw new Error('To fetch form data on the server side, the form secrets must be provided.');
+    throw new Error("To fetch form data on the server side, the form secrets must be provided.");
   }
 
   const [formRenderingData, ipInfo] = await Promise.all([
@@ -37,7 +47,10 @@ export const getFormRenderingData: GetFormRenderingData = async ({
     return formRenderingData;
   }
 
-  formRenderingData.inputs = addDefaultLocation({ formInputComponents: formRenderingData.inputs, ipInfo });
+  formRenderingData.inputs = addDefaultLocation({
+    formInputComponents: formRenderingData.inputs,
+    ipInfo,
+  });
 
   return formRenderingData;
 };

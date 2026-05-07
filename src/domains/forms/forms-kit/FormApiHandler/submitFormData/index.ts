@@ -1,1 +1,1 @@
-export * from './submitFormData';
+export * from "./submitFormData";

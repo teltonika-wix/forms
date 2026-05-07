@@ -1,1 +1,1 @@
-export * from './isError';
+export * from "./isError";

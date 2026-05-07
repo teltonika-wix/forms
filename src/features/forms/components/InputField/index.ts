@@ -1,3 +1,3 @@
-export { default as InputField } from './InputField.vue';
-export * from './InputField.vue';
-export type * from './types';
+export { default as InputField } from "./InputField.vue";
+export * from "./InputField.vue";
+export type * from "./types";

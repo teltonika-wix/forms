@@ -1,10 +1,10 @@
-import { sortObjectsAlphabetically } from './sortObjectsAlphabetically';
+import { sortObjectsAlphabetically } from "./sortObjectsAlphabetically";
 
-export type * from './types';
+export type * from "./types";
 
 export const ObjectSorting = {
   sortAlphabetically: sortObjectsAlphabetically,
 };
 
-export * from './sortObjectsAlphabetically';
-export * from './sortObjectsNumerically';
+export * from "./sortObjectsAlphabetically";
+export * from "./sortObjectsNumerically";

@@ -39,15 +39,7 @@ export type FormInputComponentData = {
     name: string;
     style?: string;
 
-    inputmode:
-      | "none"
-      | "text"
-      | "decimal"
-      | "numeric"
-      | "tel"
-      | "search"
-      | "email"
-      | "url";
+    inputmode: "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url";
 
     // Textarea attrs
     max?: number;

@@ -1,8 +1,8 @@
-import { getCookie } from '../getCookie';
+import { getCookie } from "../getCookie";
 
 export const isAdwords = (): number => {
   try {
-    return getCookie('_gcl_aw') !== '' || isWixAdwords() ? 1 : 0;
+    return getCookie("_gcl_aw") !== "" || isWixAdwords() ? 1 : 0;
   } catch {
     return 0;
   }
@@ -10,7 +10,7 @@ export const isAdwords = (): number => {
 
 const isWixAdwords = (): boolean => {
   try {
-    const wixUTM: string | null = localStorage.getItem('utm_campaign');
+    const wixUTM: string | null = localStorage.getItem("utm_campaign");
 
     if (!wixUTM) return false;
 

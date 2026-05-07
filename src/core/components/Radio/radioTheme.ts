@@ -1,4 +1,4 @@
-import { type VariantProps, tv } from 'tailwind-variants';
+import { type VariantProps, tv } from "tailwind-variants";
 
 export const base = `
   block 
@@ -23,35 +23,35 @@ export const radioTheme = tv({
   variants: {
     size: {
       small: {
-        base: 'size-4 before:size-2.5',
-        inputContainer: 'size-6',
-        label: 'text-xs',
+        base: "size-4 before:size-2.5",
+        inputContainer: "size-6",
+        label: "text-xs",
       },
 
       medium: {
-        base: 'size-6 before:size-4',
-        inputContainer: 'size-8',
+        base: "size-6 before:size-4",
+        inputContainer: "size-8",
       },
     },
 
     isSelected: {
-      true: 'border-blue-600 before:bg-blue-600 group-hover:border-blue-700 group-hover:before:bg-blue-700 dark:group-hover:border-blue-500 dark:group-hover:before:bg-blue-500',
-      false: 'border-grey-400 group-hover:border-grey-600',
+      true: "border-blue-600 before:bg-blue-600 group-hover:border-blue-700 group-hover:before:bg-blue-700 dark:group-hover:border-blue-500 dark:group-hover:before:bg-blue-500",
+      false: "border-grey-400 group-hover:border-grey-600",
     },
 
     containerSize: {
-      small: 'size-6',
-      medium: 'size-8',
+      small: "size-6",
+      medium: "size-8",
     },
   },
 
   defaultVariants: {
-    size: 'small',
+    size: "small",
   },
 
   slots: {
-    inputContainer: 'pointer-events-none relative inline-flex items-center justify-center',
-    label: 'text-grey-600 dark:text-grey-400 cursor-pointer pr-0.5 pt-1 text-start',
+    inputContainer: "pointer-events-none relative inline-flex items-center justify-center",
+    label: "text-grey-600 dark:text-grey-400 cursor-pointer pr-0.5 pt-1 text-start",
   },
 });
 

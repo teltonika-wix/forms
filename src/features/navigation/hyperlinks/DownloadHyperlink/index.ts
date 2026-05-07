@@ -1,1 +1,1 @@
-export { default as DownloadHyperlink } from './DownloadHyperlink.vue';
+export { default as DownloadHyperlink } from "./DownloadHyperlink.vue";
