@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Counter > Should render 3/10 > Counter 3 / 10 1`] = `"<p class="font-inter break-words text-body-xs font-normal text-grey-600 whitespace-nowrap">3 / 10</p>"`;
+
+exports[`Counter > Should render without props > Without props 1`] = `"<p class="font-inter break-words text-body-xs font-normal text-grey-600 whitespace-nowrap">0 / </p>"`;

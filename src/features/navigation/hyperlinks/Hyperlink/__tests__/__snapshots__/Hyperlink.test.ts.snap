@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Hyperlink > renders the component and matches snapshot, when text is provided 1`] = `
+"<a href="https://www.google.com/" class="relative inline rounded-sm text-blue-600 ring-blue-600 ring-offset-2 ring-offset-white focus:outline-none focus-visible:ring-2 active:outline-none dark:text-white dark:ring-white dark:ring-offset-black before:absolute before:right-0 before:bottom-0 before:h-px before:w-0 before:bg-blue-600 before:duration-200 before:hover:left-0 hover:before:w-full dark:before:bg-white inline-flex items-center">Hyperlink text<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="ml-1 size-4">
+    <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd"></path>
+  </svg></a>"
+`;

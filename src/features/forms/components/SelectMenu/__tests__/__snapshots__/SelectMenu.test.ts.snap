@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectMenu > Should check base rendering > Selected 1`] = `
+"<div>
+  <select-menu-dropdown-stub selectmenuoptions="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" disabled="false" search="false"></select-menu-dropdown-stub>
+  <div class="mt-1 grid grid-cols-[min-content_auto] gap-x-1">
+    <error-message-icon-stub class="mt-0.5"></error-message-icon-stub>
+    <error-message-stub></error-message-stub>
+  </div>
+</div>"
+`;

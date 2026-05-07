@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tab > Renders properly simple tab 1`] = `
+"<div>
+  <div>Body of tab</div>
+</div>"
+`;

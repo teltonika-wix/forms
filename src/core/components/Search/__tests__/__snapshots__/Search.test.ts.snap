@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Search Component > opens input and fills it 1`] = `
+"<div class="flex w-full items-center space-x-2">
+  <div class="cursor-pointer select-none size-8">
+    <render-stub class="text-grey-800"></render-stub>
+  </div>
+  <div class="bg-grey-800 w-px h-6"></div>
+  <div class="w-full flex-grow h-8"><input class="placeholder:text-grey-600 w-full bg-transparent outline-none text-body-large" type="text" enterkeyhint="search" placeholder="Search" title="Search input" value=""></div><button class="size-8" aria-label="Clear search input">
+    <render-stub class="text-grey-800 md:text-grey-400 md:hover:text-grey-800 duration-200"></render-stub>
+  </button>
+</div>"
+`;
+
+exports[`Search Component > renders properly 1`] = `
+"<div class="flex w-full items-center space-x-2">
+  <div class="cursor-pointer select-none size-8"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="text-grey-800">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+    </svg></div>
+  <div class="bg-grey-800 w-px h-6"></div>
+  <div class="w-full flex-grow h-8"><input class="placeholder:text-grey-600 w-full bg-transparent outline-none text-body-large" type="text" enterkeyhint="search" placeholder="Search" title="Search input" value=""></div><button class="size-8" aria-label="Clear search input"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="text-grey-800 md:text-grey-400 md:hover:text-grey-800 duration-200">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+    </svg></button>
+</div>"
+`;

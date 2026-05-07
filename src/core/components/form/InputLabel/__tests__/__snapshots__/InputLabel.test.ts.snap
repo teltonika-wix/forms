@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input label > Should render as disabled label > Error label 1`] = `"<label class="font-inter break-words text-body-xs font-normal text-base text-grey-500"></label>"`;
+
+exports[`Input label > Should render as error label > Error label 1`] = `"<label class="font-inter break-words text-body-xs font-normal text-base text-pink-700 group-hover:text-pink-500 dark:text-pink-300 dark:group-hover:text-pink-300"></label>"`;
+
+exports[`Input label > Should render as label with for=... attribute > Error label 1`] = `"<label for="input-id" class="font-inter break-words text-body-xs font-normal text-base text-grey-600 group-hover:text-grey-800 peer-has-[:focus]:text-blue-800 dark:text-grey-400 dark:group-hover:text-white dark:peer-has-[:focus]:text-white"></label>"`;
+
+exports[`Input label > Should render without any props > Default props 1`] = `"<text-stub size="xs" tag="label" class="text-base text-grey-600 group-hover:text-grey-800 peer-has-[:focus]:text-blue-800 dark:text-grey-400 dark:group-hover:text-white dark:peer-has-[:focus]:text-white"></text-stub>"`;

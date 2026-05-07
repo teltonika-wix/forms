@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ListItemPrefixUnordered > renders properly > Bubble is visible 1`] = `"<span class="mr-[0.625rem] mt-[0.625rem] inline-block size-1 rounded-full bg-gray-800"></span>"`;

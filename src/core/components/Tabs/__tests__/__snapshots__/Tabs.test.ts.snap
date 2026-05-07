@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tabs > Renders properly with all props/slots provided 1`] = `
+"<div data-v-ecd914b9="" class="relative">
+  <!--v-if-->
+  <!--v-if-->
+  <div data-v-ecd914b9="" class="">
+    <div data-v-ecd914b9="" class="invisible-scrollbar mb-6 flex overflow-x-auto md:mb-12">
+      <div data-v-ecd914b9="" class="border-grey-400 grow border-b"></div>
+      <div data-v-ecd914b9="" class="border-grey-400 grow border-b"></div>
+    </div>
+  </div>
+  <div data-v-ecd914b9="">
+    <tabs-slot-mock-stub></tabs-slot-mock-stub>
+  </div>
+</div>"
+`;

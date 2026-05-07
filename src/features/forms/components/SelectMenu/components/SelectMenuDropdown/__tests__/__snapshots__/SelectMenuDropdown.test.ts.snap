@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectMenuDropdown > Should check base rendering > Default props 1`] = `
+"<div data-v-2f23b3e6="" class="w-full cursor-pointer"></div>
+<transition-stub data-v-2f23b3e6="" appear="false" persisted="false" css="true">
+  <!--v-if-->
+</transition-stub>"
+`;

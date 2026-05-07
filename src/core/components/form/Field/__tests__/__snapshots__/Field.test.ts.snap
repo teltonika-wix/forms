@@ -1,0 +1,79 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Form field > Should render without any props and slots > Default props 1`] = `
+"<div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-grey-400 hover:outline-grey-600 focus-within:outline-blue-600 hover:focus-within:outline-blue-600 bg-white dark:bg-grey-800 dark:text-white dark:outline-grey-600 dark:hover:outline-grey-400 dark:focus-within:outline-blue-600 dark:hover:focus-within:outline-blue-600 px-3 py-4">
+  <div class="flex">
+    <div class="peer flex flex-1 flex-col-reverse">
+      <div class="peer w-full"></div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`Form field > should render default field with input element in slot > Input element in slot 1`] = `
+"<div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-grey-400 hover:outline-grey-600 focus-within:outline-blue-600 hover:focus-within:outline-blue-600 bg-white dark:bg-grey-800 dark:text-white dark:outline-grey-600 dark:hover:outline-grey-400 dark:focus-within:outline-blue-600 dark:hover:focus-within:outline-blue-600 px-3 py-4">
+  <div class="flex">
+    <div class="peer flex flex-1 flex-col-reverse">
+      <div class="peer w-full"><input type="text"></div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`Form field > should render default field with input element in slot and information tooltip > Input element in slot and information tooltip 1`] = `
+"<div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-grey-400 hover:outline-grey-600 focus-within:outline-blue-600 hover:focus-within:outline-blue-600 bg-white dark:bg-grey-800 dark:text-white dark:outline-grey-600 dark:hover:outline-grey-400 dark:focus-within:outline-blue-600 dark:hover:focus-within:outline-blue-600 px-3 py-4">
+  <div class="flex">
+    <div class="peer flex flex-1 flex-col-reverse">
+      <div class="peer w-full"><input type="text"></div>
+      <!--v-if-->
+    </div>
+    <div class="inline-block cursor-pointer mt-2 h-fit peer-has-[textarea]:mt-4" data-testid="tooltip-reference-0" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-6 text-blue-800 dark:text-white">
+        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"></path>
+      </svg></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`Form field > should render default field with textarea element in slot and information tooltip > Input element in slot and information tooltip 1`] = `
+"<div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-grey-400 hover:outline-grey-600 focus-within:outline-blue-600 hover:focus-within:outline-blue-600 bg-white dark:bg-grey-800 dark:text-white dark:outline-grey-600 dark:hover:outline-grey-400 dark:focus-within:outline-blue-600 dark:hover:focus-within:outline-blue-600 px-3 py-4">
+  <div class="flex">
+    <div class="peer flex flex-1 flex-col-reverse">
+      <div class="peer w-full"><textarea></textarea></div>
+      <!--v-if-->
+    </div>
+    <div class="inline-block cursor-pointer mt-2 h-fit peer-has-[textarea]:mt-4" data-testid="tooltip-reference-0" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-6 text-blue-800 dark:text-white">
+        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"></path>
+      </svg></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`Form field > should render disabled field > Disabled field 1`] = `
+"<div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-grey-600 bg-grey-200 dark:text-grey-500 dark:bg-grey-700 px-3 py-4">
+  <div class="flex">
+    <div class="peer flex flex-1 flex-col-reverse">
+      <div class="peer w-full"></div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`Form field > should render error field > Error field 1`] = `
+"<div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-pink-700 hover:outline-pink-500 focus-within:outline-blue-600 hover:focus-within:outline-blue-600 bg-white dark:bg-grey-800 dark:text-white dark:outline-pink-300 dark:hover:outline-pink-500 dark:focus-within:outline-blue-600 dark:hover:focus-within:outline-blue-600 px-3 py-4">
+  <div class="flex">
+    <div class="peer flex flex-1 flex-col-reverse">
+      <div class="peer w-full"></div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;

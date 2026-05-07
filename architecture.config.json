@@ -1,0 +1,57 @@
+{
+  "sourceRoot": "src",
+  "baselineFile": "docs/architecture/baseline-violations.txt",
+  "rules": [
+    {
+      "id": "no-core-imports-outside-core",
+      "type": "restricted-import-prefix",
+      "message": "Import from src/core is restricted to core/legacy boundaries during migration.",
+      "appliesToPrefixes": ["src/"],
+      "excludePrefixes": ["src/core/", "src/legacy/"],
+      "forbiddenImportPrefixes": ["src/core", "src/core/"],
+      "allowedImportPrefixes": []
+    },
+    {
+      "id": "no-elements-form-components-imports-outside-elements",
+      "type": "restricted-import-prefix",
+      "message": "Use src/features/forms/components instead of src/elements/form-components.",
+      "appliesToPrefixes": ["src/"],
+      "excludePrefixes": ["src/elements/", "src/legacy/"],
+      "forbiddenImportPrefixes": [
+        "src/elements/form-components",
+        "src/elements/form-components/"
+      ],
+      "allowedImportPrefixes": []
+    },
+    {
+      "id": "no-form-ui-generator-imports-outside-compat",
+      "type": "restricted-import-prefix",
+      "message": "Use src/domains/forms/form-ui-generator instead of src/FormUiGenerator.",
+      "appliesToPrefixes": ["src/"],
+      "excludePrefixes": ["src/FormUiGenerator/", "src/legacy/"],
+      "forbiddenImportPrefixes": ["src/FormUiGenerator", "src/FormUiGenerator/"],
+      "allowedImportPrefixes": []
+    },
+    {
+      "id": "no-forms-kit-imports-outside-compat",
+      "type": "restricted-import-prefix",
+      "message": "Use src/domains/forms/forms-kit instead of src/forms-kit.",
+      "appliesToPrefixes": ["src/"],
+      "excludePrefixes": ["src/forms-kit/", "src/legacy/"],
+      "forbiddenImportPrefixes": ["src/forms-kit", "src/forms-kit/"],
+      "allowedImportPrefixes": []
+    },
+    {
+      "id": "no-elements-hyperlinks-imports-outside-elements",
+      "type": "restricted-import-prefix",
+      "message": "Use src/features/navigation/hyperlinks instead of src/elements/hyperlinks.",
+      "appliesToPrefixes": ["src/"],
+      "excludePrefixes": ["src/elements/", "src/legacy/"],
+      "forbiddenImportPrefixes": [
+        "src/elements/hyperlinks",
+        "src/elements/hyperlinks/"
+      ],
+      "allowedImportPrefixes": []
+    }
+  ]
+}

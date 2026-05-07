@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LinkStyledAsButton > renders properly > With default props filled 1`] = `
+"<a class="font-oswald justify-center items-center rounded font-medium py-3 px-4 text-lg leading-6 w-full focus-within:[&amp;:not(:disabled)]:outline focus:[&amp;:not(:disabled)]:outline active:[&amp;:not(:disabled)]:outline focus-within:outline-2 focus:outline-2 active:outline-2 uppercase transition-colors duration-200 group-[.fixed]:transform group-[.fixed]:rotate-180 group-[.fixed]:rounded-l-none group-[.fixed]:px-3 group-[.fixed]:py-4 inline-flex text-center bg-electric-500 text-grey-900 hover:bg-electric-300 focus-within:outline-blue-600 focus:outline-blue-600 active:outline-blue-600 focus-within:bg-electric-500 focus:bg-electric-500 active:bg-electric-500 group-[.fixed]:md:px-2.5 group-[.fixed]:md:py-6 md:text-base md:leading-5 md:py-2.5 md:px-6 md:w-auto" href="https://google.com">
+  <!--v-if--><span class="inline-flex [&amp;+*]:pl-2">Button text</span>
+  <!--v-if-->
+</a>"
+`;

@@ -1,0 +1,93 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputCheckbox > renders input Id properly > Checkbox has inputId 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]" modelvalue="false">
+  <div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-4 w-4 row-start-1 row-end-2 my-1 justify-self-center"><input id="testInputId" type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-blue-600 peer-hover:text-blue-700">
+      <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+      <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all text-grey-400 peer-hover:text-grey-600">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+    </svg></div><label for="testInputId" class="font-inter break-words text-body-s font-normal row-start-1 row-end-2 self-center text-gray-500">Label</label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`InputCheckbox > renders properly > Checkbox is empty 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]" modelvalue="false">
+  <div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-4 w-4 row-start-1 row-end-2 my-1 justify-self-center"><input type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-blue-600 peer-hover:text-blue-700">
+      <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+      <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all text-grey-400 peer-hover:text-grey-600">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+    </svg></div>
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`InputCheckbox > renders properly with error > Checkbox has error 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]" modelvalue="false">
+  <div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-4 w-4 row-start-1 row-end-2 my-1 justify-self-center"><input type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-blue-600 peer-hover:text-blue-700">
+      <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+      <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all text-grey-400 peer-hover:text-grey-600">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+    </svg></div>
+  <!--v-if--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="text-pink-700 dark:text-pink-300 size-4 mx-auto mt-1">
+    <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"></path>
+  </svg>
+  <p class="font-inter break-words text-body-s font-normal text-pink-700 dark:text-pink-300">Error</p>
+</div>"
+`;
+
+exports[`InputCheckbox > renders properly with error prop > Checkbox is red 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]" modelvalue="false">
+  <div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-4 w-4 row-start-1 row-end-2 my-1 justify-self-center"><input type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-pink-700 peer-hover:text-pink-500">
+      <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+      <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all peer-hover:text-pink-500 text-pink-700">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+    </svg></div>
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`InputCheckbox > renders properly with label > Checkbox has label 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]" modelvalue="false">
+  <div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-4 w-4 row-start-1 row-end-2 my-1 justify-self-center"><input type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-blue-600 peer-hover:text-blue-700">
+      <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+      <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all text-grey-400 peer-hover:text-grey-600">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+    </svg></div><label class="font-inter break-words text-body-s font-normal row-start-1 row-end-2 self-center text-gray-500">Label</label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`InputCheckbox > renders properly with label and error > Checkbox has label and error 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]" modelvalue="false">
+  <div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-4 w-4 row-start-1 row-end-2 my-1 justify-self-center"><input type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-blue-600 peer-hover:text-blue-700">
+      <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+      <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all text-grey-400 peer-hover:text-grey-600">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+    </svg></div><label class="font-inter break-words text-body-s font-normal row-start-1 row-end-2 self-center text-gray-500">Label</label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="text-pink-700 dark:text-pink-300 size-4 mx-auto mt-1">
+    <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"></path>
+  </svg>
+  <p class="font-inter break-words text-body-s font-normal text-pink-700 dark:text-pink-300">Error</p>
+</div>"
+`;
+
+exports[`InputCheckbox > renders properly with size prop > Checkbox is large 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]" modelvalue="false">
+  <div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-6 w-6 row-start-1 row-end-2 my-1 justify-self-center"><input type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-blue-600 peer-hover:text-blue-700">
+      <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+      <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all text-grey-400 peer-hover:text-grey-600">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+    </svg></div>
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;

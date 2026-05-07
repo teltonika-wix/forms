@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectMenuItem > Should check rendering when not selected > Not selected 1`] = `"<li class="px-3 py-2 hover:bg-blue-100 dark:hover:bg-grey-700 cursor-pointer duration-200"></li>"`;
+
+exports[`SelectMenuItem > Should check rendering when selected > Selected 1`] = `"<li class="px-3 py-2 hover:bg-blue-100 dark:hover:bg-grey-700 cursor-pointer duration-200 bg-blue-100 dark:bg-grey-700"></li>"`;

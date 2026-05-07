@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Expandable Component > opens input and fills it 1`] = `
+"<div class="flex items-center space-x-2 md:relative md:w-max relative" extended="true"><button class="h-6 w-6 cursor-pointer select-none" aria-label="Open searchable input">
+    <render-stub class="text-grey-800 dark:text-white"></render-stub>
+  </button>
+  <transition-group-stub appear="false" persisted="false" css="true">
+    <div class="font-inter hidden transform cursor-pointer select-none overflow-hidden font-bold transition-all duration-200 md:block dark:text-white" style="width: 2px;">Search</div>
+    <div class="flex flex-grow items-center space-x-2 overflow-hidden transition-all duration-200 w-0">
+      <!--v-if-->
+      <div class="h-6 flex-grow transition-all duration-200 opacity-0"><input class="placeholder:text-grey-600 dark:placeholder:text-grey-400 w-full bg-transparent outline-none md:w-[12.5rem] dark:text-white" type="text" placeholder="Search" title="Search input" aria-expanded="" value=""></div><button class="h-6 w-6" aria-label="Close searchable input">
+        <render-stub class="text-grey-800 md:text-grey-400 md:hover:text-grey-800 dark:hover:text-grey-400 duration-200 dark:text-white"></render-stub>
+      </button>
+    </div>
+  </transition-group-stub>
+</div>"
+`;
+
+exports[`Expandable Component > renders properly 1`] = `
+"<div class="flex items-center space-x-2 md:relative md:w-max relative"><button class="h-6 w-6 cursor-pointer select-none" aria-label="Open searchable input"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="text-grey-800 dark:text-white">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+    </svg></button>
+  <transition-group-stub appear="false" persisted="false" css="true">
+    <div class="font-inter hidden transform cursor-pointer select-none overflow-hidden font-bold transition-all duration-200 md:block dark:text-white">Search</div>
+    <div class="flex flex-grow items-center space-x-2 overflow-hidden transition-all duration-200 w-0">
+      <!--v-if-->
+      <div class="h-6 flex-grow transition-all duration-200 opacity-0"><input class="placeholder:text-grey-600 dark:placeholder:text-grey-400 w-full bg-transparent outline-none md:w-[12.5rem] dark:text-white" type="text" placeholder="Search" title="Search input" aria-expanded="" value=""></div><button class="h-6 w-6" aria-label="Close searchable input"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="text-grey-800 md:text-grey-400 md:hover:text-grey-800 dark:hover:text-grey-400 duration-200 dark:text-white">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+        </svg></button>
+    </div>
+  </transition-group-stub>
+</div>"
+`;

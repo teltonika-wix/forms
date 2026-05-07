@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ButtonStyledAsLink > renders properly > With default slot filled 1`] = `"<button class="relative inline rounded-sm text-blue-600 ring-blue-600 ring-offset-2 ring-offset-white focus:outline-none focus-visible:ring-2 active:outline-none dark:text-white dark:ring-white dark:ring-offset-black before:absolute before:right-0 before:bottom-0 before:h-px before:w-0 before:bg-blue-600 before:duration-200 before:hover:left-0 hover:before:w-full dark:before:bg-white" type="button">Link text</button>"`;

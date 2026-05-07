@@ -1,0 +1,257 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Text > renders properly 1`] = `"<p class="font-inter break-words text-body-m font-normal"></p>"`;
+
+exports[`Text > renders properly with different props 1`] = `"<span class="font-inter break-words font-bold" default="Hello text"></span>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h1, weight: bold 1`] = `"<h1 class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></h1>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h1, weight: normal 1`] = `"<h1 class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></h1>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h2, weight: bold 1`] = `"<h2 class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></h2>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h2, weight: normal 1`] = `"<h2 class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></h2>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h3, weight: bold 1`] = `"<h3 class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></h3>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h3, weight: normal 1`] = `"<h3 class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></h3>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h4, weight: bold 1`] = `"<h4 class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></h4>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h4, weight: normal 1`] = `"<h4 class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></h4>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h5, weight: bold 1`] = `"<h5 class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></h5>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h5, weight: normal 1`] = `"<h5 class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></h5>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h6, weight: bold 1`] = `"<h6 class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></h6>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: h6, weight: normal 1`] = `"<h6 class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></h6>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: label, weight: bold 1`] = `"<label class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></label>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: label, weight: normal 1`] = `"<label class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></label>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: p, weight: bold 1`] = `"<p class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></p>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: p, weight: normal 1`] = `"<p class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></p>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: span, weight: bold 1`] = `"<span class="font-inter break-words text-body-xl md:text-body-2xl font-bold"></span>"`;
+
+exports[`Text > renders properly with various props > size: 2xl, tag: span, weight: normal 1`] = `"<span class="font-inter break-words text-body-xl md:text-body-2xl font-normal"></span>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h1, weight: bold 1`] = `"<h1 class="font-inter break-words text-body-m md:text-body-l font-bold"></h1>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h1, weight: normal 1`] = `"<h1 class="font-inter break-words text-body-m md:text-body-l font-normal"></h1>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h2, weight: bold 1`] = `"<h2 class="font-inter break-words text-body-m md:text-body-l font-bold"></h2>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h2, weight: normal 1`] = `"<h2 class="font-inter break-words text-body-m md:text-body-l font-normal"></h2>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h3, weight: bold 1`] = `"<h3 class="font-inter break-words text-body-m md:text-body-l font-bold"></h3>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h3, weight: normal 1`] = `"<h3 class="font-inter break-words text-body-m md:text-body-l font-normal"></h3>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h4, weight: bold 1`] = `"<h4 class="font-inter break-words text-body-m md:text-body-l font-bold"></h4>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h4, weight: normal 1`] = `"<h4 class="font-inter break-words text-body-m md:text-body-l font-normal"></h4>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h5, weight: bold 1`] = `"<h5 class="font-inter break-words text-body-m md:text-body-l font-bold"></h5>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h5, weight: normal 1`] = `"<h5 class="font-inter break-words text-body-m md:text-body-l font-normal"></h5>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h6, weight: bold 1`] = `"<h6 class="font-inter break-words text-body-m md:text-body-l font-bold"></h6>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: h6, weight: normal 1`] = `"<h6 class="font-inter break-words text-body-m md:text-body-l font-normal"></h6>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: label, weight: bold 1`] = `"<label class="font-inter break-words text-body-m md:text-body-l font-bold"></label>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: label, weight: normal 1`] = `"<label class="font-inter break-words text-body-m md:text-body-l font-normal"></label>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: p, weight: bold 1`] = `"<p class="font-inter break-words text-body-m md:text-body-l font-bold"></p>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: p, weight: normal 1`] = `"<p class="font-inter break-words text-body-m md:text-body-l font-normal"></p>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: span, weight: bold 1`] = `"<span class="font-inter break-words text-body-m md:text-body-l font-bold"></span>"`;
+
+exports[`Text > renders properly with various props > size: l, tag: span, weight: normal 1`] = `"<span class="font-inter break-words text-body-m md:text-body-l font-normal"></span>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h1, weight: bold 1`] = `"<h1 class="font-inter break-words text-body-m font-bold"></h1>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h1, weight: normal 1`] = `"<h1 class="font-inter break-words text-body-m font-normal"></h1>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h2, weight: bold 1`] = `"<h2 class="font-inter break-words text-body-m font-bold"></h2>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h2, weight: normal 1`] = `"<h2 class="font-inter break-words text-body-m font-normal"></h2>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h3, weight: bold 1`] = `"<h3 class="font-inter break-words text-body-m font-bold"></h3>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h3, weight: normal 1`] = `"<h3 class="font-inter break-words text-body-m font-normal"></h3>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h4, weight: bold 1`] = `"<h4 class="font-inter break-words text-body-m font-bold"></h4>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h4, weight: normal 1`] = `"<h4 class="font-inter break-words text-body-m font-normal"></h4>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h5, weight: bold 1`] = `"<h5 class="font-inter break-words text-body-m font-bold"></h5>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h5, weight: normal 1`] = `"<h5 class="font-inter break-words text-body-m font-normal"></h5>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h6, weight: bold 1`] = `"<h6 class="font-inter break-words text-body-m font-bold"></h6>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: h6, weight: normal 1`] = `"<h6 class="font-inter break-words text-body-m font-normal"></h6>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: label, weight: bold 1`] = `"<label class="font-inter break-words text-body-m font-bold"></label>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: label, weight: normal 1`] = `"<label class="font-inter break-words text-body-m font-normal"></label>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: p, weight: bold 1`] = `"<p class="font-inter break-words text-body-m font-bold"></p>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: p, weight: normal 1`] = `"<p class="font-inter break-words text-body-m font-normal"></p>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: span, weight: bold 1`] = `"<span class="font-inter break-words text-body-m font-bold"></span>"`;
+
+exports[`Text > renders properly with various props > size: m, tag: span, weight: normal 1`] = `"<span class="font-inter break-words text-body-m font-normal"></span>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h1, weight: bold 1`] = `"<h1 class="font-inter break-words text-body-s font-bold"></h1>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h1, weight: normal 1`] = `"<h1 class="font-inter break-words text-body-s font-normal"></h1>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h2, weight: bold 1`] = `"<h2 class="font-inter break-words text-body-s font-bold"></h2>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h2, weight: normal 1`] = `"<h2 class="font-inter break-words text-body-s font-normal"></h2>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h3, weight: bold 1`] = `"<h3 class="font-inter break-words text-body-s font-bold"></h3>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h3, weight: normal 1`] = `"<h3 class="font-inter break-words text-body-s font-normal"></h3>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h4, weight: bold 1`] = `"<h4 class="font-inter break-words text-body-s font-bold"></h4>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h4, weight: normal 1`] = `"<h4 class="font-inter break-words text-body-s font-normal"></h4>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h5, weight: bold 1`] = `"<h5 class="font-inter break-words text-body-s font-bold"></h5>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h5, weight: normal 1`] = `"<h5 class="font-inter break-words text-body-s font-normal"></h5>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h6, weight: bold 1`] = `"<h6 class="font-inter break-words text-body-s font-bold"></h6>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: h6, weight: normal 1`] = `"<h6 class="font-inter break-words text-body-s font-normal"></h6>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: label, weight: bold 1`] = `"<label class="font-inter break-words text-body-s font-bold"></label>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: label, weight: normal 1`] = `"<label class="font-inter break-words text-body-s font-normal"></label>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: p, weight: bold 1`] = `"<p class="font-inter break-words text-body-s font-bold"></p>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: p, weight: normal 1`] = `"<p class="font-inter break-words text-body-s font-normal"></p>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: span, weight: bold 1`] = `"<span class="font-inter break-words text-body-s font-bold"></span>"`;
+
+exports[`Text > renders properly with various props > size: s, tag: span, weight: normal 1`] = `"<span class="font-inter break-words text-body-s font-normal"></span>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h1, weight: bold 1`] = `"<h1 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></h1>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h1, weight: normal 1`] = `"<h1 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></h1>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h2, weight: bold 1`] = `"<h2 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></h2>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h2, weight: normal 1`] = `"<h2 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></h2>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h3, weight: bold 1`] = `"<h3 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></h3>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h3, weight: normal 1`] = `"<h3 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></h3>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h4, weight: bold 1`] = `"<h4 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></h4>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h4, weight: normal 1`] = `"<h4 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></h4>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h5, weight: bold 1`] = `"<h5 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></h5>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h5, weight: normal 1`] = `"<h5 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></h5>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h6, weight: bold 1`] = `"<h6 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></h6>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: h6, weight: normal 1`] = `"<h6 class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></h6>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: label, weight: bold 1`] = `"<label class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></label>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: label, weight: normal 1`] = `"<label class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></label>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: p, weight: bold 1`] = `"<p class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></p>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: p, weight: normal 1`] = `"<p class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></p>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: span, weight: bold 1`] = `"<span class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-bold"></span>"`;
+
+exports[`Text > renders properly with various props > size: spaced, tag: span, weight: normal 1`] = `"<span class="font-inter break-words text-spaced-s md:text-spaced-m uppercase font-normal"></span>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h1, weight: bold 1`] = `"<h1 class="font-inter break-words text-body-l md:text-body-xl font-bold"></h1>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h1, weight: normal 1`] = `"<h1 class="font-inter break-words text-body-l md:text-body-xl font-normal"></h1>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h2, weight: bold 1`] = `"<h2 class="font-inter break-words text-body-l md:text-body-xl font-bold"></h2>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h2, weight: normal 1`] = `"<h2 class="font-inter break-words text-body-l md:text-body-xl font-normal"></h2>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h3, weight: bold 1`] = `"<h3 class="font-inter break-words text-body-l md:text-body-xl font-bold"></h3>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h3, weight: normal 1`] = `"<h3 class="font-inter break-words text-body-l md:text-body-xl font-normal"></h3>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h4, weight: bold 1`] = `"<h4 class="font-inter break-words text-body-l md:text-body-xl font-bold"></h4>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h4, weight: normal 1`] = `"<h4 class="font-inter break-words text-body-l md:text-body-xl font-normal"></h4>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h5, weight: bold 1`] = `"<h5 class="font-inter break-words text-body-l md:text-body-xl font-bold"></h5>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h5, weight: normal 1`] = `"<h5 class="font-inter break-words text-body-l md:text-body-xl font-normal"></h5>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h6, weight: bold 1`] = `"<h6 class="font-inter break-words text-body-l md:text-body-xl font-bold"></h6>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: h6, weight: normal 1`] = `"<h6 class="font-inter break-words text-body-l md:text-body-xl font-normal"></h6>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: label, weight: bold 1`] = `"<label class="font-inter break-words text-body-l md:text-body-xl font-bold"></label>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: label, weight: normal 1`] = `"<label class="font-inter break-words text-body-l md:text-body-xl font-normal"></label>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: p, weight: bold 1`] = `"<p class="font-inter break-words text-body-l md:text-body-xl font-bold"></p>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: p, weight: normal 1`] = `"<p class="font-inter break-words text-body-l md:text-body-xl font-normal"></p>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: span, weight: bold 1`] = `"<span class="font-inter break-words text-body-l md:text-body-xl font-bold"></span>"`;
+
+exports[`Text > renders properly with various props > size: xl, tag: span, weight: normal 1`] = `"<span class="font-inter break-words text-body-l md:text-body-xl font-normal"></span>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h1, weight: bold 1`] = `"<h1 class="font-inter break-words text-body-xs font-bold"></h1>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h1, weight: normal 1`] = `"<h1 class="font-inter break-words text-body-xs font-normal"></h1>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h2, weight: bold 1`] = `"<h2 class="font-inter break-words text-body-xs font-bold"></h2>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h2, weight: normal 1`] = `"<h2 class="font-inter break-words text-body-xs font-normal"></h2>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h3, weight: bold 1`] = `"<h3 class="font-inter break-words text-body-xs font-bold"></h3>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h3, weight: normal 1`] = `"<h3 class="font-inter break-words text-body-xs font-normal"></h3>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h4, weight: bold 1`] = `"<h4 class="font-inter break-words text-body-xs font-bold"></h4>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h4, weight: normal 1`] = `"<h4 class="font-inter break-words text-body-xs font-normal"></h4>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h5, weight: bold 1`] = `"<h5 class="font-inter break-words text-body-xs font-bold"></h5>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h5, weight: normal 1`] = `"<h5 class="font-inter break-words text-body-xs font-normal"></h5>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h6, weight: bold 1`] = `"<h6 class="font-inter break-words text-body-xs font-bold"></h6>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: h6, weight: normal 1`] = `"<h6 class="font-inter break-words text-body-xs font-normal"></h6>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: label, weight: bold 1`] = `"<label class="font-inter break-words text-body-xs font-bold"></label>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: label, weight: normal 1`] = `"<label class="font-inter break-words text-body-xs font-normal"></label>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: p, weight: bold 1`] = `"<p class="font-inter break-words text-body-xs font-bold"></p>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: p, weight: normal 1`] = `"<p class="font-inter break-words text-body-xs font-normal"></p>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: span, weight: bold 1`] = `"<span class="font-inter break-words text-body-xs font-bold"></span>"`;
+
+exports[`Text > renders properly with various props > size: xs, tag: span, weight: normal 1`] = `"<span class="font-inter break-words text-body-xs font-normal"></span>"`;

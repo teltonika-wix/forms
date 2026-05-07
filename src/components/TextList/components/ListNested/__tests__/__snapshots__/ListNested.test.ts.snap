@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ListNested > renders properly > Multi level list 1`] = `
+"<ol>
+  <li class="flex">
+    <div class="flex shrink-0 justify-end w-6">
+      <list-item-prefix-ordered-stub punctuation="1" class=""></list-item-prefix-ordered-stub>
+    </div>
+    <div>
+      <text-stub tag="p" class="ml-2"></text-stub>
+      <list-nested-stub items="[object Object],[object Object]" punctuation="1" level="2" type="ordered"></list-nested-stub>
+    </div>
+  </li>
+</ol>"
+`;

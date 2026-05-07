@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input helper > Should render with counter 5/10 > Counter 5/10 1`] = `
+"<div class="mt-1 grid grid-cols-[min-content_auto_min-content] gap-x-1">
+  <div>
+    <!--v-if-->
+  </div>
+  <div>
+    <!--v-if-->
+  </div>
+  <p class="font-inter break-words text-body-xs font-normal text-grey-600 whitespace-nowrap text-end">5 / 10</p>
+</div>"
+`;
+
+exports[`Input helper > Should render with error message > Error message 1`] = `
+"<div class="mt-1 grid grid-cols-[min-content_auto_min-content] gap-x-1" error="Error message">
+  <div>
+    <!--v-if-->
+  </div>
+  <div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Input helper > Should render with error message and counter 5/10 > Error message and counter 5/10 1`] = `
+"<div class="mt-1 grid grid-cols-[min-content_auto_min-content] gap-x-1">
+  <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="text-pink-700 dark:text-pink-300 size-4 mt-0.5">
+      <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"></path>
+    </svg></div>
+  <div>
+    <p class="font-inter break-words text-body-s font-normal text-pink-700 dark:text-pink-300">Error message</p>
+  </div>
+  <p class="font-inter break-words text-body-xs font-normal text-grey-600 whitespace-nowrap text-end">5 / 10</p>
+</div>"
+`;
+
+exports[`Input helper > Should render without any props > Default props 1`] = `
+"<div class="mt-1 grid grid-cols-[min-content_auto_min-content] gap-x-1">
+  <div>
+    <!--v-if-->
+  </div>
+  <div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>"
+`;

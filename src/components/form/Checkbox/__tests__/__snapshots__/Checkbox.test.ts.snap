@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Checkbox > renders properly > Checkbox is empty 1`] = `
+"<div class="rounded-md leading-none inline-grid focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 h-4 w-4" modelvalue="false"><input type="checkbox" class="peer col-span-full row-span-full opacity-0 z-10 cursor-pointer" value="false"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full opacity-0 peer-checked:opacity-100 transition-all peer-checked:text-blue-600 peer-hover:text-blue-700">
+    <rect width="16" height="16" rx="4" fill="currentColor"></rect>
+    <path d="M3.33331 8.66669L5.99998 11.3334L12.6666 4.66669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="col-span-full row-span-full peer-checked:opacity-0 transition-all text-grey-400 peer-hover:text-grey-600">
+    <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke="currentColor"></rect>
+  </svg></div>"
+`;

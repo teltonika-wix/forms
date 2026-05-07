@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Image Component > renders correctly with srcSetSizes and matches snapshot 1`] = `"<img class="bg-blue" src="https://teltonika-iot-group.com/cdn-images/files/24/07/teltonika-milano-ofice-1920x-840x560.jpg" alt="Responsive Image" loading="lazy" srcset="https://teltonika-iot-group.com/cdn-images/files/24/07/teltonika-milano-ofice-1920x-840x560.jpg?width=424 424w, https://teltonika-iot-group.com/cdn-images/files/24/07/teltonika-milano-ofice-1920x-840x560.jpg?width=872 872w, https://teltonika-iot-group.com/cdn-images/files/24/07/teltonika-milano-ofice-1920x-840x560.jpg?width=984 984w" sizes="(min-width: 1024px) 424px, (min-width: 320px) 984px, 100vw">"`;

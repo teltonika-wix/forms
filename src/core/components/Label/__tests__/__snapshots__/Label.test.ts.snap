@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Label > Should render with changed theme > With changed theme 1`] = `
+"<div class="px-2 py-1 inline-flex rounded-sm bg-blue-800 text-white">
+  <text-stub size="s" tag="p"></text-stub>
+</div>"
+`;
+
+exports[`Label > Should render without any props > Default props 1`] = `
+"<div class="px-2 py-1 inline-flex rounded-sm text-blue-800 bg-blue-200">
+  <text-stub size="s" tag="p"></text-stub>
+</div>"
+`;

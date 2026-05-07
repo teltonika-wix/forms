@@ -1,0 +1,54 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input field > Should render with changed label > With label 1`] = `
+"<div>
+  <div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-grey-400 hover:outline-grey-600 focus-within:outline-blue-600 hover:focus-within:outline-blue-600 bg-white dark:bg-grey-800 dark:text-white dark:outline-grey-600 dark:hover:outline-grey-400 dark:focus-within:outline-blue-600 dark:hover:focus-within:outline-blue-600 px-3 py-2">
+    <div class="flex">
+      <div class="peer flex flex-1 flex-col-reverse">
+        <div class="peer w-full"><textarea rows="4" class="block w-full resize-none appearance-none bg-transparent text-current outline-none hover:resize-y"></textarea></div><label class="font-inter break-words text-body-xs font-normal text-base text-grey-600 group-hover:text-grey-800 peer-has-[:focus]:text-blue-800 dark:text-grey-400 dark:group-hover:text-white dark:peer-has-[:focus]:text-white">Label</label>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Input field > Should render with comment > With comment 1`] = `
+"<div>
+  <div class="rounded shadow text-base font-medium outline-1 group -outline-offset-1 focus-within:outline-2 focus-within:-outline-offset-2 outline-grey-400 hover:outline-grey-600 focus-within:outline-blue-600 hover:focus-within:outline-blue-600 bg-white dark:bg-grey-800 dark:text-white dark:outline-grey-600 dark:hover:outline-grey-400 dark:focus-within:outline-blue-600 dark:hover:focus-within:outline-blue-600 px-3 py-4">
+    <div class="flex">
+      <div class="peer flex flex-1 flex-col-reverse">
+        <div class="peer w-full"><textarea rows="4" class="block w-full resize-none appearance-none bg-transparent text-current outline-none hover:resize-y"></textarea></div>
+        <!--v-if-->
+      </div>
+      <div class="inline-block cursor-pointer mt-2 h-fit peer-has-[textarea]:mt-4" data-testid="tooltip-reference-0" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-6 text-blue-800 dark:text-white">
+          <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"></path>
+        </svg></div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Input field > Should render with counter > With counter 4/10 1`] = `
+"<div>
+  <field-stub disabled="false" valuelength="4"></field-stub>
+  <input-helper-stub valuelength="4" maxvaluelength="10" class="mt-1"></input-helper-stub>
+</div>"
+`;
+
+exports[`Input field > Should render with error message > With error 1`] = `
+"<div>
+  <field-stub error="Error" disabled="false"></field-stub>
+  <input-helper-stub errormessage="Error" class="mt-1"></input-helper-stub>
+</div>"
+`;
+
+exports[`Input field > Should render without any props > Default props 1`] = `
+"<div>
+  <field-stub disabled="false"></field-stub>
+  <!--v-if-->
+</div>"
+`;

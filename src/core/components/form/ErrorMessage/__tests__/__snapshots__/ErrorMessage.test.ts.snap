@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input label > Should render > With text 1`] = `"<p class="font-inter break-words text-body-s font-normal text-pink-700 dark:text-pink-300">Error message</p>"`;
+
+exports[`Input label > Should render > Without text 1`] = `"<text-stub size="s" weight="normal" tag="p" class="text-pink-700 dark:text-pink-300"></text-stub>"`;

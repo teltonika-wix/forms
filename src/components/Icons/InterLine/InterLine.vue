@@ -1,0 +1,7 @@
+<script setup lang="ts"></script>
+
+<template>
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.12 19.824V17.544H23.376V19.824H0.12Z" fill="currentColor" />
+  </svg>
+</template>

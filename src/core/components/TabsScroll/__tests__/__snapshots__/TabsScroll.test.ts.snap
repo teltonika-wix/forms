@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TabsScroll > Renders properly with all props provided 1`] = `
+"<div class="invisible-scrollbar flex overflow-x-auto">
+  <div class="border-grey-400 grow border-b"></div>
+  <div class="border-grey-400 relative border-b px-4 py-3 md:px-8"><a href="#first-target" size="medium" class="cursor-pointer select-none scroll-smooth text-nowrap duration-200 text-grey-800">Scroll to first target</a>
+    <div class="absolute bottom-[-0.0625rem] left-0 h-[0.125rem] bg-blue-600 duration-200 w-full"></div>
+  </div>
+  <div class="border-grey-400 relative border-b px-4 py-3 md:px-8"><a href="#second-target" size="medium" class="cursor-pointer select-none scroll-smooth text-nowrap duration-200 text-grey-600">Scroll to second target</a>
+    <div class="absolute bottom-[-0.0625rem] left-0 h-[0.125rem] bg-blue-600 duration-200 w-0"></div>
+  </div>
+  <div class="border-grey-400 relative border-b px-4 py-3 md:px-8"><a href="#third-target" size="medium" class="cursor-pointer select-none scroll-smooth text-nowrap duration-200 text-grey-600">Scroll to third target</a>
+    <div class="absolute bottom-[-0.0625rem] left-0 h-[0.125rem] bg-blue-600 duration-200 w-0"></div>
+  </div>
+  <div class="border-grey-400 grow border-b"></div>
+</div>"
+`;

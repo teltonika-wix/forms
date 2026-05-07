@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StickyButton > should test render after mounted 1`] = `
+"<div data-v-5ee3d5bd="" class="slideInAnimation group fixed right-0 top-24 overflow-visible" style="writing-mode: vertical-rl;"><button data-v-5ee3d5bd="" class="font-oswald flex justify-center items-center rounded font-medium py-3 px-4 text-lg leading-6 w-full focus-within:[&amp;:not(:disabled)]:outline focus:[&amp;:not(:disabled)]:outline active:[&amp;:not(:disabled)]:outline focus-within:outline-2 focus:outline-2 active:outline-2 uppercase transition-colors duration-200 group-[.fixed]:transform group-[.fixed]:rotate-180 group-[.fixed]:rounded-l-none group-[.fixed]:px-3 group-[.fixed]:py-4 bg-blue-600 text-white hover:bg-blue-800 focus-within:outline-electric-500 focus:outline-electric-500 active:outline-electric-500 focus-within:bg-blue-800 focus:bg-blue-800 active:bg-blue-800 group-[.fixed]:md:px-4 group-[.fixed]:md:py-6 md:py-4 md:px-6 md:w-auto duration-0" type="button">
+    <!--v-if--><span class="inline-flex [&amp;+*]:pl-2">Contact Us</span>
+    <!--v-if-->
+  </button></div>"
+`;
+
+exports[`StickyButton > should test rendering before mounted 1`] = `
+"<div data-v-5ee3d5bd="" class="slideInAnimation group fixed right-0 top-24 overflow-visible" style="writing-mode: vertical-rl;"><button data-v-5ee3d5bd="" class="font-oswald flex justify-center items-center rounded font-medium py-3 px-4 text-lg leading-6 w-full focus-within:[&amp;:not(:disabled)]:outline focus:[&amp;:not(:disabled)]:outline active:[&amp;:not(:disabled)]:outline focus-within:outline-2 focus:outline-2 active:outline-2 uppercase transition-colors duration-200 group-[.fixed]:transform group-[.fixed]:rotate-180 group-[.fixed]:rounded-l-none group-[.fixed]:px-3 group-[.fixed]:py-4 bg-blue-600 text-white hover:bg-blue-800 focus-within:outline-electric-500 focus:outline-electric-500 active:outline-electric-500 focus-within:bg-blue-800 focus:bg-blue-800 active:bg-blue-800 group-[.fixed]:md:px-4 group-[.fixed]:md:py-6 md:py-4 md:px-6 md:w-auto duration-0" type="button">
+    <!--v-if--><span class="inline-flex [&amp;+*]:pl-2">Contact Us</span>
+    <!--v-if-->
+  </button></div>"
+`;

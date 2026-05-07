@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ListItemPrefixOrdered > renders properly > Punctuation renders as 1.4.3. 1`] = `"<text-stub tag="p"></text-stub>"`;

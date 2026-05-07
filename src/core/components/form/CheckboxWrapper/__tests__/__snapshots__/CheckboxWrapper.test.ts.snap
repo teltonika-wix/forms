@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Checkbox > renders properly > Checkbox is empty 1`] = `
+"<div class="grid gap-x-2 gap-y-1 grid-cols-[1.5rem_auto]">
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;

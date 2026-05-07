@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ReadMore > renders properly with slot content > with slot content 1`] = `
+"<div data-v-ec99063f="">
+  <div data-v-ec99063f="" class="text-block overflow-hidden text-ellipsis" style="-webkit-line-clamp: 3;">
+    <p>This is the slot content</p>
+  </div>
+  <text-stub data-v-ec99063f="" tag="p" tabindex="0" class="relative rounded-sm inline-flex cursor-pointer items-center gap-2 border-2 border-transparent p-0.5 text-blue-600 focus:outline-none focus-visible:border-blue-600 hover:text-blue-800"></text-stub>
+</div>"
+`;

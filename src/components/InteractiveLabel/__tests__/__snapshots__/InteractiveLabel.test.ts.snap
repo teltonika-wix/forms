@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InteractiveLabel > Should render with external link > With external link 1`] = `"<link-stub external="true" url="https://www.google.com" class="px-2 py-1 inline-flex text-grey-600 border-grey-600 border bg-white hover:bg-grey-200 hover:border-white rounded cursor-pointer duration-200"></link-stub>"`;
+
+exports[`InteractiveLabel > Should render with internal link > With internal link 1`] = `"<link-stub url="/?path=/story/button--playground" class="px-2 py-1 inline-flex text-grey-600 border-grey-600 border bg-white hover:bg-grey-200 hover:border-white rounded cursor-pointer duration-200"></link-stub>"`;
