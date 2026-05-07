@@ -20,7 +20,7 @@ export const useBrowserFormRenderingData = (
   const formRenderingData = ref<FormRenderingDataResponse | null>(null);
   const clientFullUrl = window.location.href;
 
-  loadBrowserFormRenderingData(parameters)
+  void loadBrowserFormRenderingData(parameters)
     .then((data) => {
       if (!data) {
         return;

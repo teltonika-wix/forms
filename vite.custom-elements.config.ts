@@ -6,21 +6,20 @@ import { fakeFormsEndpointPlugin } from "./scripts/fakeFormsEndpointPlugin.ts";
 
 export default defineConfig({
   plugins: [vue(), tailwindcss(), fakeFormsEndpointPlugin()],
-  server: {
-    allowedHosts: ["local.teltonika-networks.com"],
-  },
   resolve: {
     alias: {
       src: fileURLToPath(new URL("./src", import.meta.url)),
       public: fileURLToPath(new URL("./public", import.meta.url)),
     },
   },
-  test: {
-    globals: true,
-    environment: "jsdom",
+  build: {
+    lib: {
+      entry: fileURLToPath(new URL("./src/entrypoints/custom-elements.ts", import.meta.url)),
+      formats: ["es"],
+      fileName: "wix-forms-custom-elements",
+    },
+    outDir: "dist/custom-elements",
+    emptyOutDir: true,
+    sourcemap: true,
   },
-  staged: {
-    "*": "vp fmt --write",
-  },
-  lint: { options: { typeAware: true, typeCheck: false } },
 });

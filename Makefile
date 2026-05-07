@@ -1,6 +1,6 @@
 SHELL := /bin/sh
 
-.PHONY: help setup bootstrap install check check-strict fmt-check lint test test-run test-watch build dev preview arch-check arch-baseline
+.PHONY: help setup bootstrap install check check-strict fmt-check lint test test-run test-watch build build-custom-elements dev preview preview-custom-elements arch-check arch-baseline
 
 help:
 	@echo "Available targets:"
@@ -15,8 +15,10 @@ help:
 	@echo "  make test-run      - run tests once"
 	@echo "  make test-watch    - run tests in watch mode"
 	@echo "  make build         - build project"
+	@echo "  make build-custom-elements - build custom elements bundle"
 	@echo "  make dev           - start dev server"
 	@echo "  make preview       - preview production build"
+	@echo "  make preview-custom-elements - open custom elements preview page"
 	@echo "  make arch-check    - run architecture checks"
 	@echo "  make arch-baseline - update architecture baseline"
 
@@ -54,11 +56,17 @@ test-watch:
 build:
 	vp run build
 
+build-custom-elements:
+	vp run build:custom-elements
+
 dev:
 	vp dev
 
 preview:
 	vp preview
+
+preview-custom-elements:
+	vp run preview:custom-elements
 
 arch-check:
 	vp run arch:check

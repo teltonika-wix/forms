@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wix Forms Custom Elements Preview</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: Inter, Arial, sans-serif;
+        background: #f5f7fb;
+        color: #0f172a;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+      }
+
+      p {
+        margin: 0 0 24px;
+        color: #475569;
+      }
+
+      .grid {
+        display: grid;
+        gap: 24px;
+        max-width: 960px;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 16px;
+      }
+
+      .card h2 {
+        margin: 0 0 12px;
+        font-size: 1rem;
+      }
+    </style>
+    <script>
+      window.wixEmbedsAPI = {
+        getLanguage() {
+          return "en";
+        },
+      };
+    </script>
+    <script type="module" src="/src/entrypoints/custom-elements.ts"></script>
+  </head>
+  <body>
+    <h1>Custom Elements Preview</h1>
+    <p>Renders form web components from <code>src/entrypoints/custom-elements.ts</code>.</p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>&lt;contact-form&gt;</h2>
+        <contact-form></contact-form>
+      </section>
+
+      <section class="card">
+        <h2>&lt;newsletter-form&gt;</h2>
+        <newsletter-form></newsletter-form>
+      </section>
+    </div>
+  </body>
+</html>

@@ -3,7 +3,7 @@
     "target": "es2023",
     "module": "esnext",
     "lib": ["ES2023", "DOM"],
-    "types": ["vite/client", "vitest/globals"],
+    "types": ["node", "vite/client", "vitest/globals"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -12,7 +12,8 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "paths": {
-      "src/*": ["./src/*"]
+      "src/*": ["./src/*"],
+      "public/*": ["./public/*"]
     },
     "noEmit": true,
 
