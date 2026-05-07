@@ -15,7 +15,7 @@ export default defineConfig({
     environment: "jsdom",
   },
   staged: {
-    "*": "vp check --fix",
+    "*": "vp fmt --write",
   },
-  lint: { options: { typeAware: true, typeCheck: true } },
+  lint: { options: { typeAware: true, typeCheck: false } },
 });

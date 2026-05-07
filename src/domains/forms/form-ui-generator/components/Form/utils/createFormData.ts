@@ -1,6 +1,6 @@
-import { ADWORDS_KEY } from "../../../utils/Adwords";
+import { ADWORDS_KEY } from "../../../utils/adwords";
 import { isAdwords } from "../../../utils/adwords/isAdwords";
-import { Recaptcha } from "../../../utils/Recaptcha";
+import { Recaptcha } from "../../../utils/recaptcha";
 
 export type CreateFormDataParams = {
   event: Event;
