@@ -67,6 +67,8 @@ const addGlobalBuildShims = () => ({
   if (typeof scope.WorkerGlobalScope === "undefined") {
     scope.WorkerGlobalScope = function WorkerGlobalScope() {};
   }
+
+  globalThis.process = globalThis.process || { env: { NODE_ENV: "production", DEV: false, PROD: true } };
 })();
 
 `;
