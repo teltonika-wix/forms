@@ -61,8 +61,12 @@ ${WIX_FORMS_ROOT_SELECTORS}, ${WIX_FORMS_ROOT_SELECTORS} * {
   all: revert-layer;
 }
 
-.wix-forms-root input, .wix-forms-root textarea, .wix-forms-root label, .wix-forms-root p, .wix-forms-root div, .wix-forms-root select, , .wix-forms-root span {
+.wix-forms-root input, .wix-forms-root textarea, .wix-forms-root label, .wix-forms-root p, .wix-forms-root div, .wix-forms-root select, .wix-forms-root li {
   font-family: wfont_70920c_83168c7e558a4ca0a1112348e51b02e0, wf_83168c7e558a4ca0a1112348e, orig_inter_regular;
+}
+
+.wix-forms-root .font-oswald {
+  font-family: Oswald, oswald, oswald-medium, sans-serif;
 }
 `;
 

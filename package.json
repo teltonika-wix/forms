@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "tsc && vp build && vp run build:custom-elements",
+    "build": "vp build && vp run build:custom-elements",
     "build:custom-elements": "vp build --config vite.custom-elements.config.ts",
     "preview": "vp preview",
     "preview:custom-elements": "vp dev --open /custom-elements-preview.html?mockForms=1",
