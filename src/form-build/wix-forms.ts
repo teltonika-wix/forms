@@ -150,3 +150,13 @@ export const createFormWebElement = (
     }
   };
 };
+
+const assignCreateFormWebElementToGlobal = () => {
+  if (typeof globalThis === "undefined") {
+    return;
+  }
+
+  (globalThis as Record<string, unknown>).createFormWebElement = createFormWebElement;
+};
+
+assignCreateFormWebElementToGlobal();
