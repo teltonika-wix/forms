@@ -1,6 +1,6 @@
 SHELL := /bin/sh
 
-.PHONY: help setup bootstrap install check check-strict fmt-check lint test test-run test-watch build build-custom-elements dev preview preview-custom-elements arch-check arch-baseline
+.PHONY: help setup bootstrap install check check-strict fmt-check lint test test-run test-watch build build-custom-elements build-worker dev dev-worker deploy-worker preview preview-custom-elements arch-check arch-baseline
 
 help:
 	@echo "Available targets:"
@@ -16,7 +16,10 @@ help:
 	@echo "  make test-watch    - run tests in watch mode"
 	@echo "  make build         - build project"
 	@echo "  make build-custom-elements - build custom elements bundle"
+	@echo "  make build-worker  - build assets for Cloudflare Worker"
 	@echo "  make dev           - start dev server"
+	@echo "  make dev-worker    - build and run Wrangler local dev"
+	@echo "  make deploy-worker - build and deploy to Cloudflare Worker"
 	@echo "  make preview       - preview production build"
 	@echo "  make preview-custom-elements - open custom elements preview page"
 	@echo "  make arch-check    - run architecture checks"
@@ -59,8 +62,17 @@ build:
 build-custom-elements:
 	vp run build:custom-elements
 
+build-worker:
+	vp run build:worker
+
 dev:
 	vp dev
+
+dev-worker:
+	vp run dev:worker
+
+deploy-worker:
+	vp run deploy:worker
 
 preview:
 	vp preview

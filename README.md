@@ -2,6 +2,8 @@
 
 Vue 3 + TypeScript component library focused on form UI, built with Vite+ and Tailwind CSS.
 
+This project ships a custom-elements bundle and deploys static assets through a Cloudflare Worker.
+
 ## Requirements
 
 - Node.js (LTS recommended)
@@ -23,6 +25,9 @@ vp dev
 vp dev                # Start dev server
 vp run build          # Production build
 vp run build:custom-elements # Build custom elements bundle
+vp run build:worker   # Build assets for Cloudflare Worker
+vp run dev:worker     # Build and run Wrangler local dev
+vp run deploy:worker  # Build and deploy to Cloudflare Worker
 vp preview            # Preview production build
 vp run preview:custom-elements # Open custom elements preview page
 vp test --run         # Run tests once
@@ -49,12 +54,32 @@ make test-run      # Run tests once
 make test-watch    # Run tests in watch mode
 make build         # Build project
 make build-custom-elements # Build custom elements bundle
+make build-worker  # Build assets for Cloudflare Worker
 make dev           # Start dev server
+make dev-worker    # Build and run Wrangler local dev
+make deploy-worker # Build and deploy to Cloudflare Worker
 make preview       # Preview production build
 make preview-custom-elements # Open custom elements preview page
 make arch-check    # Run architecture checks
 make arch-baseline # Update architecture baseline
 ```
+
+## Custom Elements Build
+
+- Source entry: `src/form-build/wix-forms.ts`
+- Build command: `vp run build:custom-elements`
+- Output file: `dist/custom-elements/form-build/wix-forms.js`
+- Local preview page: `custom-elements-build/index.html`
+
+The custom-element bundle is included in the deployed `dist` assets and is served from the Cloudflare Worker static assets configuration (`wrangler.toml`, `[assets].directory = "./dist"`).
+
+## Cloudflare Worker Deployment
+
+- Worker config: `wrangler.toml`
+- Deploy command: `vp run deploy:worker` or `make deploy-worker`
+- Local Wrangler preview: `vp run dev:worker` or `make dev-worker`
+
+When deployed, both app assets and the custom-elements bundle are served from the Worker asset directory (`dist`).
 
 ## Project Structure
 
