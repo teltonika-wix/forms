@@ -17,6 +17,8 @@ const FORM_TAG_NAMES = Object.keys(FORM_CODE_BY_TAG) as FormTagName[];
 const DEFAULT_LANGUAGE = "en";
 const DEFAULT_SUBMIT_BUTTON_TEXT = "Submit";
 const DEFAULT_FORM_WEB_CLIENT_ENDPOINT = "/tlt-networks/_functions/form";
+const WIX_FORM_WEB_CLIENT_ENDPOINT =
+  "https://mantaspavalkis-website-1.editor.wix.com/_api/wix-code-http-functions-dev/_functions-test/form";
 const DEFAULT_RECAPTCHA_SITE_KEY = "6LeJngIoAAAAAKmat_gUGMapx1og_-Kr_bE379yx";
 
 const WIX_FORMS_STYLE_SELECTOR = "style[data-wix-forms-custom-elements]";
@@ -125,6 +127,42 @@ const getAttributeValue = (element: HTMLElement, names: string[]): string | null
   return null;
 };
 
+const resolveLanguage = (element: HTMLElement): string => {
+  const explicitLanguage = getAttributeValue(element, ["language"])?.trim();
+  if (explicitLanguage) {
+    return explicitLanguage;
+  }
+
+  const wixLanguage = (
+    globalThis as { wixEmbedsAPI?: { getLanguage?: () => string | undefined } }
+  ).wixEmbedsAPI?.getLanguage?.();
+
+  if (wixLanguage === "uk") {
+    return "ua";
+  }
+
+  return wixLanguage ?? DEFAULT_LANGUAGE;
+};
+
+const resolveFormWebClientEndpoint = (element: HTMLElement): string => {
+  const explicitEndpoint = getAttributeValue(element, [
+    "form-web-client-endpoint",
+    "formwebclientendpoint",
+    "formWebClientEndpoint",
+  ]);
+
+  if (explicitEndpoint) {
+    return explicitEndpoint;
+  }
+
+  const host = globalThis.location?.host;
+  if (typeof host === "string" && host.includes("wix.com")) {
+    return WIX_FORM_WEB_CLIENT_ENDPOINT;
+  }
+
+  return DEFAULT_FORM_WEB_CLIENT_ENDPOINT;
+};
+
 const parsePrefills = (element: HTMLElement): Record<string, string> | undefined => {
   const prefills: Record<string, string> = {};
 
@@ -208,13 +246,8 @@ class WixFormElement extends HTMLElement {
     const recaptchaSiteKey =
       getAttributeValue(this, ["recaptcha-site-key", "recaptchasitekey", "recaptchaSiteKey"]) ??
       DEFAULT_RECAPTCHA_SITE_KEY;
-    const formWebClientEndpoint =
-      getAttributeValue(this, [
-        "form-web-client-endpoint",
-        "formwebclientendpoint",
-        "formWebClientEndpoint",
-      ]) ?? DEFAULT_FORM_WEB_CLIENT_ENDPOINT;
-    const language = getAttributeValue(this, ["language"])?.trim() || DEFAULT_LANGUAGE;
+    const formWebClientEndpoint = resolveFormWebClientEndpoint(this);
+    const language = resolveLanguage(this);
     const submitButtonText =
       getAttributeValue(this, ["submit-button-text", "submitbuttontext", "submitButtonText"]) ??
       DEFAULT_SUBMIT_BUTTON_TEXT;
