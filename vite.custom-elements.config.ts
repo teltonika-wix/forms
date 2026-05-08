@@ -43,7 +43,7 @@ const addGlobalBuildShims = () => ({
       { type: string; fileName: string; source?: string | Uint8Array; code?: string }
     >,
   ) {
-    const shimSnippet = `// It is necessary to define globalThis, MathMLElement, and WorkerGlobalScope for successful building of the wix-forms.js file before publishing the website.
+    const shimPrefix = `// It is necessary to define globalThis, MathMLElement, and WorkerGlobalScope for successful building of the wix-forms.js file before publishing the website.
 (() => {
   const scope =
     typeof globalThis !== "undefined"
@@ -68,7 +68,19 @@ const addGlobalBuildShims = () => ({
     scope.WorkerGlobalScope = function WorkerGlobalScope() {};
   }
 
-  globalThis.process = globalThis.process || { env: { NODE_ENV: "production", DEV: false, PROD: true } };
+  scope.process = scope.process || {};
+  scope.process.env = scope.process.env || {};
+  scope.process.env.NODE_ENV = scope.process.env.NODE_ENV || "production";
+  scope.process.env.DEV = false;
+  scope.process.env.PROD = true;
+
+  if (scope.__wixFormsBundleLoaded) {
+    return;
+  }
+
+  scope.__wixFormsBundleLoaded = true;
+`;
+    const shimSuffix = `
 })();
 
 `;
@@ -79,7 +91,7 @@ const addGlobalBuildShims = () => ({
         file.fileName === "form-build/wix-forms.js" &&
         typeof file.code === "string"
       ) {
-        file.code = shimSnippet + file.code;
+        file.code = shimPrefix + file.code + shimSuffix;
       }
     }
   },

@@ -249,13 +249,22 @@ class WixFormElement extends HTMLElement {
 }
 
 const registerWixFormElements = () => {
-  if (typeof customElements === "undefined") {
+  if (typeof customElements === "undefined" || typeof customElements.define !== "function") {
     return;
   }
 
   for (const tagName of FORM_TAG_NAMES) {
     if (!customElements.get(tagName)) {
-      customElements.define(tagName, WixFormElement);
+      try {
+        class WixFormElementForTag extends WixFormElement {}
+        customElements.define(tagName, WixFormElementForTag);
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "NotSupportedError") {
+          continue;
+        }
+
+        throw error;
+      }
     }
   }
 };
