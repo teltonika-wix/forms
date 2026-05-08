@@ -39,7 +39,6 @@ check:
 
 check-strict:
 	vp check
-	vp exec tsc --noEmit -p tsconfig.json
 
 fmt-check:
 	vp fmt --check

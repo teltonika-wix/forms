@@ -46,7 +46,7 @@ make setup         # Stable project checks
 make bootstrap     # Install deps and run setup
 make install       # Install dependencies
 make check         # Format check + tests
-make check-strict  # Full Vite+ check + TypeScript noEmit
+make check-strict  # Full Vite+ check
 make fmt-check     # Formatting check
 make lint          # Lint only
 make test          # Run tests
