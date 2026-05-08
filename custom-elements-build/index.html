@@ -32,22 +32,7 @@
       }
     </style>
     <script type="module">
-      import { createFormWebElement } from "../dist/custom-elements/form-build/wix-forms.js";
-
-      const baseOptions = {
-        recaptchaSiteKey: "6LeJngIoAAAAAKmat_gUGMapx1og_-Kr_bE379yx",
-        formWebClientEndpoint: "/_mock/forms",
-        language: "en",
-        isDev: true,
-      };
-
-      const elements = ["contact-form", "contact-form-modal", "newsletter-form", "rms-quiz"];
-
-      elements.forEach((tagName) => {
-        if (!customElements.get(tagName)) {
-          customElements.define(tagName, createFormWebElement(baseOptions));
-        }
-      });
+      import "../dist/custom-elements/form-build/wix-forms.js";
     </script>
   </head>
   <body>
@@ -57,12 +42,23 @@
     <div class="grid">
       <section class="card">
         <h2>&lt;contact-form&gt;</h2>
-        <contact-form></contact-form>
+        <contact-form
+          recaptcha-site-key="6LeJngIoAAAAAKmat_gUGMapx1og_-Kr_bE379yx"
+          form-web-client-endpoint="/_mock/forms"
+          language="en"
+          is-dev="true"
+        ></contact-form>
       </section>
 
       <section class="card">
         <h2>&lt;newsletter-form&gt;</h2>
-        <newsletter-form></newsletter-form>
+        <newsletter-form
+          recaptcha-site-key="6LeJngIoAAAAAKmat_gUGMapx1og_-Kr_bE379yx"
+          form-web-client-endpoint="/_mock/forms"
+          language="en"
+          is-dev="true"
+          prefills='{"email":"test@example.com","utm_source":"preview","utm_campaign":"build"}'
+        ></newsletter-form>
       </section>
     </div>
   </body>

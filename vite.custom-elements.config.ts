@@ -44,17 +44,30 @@ const addGlobalBuildShims = () => ({
     >,
   ) {
     const shimSnippet = `// It is necessary to define globalThis, MathMLElement, and WorkerGlobalScope for successful building of the wix-forms.js file before publishing the website.
-if (typeof globalThis === "undefined") {
-  var globalThis = this;
-}
+(() => {
+  const scope =
+    typeof globalThis !== "undefined"
+      ? globalThis
+      : typeof self !== "undefined"
+        ? self
+        : typeof window !== "undefined"
+          ? window
+          : typeof global !== "undefined"
+            ? global
+            : {};
 
-if (typeof MathMLElement === "undefined") {
-  var MathMLElement = function MathMLElement() {};
-}
+  if (typeof scope.globalThis === "undefined") {
+    scope.globalThis = scope;
+  }
 
-if (typeof WorkerGlobalScope === "undefined") {
-  var WorkerGlobalScope = function WorkerGlobalScope() {};
-}
+  if (typeof scope.MathMLElement === "undefined") {
+    scope.MathMLElement = function MathMLElement() {};
+  }
+
+  if (typeof scope.WorkerGlobalScope === "undefined") {
+    scope.WorkerGlobalScope = function WorkerGlobalScope() {};
+  }
+})();
 
 `;
 

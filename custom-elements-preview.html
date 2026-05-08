@@ -47,12 +47,21 @@
     <div class="grid">
       <section class="card">
         <h2>&lt;contact-form&gt;</h2>
-        <contact-form></contact-form>
+        <contact-form
+          recaptcha-site-key="6LeJngIoAAAAAKmat_gUGMapx1og_-Kr_bE379yx"
+          form-web-client-endpoint="/_mock/forms"
+          language="en"
+        ></contact-form>
       </section>
 
       <section class="card">
         <h2>&lt;newsletter-form&gt;</h2>
-        <newsletter-form></newsletter-form>
+        <newsletter-form
+          recaptcha-site-key="6LeJngIoAAAAAKmat_gUGMapx1og_-Kr_bE379yx"
+          form-web-client-endpoint="/_mock/forms"
+          language="en"
+          prefills='{"email":"test@example.com"}'
+        ></newsletter-form>
       </section>
     </div>
   </body>

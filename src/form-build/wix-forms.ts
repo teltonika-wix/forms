@@ -13,22 +13,17 @@ const FORM_CODE_BY_TAG = {
 } as const;
 
 type FormTagName = keyof typeof FORM_CODE_BY_TAG;
-
-type CreateFormWebElementOptions = {
-  recaptchaSiteKey: string;
-  formWebClientEndpoint: string;
-  language: string;
-  prefills?: Record<string, string>;
-  isDev?: boolean;
-  submitButtonText?: string;
-  formCode?: FormCodes;
-};
+const FORM_TAG_NAMES = Object.keys(FORM_CODE_BY_TAG) as FormTagName[];
+const DEFAULT_LANGUAGE = "en";
+const DEFAULT_SUBMIT_BUTTON_TEXT = "Submit";
+const DEFAULT_FORM_WEB_CLIENT_ENDPOINT = "/tlt-networks/_functions/form";
+const DEFAULT_RECAPTCHA_SITE_KEY = "6LeJngIoAAAAAKmat_gUGMapx1og_-Kr_bE379yx";
 
 const WIX_FORMS_STYLE_SELECTOR = "style[data-wix-forms-custom-elements]";
-const WIX_FORMS_TAG_SELECTORS = Object.keys(FORM_CODE_BY_TAG).join(", ");
-const WIX_FORMS_ROOT_SELECTORS = Object.keys(FORM_CODE_BY_TAG)
-  .map((tagName) => `${tagName} .wix-forms-root`)
-  .join(", ");
+const WIX_FORMS_TAG_SELECTORS = FORM_TAG_NAMES.join(", ");
+const WIX_FORMS_ROOT_SELECTORS = FORM_TAG_NAMES.map((tagName) => `${tagName} .wix-forms-root`).join(
+  ", ",
+);
 const WIX_FORMS_RESET_STYLES = `
 ${WIX_FORMS_TAG_SELECTORS} {
   all: initial;
@@ -106,57 +101,163 @@ const resolveFormCode = (tagName: string, explicitFormCode?: FormCodes): FormCod
   return mappedCode;
 };
 
-export const createFormWebElement = (
-  options: CreateFormWebElementOptions,
-): CustomElementConstructor => {
-  return class WixFormElement extends HTMLElement {
-    private app: App<Element> | null = null;
+const BOOLEAN_TRUE_VALUES = new Set(["", "true", "1", "yes", "on"]);
+const FORM_CODES = new Set<FormCodes>(Object.values(FormCodes));
 
-    connectedCallback() {
-      if (this.app) {
-        return;
-      }
+const toPrefillKey = (key: string) => key.replaceAll("-", "_");
 
-      ensureGlobalStyles();
+const toBoolean = (value: string | null): boolean | undefined => {
+  if (value === null) {
+    return undefined;
+  }
 
-      const formCode = resolveFormCode(this.localName, options.formCode);
-      const mountNode = document.createElement("div");
-      mountNode.className = "wix-forms-root";
-      this.appendChild(mountNode);
-
-      const app = createApp(BrowserFormGenerator, {
-        recaptchaSiteKey: options.recaptchaSiteKey,
-        submitButtonText: options.submitButtonText ?? "Submit",
-        formWebClientEndpoint: options.formWebClientEndpoint,
-        prefills: options.prefills,
-        isDev: options.isDev,
-        formUrlParameters: {
-          language: options.language,
-          form: formCode,
-        },
-      });
-
-      app.component("Form", Form);
-      app.component("Spinner", Spinner);
-      app.mount(mountNode);
-
-      this.app = app;
-    }
-
-    disconnectedCallback() {
-      this.app?.unmount();
-      this.app = null;
-      this.innerHTML = "";
-    }
-  };
+  return BOOLEAN_TRUE_VALUES.has(value.toLowerCase());
 };
 
-const assignCreateFormWebElementToGlobal = () => {
-  if (typeof globalThis === "undefined") {
+const getAttributeValue = (element: HTMLElement, names: string[]): string | null => {
+  for (const name of names) {
+    const value = element.getAttribute(name);
+    if (value !== null) {
+      return value;
+    }
+  }
+
+  return null;
+};
+
+const parsePrefills = (element: HTMLElement): Record<string, string> | undefined => {
+  const prefills: Record<string, string> = {};
+
+  const prefillsAttribute = getAttributeValue(element, ["prefills"]);
+  if (prefillsAttribute) {
+    try {
+      const parsedPrefills = JSON.parse(prefillsAttribute) as unknown;
+      if (parsedPrefills && typeof parsedPrefills === "object") {
+        for (const [key, value] of Object.entries(parsedPrefills as Record<string, unknown>)) {
+          prefills[key] = String(value ?? "");
+        }
+      }
+    } catch {
+      // Ignore invalid JSON and continue with prefills from attributes.
+    }
+  }
+
+  for (const attr of Array.from(element.attributes)) {
+    if (attr.name.startsWith("prefill-")) {
+      prefills[toPrefillKey(attr.name.slice("prefill-".length))] = attr.value;
+    }
+  }
+
+  return Object.keys(prefills).length > 0 ? prefills : undefined;
+};
+
+class WixFormElement extends HTMLElement {
+  static observedAttributes = [
+    "recaptcha-site-key",
+    "recaptchasitekey",
+    "form-web-client-endpoint",
+    "formwebclientendpoint",
+    "language",
+    "submit-button-text",
+    "submitbuttontext",
+    "is-dev",
+    "isdev",
+    "form-code",
+    "formcode",
+    "prefills",
+  ];
+
+  private app: App<Element> | null = null;
+  private mountNode: HTMLElement | null = null;
+
+  connectedCallback() {
+    ensureGlobalStyles();
+    this.renderApp();
+  }
+
+  attributeChangedCallback(name: string) {
+    if (!this.isConnected) {
+      return;
+    }
+
+    if (WixFormElement.observedAttributes.includes(name)) {
+      this.renderApp();
+    }
+  }
+
+  disconnectedCallback() {
+    this.destroyApp();
+    this.innerHTML = "";
+    this.mountNode = null;
+  }
+
+  private destroyApp() {
+    this.app?.unmount();
+    this.app = null;
+  }
+
+  private renderApp() {
+    this.destroyApp();
+
+    if (!this.mountNode) {
+      this.mountNode = document.createElement("div");
+      this.mountNode.className = "wix-forms-root";
+      this.appendChild(this.mountNode);
+    }
+
+    const recaptchaSiteKey =
+      getAttributeValue(this, ["recaptcha-site-key", "recaptchasitekey", "recaptchaSiteKey"]) ??
+      DEFAULT_RECAPTCHA_SITE_KEY;
+    const formWebClientEndpoint =
+      getAttributeValue(this, [
+        "form-web-client-endpoint",
+        "formwebclientendpoint",
+        "formWebClientEndpoint",
+      ]) ?? DEFAULT_FORM_WEB_CLIENT_ENDPOINT;
+    const language = getAttributeValue(this, ["language"])?.trim() || DEFAULT_LANGUAGE;
+    const submitButtonText =
+      getAttributeValue(this, ["submit-button-text", "submitbuttontext", "submitButtonText"]) ??
+      DEFAULT_SUBMIT_BUTTON_TEXT;
+
+    const formCodeValue = getAttributeValue(this, ["form-code", "formcode", "formCode"]);
+    const explicitFormCode =
+      formCodeValue && FORM_CODES.has(formCodeValue as FormCodes)
+        ? (formCodeValue as FormCodes)
+        : undefined;
+    const formCode = resolveFormCode(this.localName, explicitFormCode);
+    const isDev = toBoolean(getAttributeValue(this, ["is-dev", "isdev", "isDev"])) ?? false;
+    const prefills = parsePrefills(this);
+
+    const app = createApp(BrowserFormGenerator, {
+      recaptchaSiteKey,
+      submitButtonText,
+      formWebClientEndpoint,
+      prefills,
+      isDev,
+      formUrlParameters: {
+        language,
+        form: formCode,
+      },
+    });
+
+    app.component("Form", Form);
+    app.component("Spinner", Spinner);
+    app.mount(this.mountNode);
+
+    this.app = app;
+  }
+}
+
+const registerWixFormElements = () => {
+  if (typeof customElements === "undefined") {
     return;
   }
 
-  (globalThis as Record<string, unknown>).createFormWebElement = createFormWebElement;
+  for (const tagName of FORM_TAG_NAMES) {
+    if (!customElements.get(tagName)) {
+      customElements.define(tagName, WixFormElement);
+    }
+  }
 };
 
-assignCreateFormWebElementToGlobal();
+registerWixFormElements();
