@@ -1,0 +1,9 @@
+@config "../tailwind-configurations/tailwindPresetEditor.js";
+@import "tailwindcss" source(none);
+
+@source "../domains/forms/**/*.{html,js,ts,vue}";
+@source "../features/forms/**/*.{html,js,ts,vue}";
+@source "../components/**/*.{html,js,ts,vue}";
+@source "../core/components/**/*.{html,js,ts,vue}";
+@source "../core/base-themes/**/*.{html,js,ts,vue}";
+@source "../base-themes/**/*.{html,js,ts,vue}";

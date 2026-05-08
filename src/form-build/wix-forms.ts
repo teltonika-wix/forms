@@ -12,9 +12,9 @@ const FORM_CODE_BY_TAG = {
   "rms-quiz": FormCodes.RMSQuizForm,
 } as const;
 
-export type FormTagName = keyof typeof FORM_CODE_BY_TAG;
+type FormTagName = keyof typeof FORM_CODE_BY_TAG;
 
-export type CreateFormWebElementOptions = {
+type CreateFormWebElementOptions = {
   recaptchaSiteKey: string;
   formWebClientEndpoint: string;
   language: string;
@@ -25,6 +25,46 @@ export type CreateFormWebElementOptions = {
 };
 
 const WIX_FORMS_STYLE_SELECTOR = "style[data-wix-forms-custom-elements]";
+const WIX_FORMS_TAG_SELECTORS = Object.keys(FORM_CODE_BY_TAG).join(", ");
+const WIX_FORMS_ROOT_SELECTORS = Object.keys(FORM_CODE_BY_TAG)
+  .map((tagName) => `${tagName} .wix-forms-root`)
+  .join(", ");
+const WIX_FORMS_RESET_STYLES = `
+${WIX_FORMS_TAG_SELECTORS} {
+  all: initial;
+  display: block;
+}
+
+${WIX_FORMS_ROOT_SELECTORS} {
+  color: initial;
+  cursor: auto;
+  direction: ltr;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-align: initial;
+  text-indent: 0;
+  text-transform: none;
+  white-space: normal;
+  word-spacing: normal;
+}
+
+${WIX_FORMS_ROOT_SELECTORS}, ${WIX_FORMS_ROOT_SELECTORS} * {
+  box-sizing: border-box;
+}
+
+.wix-forms-root * {
+  all: revert-layer;
+}
+
+.wix-forms-root input, .wix-forms-root textarea, .wix-forms-root label, .wix-forms-root p, .wix-forms-root div, .wix-forms-root select, , .wix-forms-root span {
+  font-family: wfont_70920c_83168c7e558a4ca0a1112348e51b02e0, wf_83168c7e558a4ca0a1112348e, orig_inter_regular;
+}
+`;
 
 const ensureGlobalStyles = () => {
   if (typeof document === "undefined") {
@@ -37,7 +77,7 @@ const ensureGlobalStyles = () => {
 
   const style = document.createElement("style");
   style.dataset.wixFormsCustomElements = "true";
-  style.textContent = wixFormsStyles;
+  style.textContent = `${WIX_FORMS_RESET_STYLES}\n${wixFormsStyles}`;
   document.head.appendChild(style);
 };
 
@@ -69,6 +109,7 @@ export const createFormWebElement = (
 
       const formCode = resolveFormCode(this.localName, options.formCode);
       const mountNode = document.createElement("div");
+      mountNode.className = "wix-forms-root";
       this.appendChild(mountNode);
 
       const app = createApp(BrowserFormGenerator, {

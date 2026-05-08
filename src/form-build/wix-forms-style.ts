@@ -1,3 +1,3 @@
-import tailwindStyles from "src/assets/tailwind.css?inline";
+import tailwindStyles from "src/form-build/wix-forms-tailwind.css?inline";
 
-export const wixFormsStyles = tailwindStyles;
+export const wixFormsStyles = String.raw`${tailwindStyles}`;

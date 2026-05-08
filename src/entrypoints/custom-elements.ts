@@ -1,5 +1,5 @@
 import "public/sentry/customElementSentry.js";
-import { createFormWebElement, type FormTagName } from "src/form-build/wix-forms";
+import { createFormWebElement } from "src/form-build/wix-forms";
 
 const PRODUCTION_FORM_ENDPOINT = "/tlt-networks/_functions/form";
 const FAKE_FORM_ENDPOINT = "/_mock/forms";
@@ -13,12 +13,12 @@ declare global {
   }
 }
 
-const formComponents: FormTagName[] = [
+const formComponents = [
   "contact-form",
   "contact-form-modal",
   "newsletter-form",
   "rms-quiz",
-];
+] as const;
 
 const url = new URL(window.location.href);
 const formWebClientEndpoint =
