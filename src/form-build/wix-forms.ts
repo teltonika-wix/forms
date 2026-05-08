@@ -127,6 +127,21 @@ const getAttributeValue = (element: HTMLElement, names: string[]): string | null
   return null;
 };
 
+const getCookie = (name: string): string | undefined => {
+  if (typeof document === "undefined") {
+    return undefined;
+  }
+
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+
+  if (parts.length === 2) {
+    return parts.pop()?.split(";").shift();
+  }
+
+  return undefined;
+};
+
 const resolveLanguage = (element: HTMLElement): string => {
   const explicitLanguage = getAttributeValue(element, ["language"])?.trim();
   if (explicitLanguage) {
@@ -165,6 +180,11 @@ const resolveFormWebClientEndpoint = (element: HTMLElement): string => {
 
 const parsePrefills = (element: HTMLElement): Record<string, string> | undefined => {
   const prefills: Record<string, string> = {};
+  const formTagName = element.localName;
+  const url =
+    typeof globalThis.location?.href === "string" ? new URL(globalThis.location.href) : null;
+  const utm_source = getCookie("utm_source");
+  const utm_campaign = getCookie("utm_campaign");
 
   const prefillsAttribute = getAttributeValue(element, ["prefills"]);
   if (prefillsAttribute) {
@@ -184,6 +204,18 @@ const parsePrefills = (element: HTMLElement): Record<string, string> | undefined
     if (attr.name.startsWith("prefill-")) {
       prefills[toPrefillKey(attr.name.slice("prefill-".length))] = attr.value;
     }
+  }
+
+  if (formTagName === "newsletter-form") {
+    prefills.email = url?.searchParams.get("email") ?? "";
+  }
+
+  if (utm_source) {
+    prefills.utm_source = utm_source;
+  }
+
+  if (utm_campaign) {
+    prefills.utm_campaign = utm_campaign;
   }
 
   return Object.keys(prefills).length > 0 ? prefills : undefined;

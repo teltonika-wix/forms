@@ -28,8 +28,8 @@ const formWebClientEndpoint =
 
 const wixLanguage = window.wixEmbedsAPI?.getLanguage?.();
 const language = wixLanguage === "uk" ? "ua" : (wixLanguage ?? "en");
-const utmSource = getCookie("utm_source");
-const utmCampaign = getCookie("utm_campaign");
+const utm_source = getCookie("utm_source");
+const utm_campaign = getCookie("utm_campaign");
 const formElements = document.querySelectorAll<HTMLElement>(formComponents.join(","));
 
 formElements.forEach((element) => {
@@ -45,24 +45,21 @@ formElements.forEach((element) => {
     element.setAttribute("language", language);
   }
 
-  const nextPrefills: Record<string, string> = {};
+  const prefills: Record<string, string> = {};
 
   if (element.localName === "newsletter-form") {
-    const email = url.searchParams.get("email");
-    if (email) {
-      nextPrefills.email = email;
-    }
+    prefills.email = url.searchParams.get("email") ?? "";
   }
 
-  if (utmSource) {
-    nextPrefills.utm_source = utmSource;
+  if (utm_source) {
+    prefills.utm_source = utm_source;
   }
 
-  if (utmCampaign) {
-    nextPrefills.utm_campaign = utmCampaign;
+  if (utm_campaign) {
+    prefills.utm_campaign = utm_campaign;
   }
 
-  if (Object.keys(nextPrefills).length > 0) {
+  if (Object.keys(prefills).length > 0) {
     const existingPrefillsAttribute = element.getAttribute("prefills");
     let existingPrefills: Record<string, string> = {};
 
@@ -77,7 +74,7 @@ formElements.forEach((element) => {
       }
     }
 
-    element.setAttribute("prefills", JSON.stringify({ ...existingPrefills, ...nextPrefills }));
+    element.setAttribute("prefills", JSON.stringify({ ...existingPrefills, ...prefills }));
   }
 });
 
