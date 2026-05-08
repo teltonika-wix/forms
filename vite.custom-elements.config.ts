@@ -30,6 +30,8 @@ const escapeForRawTemplate = (styles: string) =>
 const toWixFormsStyleInlineConstantCode = (identifier: string, styles: string) =>
   `const ${identifier} = String.raw\`${escapeForRawTemplate(styles)}\`;\n`;
 
+const stripCssComments = (styles: string) => styles.replace(/\/\*[\s\S]*?\*\//g, "");
+
 const addGlobalBuildShims = () => ({
   name: "add-global-build-shims",
   apply: "build" as const,
@@ -147,6 +149,7 @@ const finalizeWixFormsStyleBuild = () => ({
       .join("\n");
 
     const finalStyles = combinedCss ? `${baseStyles}\n${combinedCss}` : baseStyles;
+    const minifiedStyles = stripCssComments(finalStyles);
 
     if (mainEntryKey) {
       const mainEntry = bundle[mainEntryKey];
@@ -164,7 +167,7 @@ const finalizeWixFormsStyleBuild = () => ({
           const styleIdentifier = inlineStyleImportMatch[1];
           mainEntry.code = mainEntry.code.replace(
             /^\s*import \{ wixFormsStyles as ([$\w]+) \} from "\.\/wix-forms-style\.js";\n?/m,
-            toWixFormsStyleInlineConstantCode(styleIdentifier, finalStyles),
+            toWixFormsStyleInlineConstantCode(styleIdentifier, minifiedStyles),
           );
         }
       }
@@ -215,6 +218,6 @@ export default defineConfig({
     },
     outDir: "dist/custom-elements",
     emptyOutDir: true,
-    sourcemap: true,
+    sourcemap: false,
   },
 });
