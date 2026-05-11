@@ -13,6 +13,7 @@ export const sendFormData: SendFormData = async ({
   formWebClientEndpoint,
   formSecrets,
   isDev,
+  signal,
 }) => {
   if (typeof window !== "undefined") {
     if (!formWebClientEndpoint) {
@@ -26,6 +27,7 @@ export const sendFormData: SendFormData = async ({
       formUrlParameters,
       formWebClientEndpoint,
       isDev,
+      ...(signal ? { signal } : {}),
     });
   }
 
@@ -33,5 +35,10 @@ export const sendFormData: SendFormData = async ({
     throw new Error("To fetch form data on the server side, the form secrets must be provided.");
   }
 
-  return FormServerClient.sendFormData({ formData, formUrlParameters, formSecrets });
+  return FormServerClient.sendFormData({
+    formData,
+    formUrlParameters,
+    formSecrets,
+    ...(signal ? { signal } : {}),
+  });
 };

@@ -5,6 +5,15 @@ import type { FormWebClientParams } from "./types";
 
 export type SendFormDataParams = FormWebClientParams & {
   formData: FormData;
+  signal?: AbortSignal;
+};
+
+const isAbortError = (error: unknown): boolean => {
+  if (typeof DOMException !== "undefined" && error instanceof DOMException) {
+    return error.name === "AbortError";
+  }
+
+  return error instanceof Error && error.name === "AbortError";
 };
 
 export const sendFormData = async ({
@@ -12,6 +21,7 @@ export const sendFormData = async ({
   formUrlParameters,
   formWebClientEndpoint,
   isDev,
+  signal,
 }: SendFormDataParams): Promise<Response> => {
   try {
     const validParameters = validateFormParams(formUrlParameters);
@@ -24,10 +34,15 @@ export const sendFormData = async ({
     const response = await fetch(formUrl, {
       method: "POST",
       body: formData,
+      ...(signal ? { signal } : {}),
     });
 
     return response;
   } catch (error) {
+    if (isAbortError(error)) {
+      throw error;
+    }
+
     const errorMessage = extractErrorMessage(error);
 
     return createBadResponse({ errorMessage });

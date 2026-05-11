@@ -7,6 +7,11 @@ import { FormRenderingDataCache } from "./FormRenderingDataCache";
 
 export type LoadBrowserFormRenderingDataParams = BrowserFormRenderingParams;
 
+const inFlightFormRenderingDataRequests = new Map<
+  string,
+  Promise<FormRenderingDataResponse | undefined>
+>();
+
 export const loadBrowserFormRenderingData = async ({
   formWebClientEndpoint,
   formUrlParameters,
@@ -19,17 +24,30 @@ export const loadBrowserFormRenderingData = async ({
     return cachedData;
   }
 
-  const remoteData = await FormDataService.getFormRenderingData({
+  const inFlightRequest = inFlightFormRenderingDataRequests.get(formCacheKey);
+  if (inFlightRequest) {
+    return inFlightRequest;
+  }
+
+  const request = FormDataService.getFormRenderingData({
     formUrlParameters,
     formWebClientEndpoint,
     isDev,
-  });
+  })
+    .then((remoteData) => {
+      if (!remoteData || !Array.isArray(remoteData.inputs)) {
+        return;
+      }
 
-  if (!remoteData || !Array.isArray(remoteData.inputs)) {
-    return;
-  }
+      FormRenderingDataCache.set({ key: formCacheKey, value: remoteData });
 
-  FormRenderingDataCache.set({ key: formCacheKey, value: remoteData });
+      return remoteData;
+    })
+    .finally(() => {
+      inFlightFormRenderingDataRequests.delete(formCacheKey);
+    });
 
-  return remoteData;
+  inFlightFormRenderingDataRequests.set(formCacheKey, request);
+
+  return request;
 };

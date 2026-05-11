@@ -134,7 +134,7 @@ describe("wix-forms custom elements", () => {
     });
   });
 
-  it("uses explicit attributes and rerenders when observed attributes change", () => {
+  it("uses explicit attributes and rerenders when observed attributes change", async () => {
     const element = document.createElement("contact-form");
     element.setAttribute("recaptcha-site-key", "custom-key");
     element.setAttribute("form-web-client-endpoint", "/custom-endpoint");
@@ -155,6 +155,7 @@ describe("wix-forms custom elements", () => {
     });
 
     element.setAttribute("language", "de");
+    await Promise.resolve();
 
     expect(createAppMock).toHaveBeenCalledTimes(2);
     expect(createdApps[0]?.unmount).toHaveBeenCalledTimes(1);
@@ -164,6 +165,27 @@ describe("wix-forms custom elements", () => {
       language: "de",
       form: FormCodes.RMSQuizForm,
     });
+  });
+
+  it("batches multiple observed attribute changes into one rerender", async () => {
+    const element = document.createElement("contact-form");
+    document.body.appendChild(element);
+
+    expect(createAppMock).toHaveBeenCalledTimes(1);
+
+    element.setAttribute("language", "de");
+    element.setAttribute("submit-button-text", "Send");
+    await Promise.resolve();
+
+    expect(createAppMock).toHaveBeenCalledTimes(2);
+    expect(createdApps[0]?.unmount).toHaveBeenCalledTimes(1);
+
+    const props = createAppMock.mock.calls[1]?.[1] as Record<string, unknown>;
+    expect(props.formUrlParameters).toEqual({
+      language: "de",
+      form: FormCodes.ContactForm,
+    });
+    expect(props.submitButtonText).toBe("Send");
   });
 
   it("uses wix language fallback and normalizes uk to ua", () => {

@@ -239,6 +239,24 @@ class WixFormElement extends HTMLElement {
 
   private app: App<Element> | null = null;
   private mountNode: HTMLElement | null = null;
+  private isRenderScheduled = false;
+
+  private scheduleRenderApp() {
+    if (this.isRenderScheduled) {
+      return;
+    }
+
+    this.isRenderScheduled = true;
+    queueMicrotask(() => {
+      this.isRenderScheduled = false;
+
+      if (!this.isConnected) {
+        return;
+      }
+
+      this.renderApp();
+    });
+  }
 
   connectedCallback() {
     ensureGlobalStyles();
@@ -251,11 +269,12 @@ class WixFormElement extends HTMLElement {
     }
 
     if (WixFormElement.observedAttributes.includes(name)) {
-      this.renderApp();
+      this.scheduleRenderApp();
     }
   }
 
   disconnectedCallback() {
+    this.isRenderScheduled = false;
     this.destroyApp();
     this.innerHTML = "";
     this.mountNode = null;

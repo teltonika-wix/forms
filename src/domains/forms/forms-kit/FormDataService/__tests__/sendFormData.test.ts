@@ -96,4 +96,25 @@ describe("sendFormData", () => {
       "To fetch form data on the server side, the form secrets must be provided.",
     );
   });
+
+  it("should forward abort signal in browser mode", async () => {
+    const abortController = new AbortController();
+    const mockResponse = new Response(JSON.stringify({ success: true }), { status: 200 });
+    sendBrowserFormDataMock.mockResolvedValue(mockResponse);
+    globalThis.window = {} as unknown as Window & typeof globalThis;
+
+    await sendFormData({
+      formData: mockFormData,
+      formUrlParameters: mockFormUrlParameters,
+      formWebClientEndpoint: mockFormWebClientEndpoint,
+      signal: abortController.signal,
+    });
+
+    expect(sendBrowserFormDataMock).toHaveBeenCalledWith({
+      formData: mockFormData,
+      formUrlParameters: mockFormUrlParameters,
+      formWebClientEndpoint: mockFormWebClientEndpoint,
+      signal: abortController.signal,
+    });
+  });
 });

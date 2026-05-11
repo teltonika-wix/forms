@@ -5,6 +5,7 @@ import { generateFormUrl } from "./generateFormUrl";
 export type SendFormDataParams = FormSecretsParameter & {
   formData: FormData;
   formUrlParameters: FormUrlParameters;
+  signal?: AbortSignal;
 };
 
 export const FORMS_SUBMIT_ENDPOINT = "/form/submit";
@@ -13,6 +14,7 @@ export const sendFormData = async ({
   formData,
   formUrlParameters,
   formSecrets,
+  signal,
 }: SendFormDataParams): Promise<Response> => {
   const formParameters = validateFormParams(formUrlParameters);
   const formUrl = await generateFormUrl({
@@ -24,5 +26,6 @@ export const sendFormData = async ({
   return fetch(formUrl, {
     method: "POST",
     body: formData,
+    ...(signal ? { signal } : {}),
   });
 };

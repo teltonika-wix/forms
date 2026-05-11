@@ -12,6 +12,7 @@ export type BrowserFormRenderingParams = FormWebClientParams;
 export type SendFormDataBaseParams = {
   formData: FormData;
   formUrlParameters: FormUrlParameters;
+  signal?: AbortSignal;
 };
 export type SendServerFormDataParams = SendFormDataBaseParams & FormSecretsParameter;
 export type SendBrowserFormDataParams = SendFormDataBaseParams & FormWebClientParams;

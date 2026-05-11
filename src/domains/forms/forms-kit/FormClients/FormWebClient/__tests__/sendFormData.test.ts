@@ -100,4 +100,47 @@ describe("sendFormData", () => {
     expect(createBadResponseMock).toHaveBeenCalledWith({ errorMessage: "Fetch error occurred" });
     expect(result).toEqual(createBadResponseMock());
   });
+
+  it("should pass abort signal to fetch when provided", async () => {
+    const abortController = new AbortController();
+
+    validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
+    createFullFormUrlMock.mockReturnValue(mockFullUrl);
+    fetchMock.mockResolvedValue({
+      status: 200,
+      json: vi.fn().mockResolvedValue({ success: true }),
+    });
+
+    await sendFormData({
+      formData: mockFormData,
+      formUrlParameters: mockFormUrlParameters,
+      formWebClientEndpoint: mockFormWebClientEndpoint,
+      signal: abortController.signal,
+    });
+
+    expect(fetchMock).toHaveBeenCalledWith(mockFullUrl, {
+      method: "POST",
+      body: mockFormData,
+      signal: abortController.signal,
+    });
+  });
+
+  it("should rethrow abort errors", async () => {
+    const abortError = new Error("request was aborted");
+    abortError.name = "AbortError";
+
+    validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
+    createFullFormUrlMock.mockReturnValue(mockFullUrl);
+    fetchMock.mockRejectedValue(abortError);
+
+    await expect(
+      sendFormData({
+        formData: mockFormData,
+        formUrlParameters: mockFormUrlParameters,
+        formWebClientEndpoint: mockFormWebClientEndpoint,
+      }),
+    ).rejects.toThrow("request was aborted");
+
+    expect(createBadResponseMock).not.toHaveBeenCalled();
+  });
 });

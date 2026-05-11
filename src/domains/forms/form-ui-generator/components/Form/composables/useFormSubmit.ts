@@ -27,8 +27,24 @@ export const useFormSubmit = ({
   isDev,
 }: UseFormSubmitParams): UseFormSubmitReturn => {
   const isSubmitting = ref(false);
+  const activeAbortController = ref<AbortController | null>(null);
+
+  const isAbortError = (error: unknown): boolean => {
+    if (activeAbortController.value?.signal.aborted) {
+      return true;
+    }
+
+    if (typeof DOMException !== "undefined" && error instanceof DOMException) {
+      return error.name === "AbortError";
+    }
+
+    return error instanceof Error && error.name === "AbortError";
+  };
 
   const submitHandler = async (event: Event): Promise<void> => {
+    activeAbortController.value?.abort();
+    const abortController = new AbortController();
+    activeAbortController.value = abortController;
     isSubmitting.value = true;
     formSubmitEventHandler({ status: "beforeSubmit" });
     const { setFormCompleted, addFormMessage } = useFormStore(formCode);
@@ -43,6 +59,7 @@ export const useFormSubmit = ({
         formUrlParameters,
         formWebClientEndpoint,
         isDev,
+        signal: abortController.signal,
       });
 
       if (isSuccessfulStatusCode(response?.status)) {
@@ -71,6 +88,10 @@ export const useFormSubmit = ({
 
       return;
     } catch (error) {
+      if (isAbortError(error)) {
+        return;
+      }
+
       formSubmitEventHandler({ status: "unexpectedError", error });
 
       if (error instanceof FormValidationError) {
@@ -83,7 +104,10 @@ export const useFormSubmit = ({
 
       return;
     } finally {
-      isSubmitting.value = false;
+      if (activeAbortController.value === abortController) {
+        activeAbortController.value = null;
+        isSubmitting.value = false;
+      }
     }
   };
 
