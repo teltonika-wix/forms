@@ -67,7 +67,7 @@ ${WIX_FORMS_ROOT_SELECTORS}, ${WIX_FORMS_ROOT_SELECTORS} * {
 }
 
 .wix-forms-root .font-inter {
-  font-family: wfont_70920c_83168c7e558a4ca0a1112348e51b02e0, wf_83168c7e558a4ca0a1112348e, orig_inter_regular;
+  font-family: "inter", wfont_70920c_83168c7e558a4ca0a1112348e51b02e0, wf_83168c7e558a4ca0a1112348e, orig_inter_regular;
 }
 
 .wix-forms-root p.break-words.font-inter {
