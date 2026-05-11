@@ -1,5 +1,6 @@
 import { defineConfig } from "vite-plus";
 import { fileURLToPath, URL } from "node:url";
+import { createHash } from "node:crypto";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import { fakeFormsEndpointPlugin } from "./scripts/fakeFormsEndpointPlugin.ts";
@@ -31,6 +32,10 @@ const toWixFormsStyleInlineConstantCode = (identifier: string, styles: string) =
   `const ${identifier} = String.raw\`${escapeForRawTemplate(styles)}\`;\n`;
 
 const stripCssComments = (styles: string) => styles.replace(/\/\*[\s\S]*?\*\//g, "");
+const getHashedWixFormsFilename = (code: string) => {
+  const hash = createHash("sha256").update(code).digest("hex").slice(0, 8);
+  return `wix-forms.${hash}.js`;
+};
 
 const addGlobalBuildShims = () => ({
   name: "add-global-build-shims",
@@ -209,6 +214,33 @@ const finalizeWixFormsStyleBuild = () => ({
     if (bundle[styleMapKey]) {
       delete bundle[styleMapKey];
     }
+
+    const finalMainEntryKey = Object.keys(bundle).find(
+      (key) =>
+        bundle[key]?.type === "chunk" &&
+        bundle[key]?.fileName === "form-build/wix-forms.js" &&
+        typeof bundle[key]?.code === "string",
+    );
+
+    if (!finalMainEntryKey) {
+      return;
+    }
+
+    const finalMainEntry = bundle[finalMainEntryKey];
+    if (finalMainEntry.type !== "chunk" || typeof finalMainEntry.code !== "string") {
+      return;
+    }
+
+    const hashedFilename = getHashedWixFormsFilename(finalMainEntry.code);
+    finalMainEntry.fileName = `form-build/${hashedFilename}`;
+
+    this.emitFile({
+      type: "asset",
+      fileName: "form-build/wix-forms-manifest.json",
+      source: JSON.stringify({
+        entry: hashedFilename,
+      }),
+    });
   },
 });
 

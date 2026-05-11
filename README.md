@@ -68,7 +68,8 @@ make arch-baseline # Update architecture baseline
 
 - Source entry: `src/form-build/wix-forms.ts`
 - Build command: `vp run build:custom-elements`
-- Output file: `dist/custom-elements/form-build/wix-forms.js`
+- Output file: `dist/custom-elements/form-build/wix-forms.<hash>.js`
+- Alias manifest: `dist/custom-elements/form-build/wix-forms-manifest.json`
 - Local preview page: `custom-elements-build/index.html`
 
 The custom-element bundle is included in the deployed `dist` assets and is served from the Cloudflare Worker static assets configuration (`wrangler.toml`, `[assets].directory = "./dist"`).
@@ -78,6 +79,15 @@ The custom-element bundle is included in the deployed `dist` assets and is serve
 - Worker config: `wrangler.toml`
 - Deploy command: `vp run deploy:worker` or `make deploy-worker`
 - Local Wrangler preview: `vp run dev:worker` or `make dev-worker`
+- Cache purge after deploy: automatic via Cloudflare API (`purge_everything: true`)
+- Wrangler commands load environment from `.env` (`--env-file .env`)
+- Worker resolves `/custom-elements/form-build/wix-forms.js` to the hashed bundle via manifest
+
+Required environment variables for deploy cache purge:
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN` (token with zone cache purge permission)
+- `CLOUDFLARE_ZONE_ID`
 
 When deployed, both app assets and the custom-elements bundle are served from the Worker asset directory (`dist`).
 
