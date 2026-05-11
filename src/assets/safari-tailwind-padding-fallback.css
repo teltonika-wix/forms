@@ -1,0 +1,115 @@
+/* Tailwind v4 uses logical spacing (`padding-inline`/`padding-block`) for `px-*` and `py-*`.
+   Older Safari versions can miss these declarations, so provide physical-property fallbacks. */
+@supports not (padding-inline: 1px) {
+  [class~="px-2"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  [class~="px-3"] {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  [class~="px-4"] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  [class~="px-14"] {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+
+  [class~="py-1"] {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  [class~="py-2"] {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  [class~="py-3"] {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  [class~="py-4"] {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .group.fixed [class~="group-[.fixed]:px-3"] {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .group.fixed [class~="group-[.fixed]:py-4"] {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    [class~="md:px-2.5"] {
+      padding-left: 0.625rem;
+      padding-right: 0.625rem;
+    }
+
+    [class~="md:px-4"] {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    [class~="md:px-6"] {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    [class~="md:px-8"] {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    [class~="md:py-2.5"] {
+      padding-top: 0.625rem;
+      padding-bottom: 0.625rem;
+    }
+
+    [class~="md:py-4"] {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    [class~="md:py-6"] {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    [class~="md:py-8"] {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .group.fixed [class~="group-[.fixed]:md:px-2.5"] {
+      padding-left: 0.625rem;
+      padding-right: 0.625rem;
+    }
+
+    .group.fixed [class~="group-[.fixed]:md:px-4"] {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .group.fixed [class~="group-[.fixed]:md:py-6"] {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .group.fixed [class~="group-[.fixed]:md:py-8"] {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+}

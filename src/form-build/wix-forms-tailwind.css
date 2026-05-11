@@ -1,4 +1,5 @@
 @config "../tailwind-configurations/tailwindPresetEditor.js";
+@import "../assets/safari-tailwind-padding-fallback.css";
 @import "tailwindcss" source(none);
 
 @source "../domains/forms/**/*.{html,js,ts,vue}";
