@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wix Forms Custom Elements Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       body {
         margin: 0;
@@ -12,18 +19,169 @@
         background: #f5f7fb;
         color: #0f172a;
       }
-
       .grid {
         display: grid;
         gap: 24px;
         max-width: 960px;
       }
 
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      font,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      nav,
+      button,
+      section,
+      header,
+      footer,
+      title {
+        vertical-align: baseline;
+        background: 0 0;
+        border: 0;
+        outline: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      [data-wix-forms-host]
+        .wix-forms-root
+        :where(
+          div,
+          span,
+          applet,
+          object,
+          iframe,
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          p,
+          blockquote,
+          pre,
+          a,
+          abbr,
+          acronym,
+          address,
+          big,
+          cite,
+          code,
+          del,
+          dfn,
+          em,
+          font,
+          img,
+          ins,
+          kbd,
+          q,
+          s,
+          samp,
+          small,
+          strike,
+          strong,
+          sub,
+          sup,
+          tt,
+          var,
+          b,
+          u,
+          i,
+          center,
+          dl,
+          dt,
+          dd,
+          ol,
+          ul,
+          li,
+          fieldset,
+          form,
+          label,
+          legend,
+          table,
+          caption,
+          tbody,
+          tfoot,
+          thead,
+          tr,
+          th,
+          td,
+          nav,
+          button,
+          section,
+          header,
+          footer,
+          title
+        ) {
+        margin: revert;
+        padding: revert;
+        border: revert;
+        background: revert;
+        outline: revert;
+        vertical-align: revert;
+      }
       .card {
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 12px;
         padding: 16px;
+        position: relative;
       }
 
       .card h2 {

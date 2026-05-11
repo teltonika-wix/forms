@@ -20,7 +20,7 @@ const getWixFormsRequestPath = async (request: Request, assets: AssetsBinding) =
   manifestUrl.pathname = WIX_FORMS_MANIFEST_PATH;
 
   try {
-    const manifestResponse = await assets.fetch(new Request(manifestUrl.toString(), request));
+    const manifestResponse = await assets.fetch(manifestUrl);
     if (!manifestResponse.ok) {
       return requestUrl.pathname;
     }
@@ -38,9 +38,15 @@ const getWixFormsRequestPath = async (request: Request, assets: AssetsBinding) =
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    if (!env.ASSETS || typeof env.ASSETS.fetch !== "function") {
+      return new Response('ASSETS binding is missing. Configure [assets].binding = "ASSETS".', {
+        status: 500,
+      });
+    }
+
     const requestUrl = new URL(request.url);
     requestUrl.pathname = await getWixFormsRequestPath(request, env.ASSETS);
 
-    return env.ASSETS.fetch(new Request(requestUrl.toString(), request));
+    return env.ASSETS.fetch(requestUrl);
   },
 };
