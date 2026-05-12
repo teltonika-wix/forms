@@ -28,7 +28,7 @@ describe("sendFormData", () => {
   const mockFormCode = "ContactForm";
   const mockFormUrlParameters = { language: "en", form: mockFormCode };
   const mockFormData = new FormData();
-  const mockFullUrl = `${mockOrigin}${mockFormWebClientEndpoint}?language=en&form=${mockFormCode}`;
+  const mockFullUrl = `${mockOrigin}${mockFormWebClientEndpoint}/submit?language=en&form=${mockFormCode}`;
 
   globalThis.fetch = vi.fn();
   const fetchMock = globalThis.fetch as Mock;
@@ -54,6 +54,7 @@ describe("sendFormData", () => {
 
     expect(validateFormParamsMock).toHaveBeenCalledWith(mockFormUrlParameters);
     expect(createFullFormUrlMock).toHaveBeenCalledWith({
+      endpoint: "/submit",
       searchParams: mockFormUrlParameters,
       formWebClientEndpoint: mockFormWebClientEndpoint,
     });

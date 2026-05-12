@@ -26,7 +26,7 @@ describe("getFormRenderingData", () => {
   const mockOrigin = "https://example.com";
   const mockFormCode = "ContactForm";
   const mockFormUrlParameters = { language: "en", form: mockFormCode };
-  const mockFormUrl = `${mockOrigin}${mockFormWebClientEndpoint}?language=en&form=${mockFormCode}`;
+  const mockFormUrl = `${mockOrigin}${mockFormWebClientEndpoint}/form?language=en&form=${mockFormCode}`;
   const mockResponseData = {
     code: mockFormCode,
     inputs: [],
@@ -56,6 +56,7 @@ describe("getFormRenderingData", () => {
 
     expect(validateFormParamsMock).toHaveBeenCalledWith(mockFormUrlParameters);
     expect(createFullFormUrlMock).toHaveBeenCalledWith({
+      endpoint: "/form",
       searchParams: mockFormUrlParameters,
       formWebClientEndpoint: mockFormWebClientEndpoint,
     });

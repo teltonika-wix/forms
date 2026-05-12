@@ -26,6 +26,7 @@ export const sendFormData = async ({
   try {
     const validParameters = validateFormParams(formUrlParameters);
     const formUrl = createFullFormUrl({
+      endpoint: "/submit",
       searchParams: validParameters,
       formWebClientEndpoint,
       isDev,

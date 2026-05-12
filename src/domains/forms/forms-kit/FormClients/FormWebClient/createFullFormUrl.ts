@@ -6,23 +6,27 @@ export type CreateFullFormUrlParams = Pick<
   FormWebClientParams,
   "formWebClientEndpoint" | "isDev"
 > & {
+  endpoint: "/form" | "/submit";
   searchParams: ExactFormUrlParameters;
 };
 
 export const createFullFormUrl = ({
   formWebClientEndpoint,
+  endpoint,
   searchParams,
   isDev,
 }: CreateFullFormUrlParams): string => {
   let baseUrl = window && window?.location?.origin;
-  let endpoint = formWebClientEndpoint;
+  let baseEndpoint = formWebClientEndpoint;
 
   if (formWebClientEndpoint.includes("http")) {
     const url = new URL(formWebClientEndpoint);
 
     baseUrl = url?.origin ?? baseUrl;
-    endpoint = url.pathname;
+    baseEndpoint = url.pathname;
   }
+
+  const normalizedBaseEndpoint = baseEndpoint === "/" ? "" : baseEndpoint.replace(/\/+$/, "");
 
   const finalSearchParams: Record<string, string> = isDev
     ? { ...searchParams, dev: "1" }
@@ -45,7 +49,7 @@ export const createFullFormUrl = ({
 
   return createUrlWithParams({
     baseUrl,
-    endpoint,
+    endpoint: `${normalizedBaseEndpoint}${endpoint}`,
     searchParams: finalSearchParams,
   });
 };

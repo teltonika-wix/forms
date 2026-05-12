@@ -4,7 +4,7 @@ import type { FormSecretsParameter, FormUrlParameters } from "../../types/formGe
 import { validateFormParams } from "../../utils/validateFormParams";
 import { generateFormUrl } from "./generateFormUrl";
 
-export const FORMS_GET_ENDPOINT = "/form/get";
+export const FORMS_GET_ENDPOINT = "/form";
 
 export type GetFormRenderingDataParams = FormSecretsParameter & {
   formUrlParameters: FormUrlParameters;

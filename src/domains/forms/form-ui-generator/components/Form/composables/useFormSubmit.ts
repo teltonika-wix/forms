@@ -26,6 +26,7 @@ export const useFormSubmit = ({
   formWebClientEndpoint,
   isDev,
 }: UseFormSubmitParams): UseFormSubmitReturn => {
+  const fallbackSubmitErrorMessage = "Failed to submit form. Please try again later!";
   const isSubmitting = ref(false);
   const activeAbortController = ref<AbortController | null>(null);
 
@@ -48,6 +49,7 @@ export const useFormSubmit = ({
     isSubmitting.value = true;
     formSubmitEventHandler({ status: "beforeSubmit" });
     const { setFormCompleted, addFormMessage } = useFormStore(formCode);
+    addFormMessage("submitError", "");
 
     try {
       const { formData, recaptchaKey } = await createFormData({
@@ -61,6 +63,14 @@ export const useFormSubmit = ({
         isDev,
         signal: abortController.signal,
       });
+      const { errors } = await FormDataService.getValidationData(response.clone());
+
+      if (errors && Object.keys(errors).length > 0) {
+        updateFormInputErrorStates({ formCode, errors, recaptchaKey });
+        formSubmitEventHandler({ status: "error", errors, formData });
+
+        return;
+      }
 
       if (isSuccessfulStatusCode(response?.status)) {
         setFormCompleted();
@@ -74,19 +84,12 @@ export const useFormSubmit = ({
         return;
       }
 
-      const { errors } = await FormDataService.getValidationData(response);
-
-      if (!errors) {
-        setFormCompleted({ withError: true });
+      if (!errors || Object.keys(errors).length === 0) {
+        addFormMessage("submitError", fallbackSubmitErrorMessage);
         formSubmitEventHandler({ status: "unexpectedError", error: {} });
 
         return;
       }
-
-      updateFormInputErrorStates({ formCode, errors, recaptchaKey });
-      formSubmitEventHandler({ status: "error", errors, formData });
-
-      return;
     } catch (error) {
       if (isAbortError(error)) {
         return;
@@ -100,7 +103,7 @@ export const useFormSubmit = ({
         return;
       }
 
-      setFormCompleted({ withError: true });
+      addFormMessage("submitError", fallbackSubmitErrorMessage);
 
       return;
     } finally {

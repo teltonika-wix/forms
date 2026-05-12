@@ -13,6 +13,7 @@ export const getFormRenderingData = async ({
 }: GetFormRenderingDataParams): Promise<FormRenderingDataResponse> => {
   const validParameters = validateFormParams(formUrlParameters);
   const formUrl = createFullFormUrl({
+    endpoint: "/form",
     searchParams: validParameters,
     formWebClientEndpoint,
     isDev,

@@ -14,7 +14,7 @@ describe("createFullFormUrl", () => {
   const mockSearchParams = { language: "en", form: mockFormCode } as ExactFormUrlParameters;
   const mockFormWebClientEndpoint = "/form-endpoint";
   const mockOrigin = "https://example.com";
-  const mockFullUrl = `${mockOrigin}${mockFormWebClientEndpoint}?language=en&form=${mockFormCode}`;
+  const mockFullUrl = `${mockOrigin}${mockFormWebClientEndpoint}/form?language=en&form=${mockFormCode}`;
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -29,15 +29,35 @@ describe("createFullFormUrl", () => {
     createUrlWithParamsMock.mockReturnValue(mockFullUrl);
 
     const result = createFullFormUrl({
+      endpoint: "/form",
       formWebClientEndpoint: mockFormWebClientEndpoint,
       searchParams: mockSearchParams,
     });
 
     expect(createUrlWithParamsMock).toHaveBeenCalledWith({
       baseUrl: mockOrigin,
-      endpoint: mockFormWebClientEndpoint,
+      endpoint: `${mockFormWebClientEndpoint}/form`,
       searchParams: mockSearchParams,
     });
     expect(result).toBe(mockFullUrl);
+  });
+
+  it("should append endpoint for absolute base URL", () => {
+    const absoluteEndpoint = "https://forms-iot.teltonikadevteam.workers.dev/";
+    const absoluteResult = `${absoluteEndpoint}submit?language=en&form=${mockFormCode}`;
+    createUrlWithParamsMock.mockReturnValue(absoluteResult);
+
+    const result = createFullFormUrl({
+      endpoint: "/submit",
+      formWebClientEndpoint: absoluteEndpoint,
+      searchParams: mockSearchParams,
+    });
+
+    expect(createUrlWithParamsMock).toHaveBeenCalledWith({
+      baseUrl: "https://forms-iot.teltonikadevteam.workers.dev",
+      endpoint: "/submit",
+      searchParams: mockSearchParams,
+    });
+    expect(result).toBe(absoluteResult);
   });
 });
