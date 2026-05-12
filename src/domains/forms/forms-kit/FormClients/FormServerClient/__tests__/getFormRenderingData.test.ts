@@ -23,7 +23,7 @@ const isSuccessfulStatusCodeMock = isSuccessfulStatusCode as unknown as Mock;
 
 describe("getFormRenderingData", () => {
   const mockFormMicroserviceUrl = "https://form-service.com";
-  const mockEndpoint = "/form/get";
+  const mockEndpoint = "/form";
   const mockFormMicroserviceToken = "secret-token";
   const mockFormSecrets: FormSecrets = {
     formMicroserviceUrl: mockFormMicroserviceUrl,

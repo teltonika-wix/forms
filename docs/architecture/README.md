@@ -14,6 +14,14 @@ The target architecture is:
 - `src/entrypoints`: public package APIs
 - `src/legacy`: compatibility exports during migration
 
+Current transition paths still in active use:
+
+- `src/base-themes`
+- `src/tailwind-configurations`
+- `src/components`
+- `src/utilities`
+- `src/vue-utils`
+
 ## Guardrails
 
 - New imports from `src/core` outside `src/core` and `src/legacy` are blocked.
@@ -23,6 +31,7 @@ The target architecture is:
 - Form UI generator module must be imported from `src/domains/forms/form-ui-generator`.
 - Forms data/service module must be imported from `src/domains/forms/forms-kit`.
 - Hyperlink features must be imported from `src/features/navigation/hyperlinks`.
+- New shared UI primitives should be introduced from `src/shared/ui`.
 
 ## Commands
 

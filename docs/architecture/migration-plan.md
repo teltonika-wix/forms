@@ -22,6 +22,8 @@
 - `form-ui-generator` moved to `domains/forms/form-ui-generator` (legacy shim tree removed).
 - `forms-kit` moved to `domains/forms/forms-kit` (legacy shim tree removed).
 - `elements/hyperlinks` moved to `features/navigation/hyperlinks` (legacy shim tree removed).
+- `src/base-themes` and `src/tailwind-configurations` remain active transition paths until `src/foundation` takes ownership.
+- `src/components` remains the active reusable UI tree while new shared primitives are introduced under `src/shared/ui`.
 
 ## Phase 4
 

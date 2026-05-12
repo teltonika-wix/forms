@@ -93,13 +93,17 @@ When deployed, both app assets and the custom-elements bundle are served from th
 
 ## Project Structure
 
-- `src/components`: primary reusable UI components
-- `src/features`: composed product-facing features
-- `src/domains`: domain modules (forms, content, etc.)
-- `src/shared`: shared primitives/utilities
-- `src/foundation`: design tokens/themes/tailwind presets
+- `src/components`: reusable UI component library exported from `src/index.ts`
+- `src/features`: product-facing composition modules (`forms`, `navigation`)
+- `src/domains`: domain logic modules, currently focused on forms
+- `src/elements`: standalone element modules (for example `GoogleClickId`)
+- `src/form-build`: custom-elements runtime/build entry (`wix-forms.ts`)
+- `src/base-themes` and `src/tailwind-configurations`: active theme/preset modules pending migration into `src/foundation`
+- `src/utilities` and `src/vue-utils`: shared utility/composable helpers
+- `src/shared` and `src/foundation`: migration targets for new shared and design-system code
 - `src/legacy`: compatibility exports during migration
 - `src/core`: legacy duplicate tree under migration constraints
+- `src/entrypoints`: explicit entry files for runtime/package boundaries
 - `docs/architecture`: architecture governance and migration docs
 
 ## Architecture Notes
@@ -107,5 +111,6 @@ When deployed, both app assets and the custom-elements bundle are served from th
 The repository is in an active migration away from `src/core` duplicate implementations.
 
 - Prefer new code in `src/foundation`, `src/shared`, `src/domains`, and `src/features`.
+- For existing theme/preset flows, updates may still land in `src/base-themes` and `src/tailwind-configurations` until migration is completed.
 - Avoid introducing new dependencies on `src/core` outside `src/core` and `src/legacy`.
 - Run `vp run arch:check` before merging changes.

@@ -6,10 +6,11 @@ import {
   type SelectDropdownVisibilityChange,
   SelectMenuDropdown,
   type SelectMenuItemChange,
+  type SelectMenuOption,
   changeActiveMenuItem,
 } from "./components/SelectMenuDropdown";
 import type { SelectMenuProps } from "./types";
-import { onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 
 const props = defineProps<SelectMenuProps>();
 const menuItemsRef = ref(props.selectMenuOptions);
@@ -36,6 +37,29 @@ const onVisibilityChange: SelectDropdownVisibilityChange = (isVisible) => {
 
   emit("onVisibilityChange", isVisible);
 };
+
+const resolveMenuItemDisplayValue = (option?: SelectMenuOption): string => {
+  if (!option) {
+    return "";
+  }
+
+  const optionContent = (option as SelectMenuOption<{ content?: unknown }>).content;
+  if (typeof optionContent === "string" && optionContent) {
+    return optionContent;
+  }
+
+  return option.label;
+};
+
+const displayValue = computed(() => {
+  const selectedItem = menuItemsRef.value.find((option) => option.value === inputValue.value);
+
+  if (selectedItem) {
+    return resolveMenuItemDisplayValue(selectedItem);
+  }
+
+  return resolveMenuItemDisplayValue(props.defaultValue);
+});
 
 onMounted(() => {
   const activeMenuOption = props.selectMenuOptions.find((option) => option.isActive);
@@ -83,13 +107,13 @@ watch(
           :id="id"
           ref="selectInputRef"
           :disabled="disabled"
-          :value="inputValue"
-          :name="name"
+          :value="displayValue"
           :placeholder="placeholder"
           :readonly="!disabled"
           class="block w-full cursor-pointer appearance-none bg-transparent text-current outline-none"
           type="text"
         />
+        <input :name="name" :value="inputValue" :disabled="disabled" type="hidden" />
         <template #right>
           <div class="flex items-center">
             <ChevronUpIcon
