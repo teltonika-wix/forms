@@ -28,8 +28,8 @@ describe("getFormRenderingData", () => {
   const mockFormUrlParameters = { language: "en", form: mockFormCode };
   const mockFormUrl = `${mockOrigin}${mockFormWebClientEndpoint}?language=en&form=${mockFormCode}`;
   const mockResponseData = {
-    field1: "data1",
-    field2: "data2",
+    code: mockFormCode,
+    inputs: [],
   } as unknown as FormRenderingDataResponse;
 
   globalThis.fetch = vi.fn();
@@ -63,6 +63,24 @@ describe("getFormRenderingData", () => {
     expect(result).toEqual(mockResponseData);
   });
 
+  it("should return response.data when code property is not provided", async () => {
+    validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
+    createFullFormUrlMock.mockReturnValue(mockFormUrl);
+    isSuccessfulStatusCodeMock.mockReturnValue(true);
+
+    fetchMock.mockResolvedValue({
+      status: 200,
+      json: vi.fn().mockResolvedValue({ data: mockResponseData }),
+    });
+
+    const result = await getFormRenderingData({
+      formWebClientEndpoint: mockFormWebClientEndpoint,
+      formUrlParameters: mockFormUrlParameters,
+    });
+
+    expect(result).toEqual(mockResponseData);
+  });
+
   it("should throw an error if the response status is not successful", async () => {
     validateFormParamsMock.mockReturnValue(mockFormUrlParameters);
     createFullFormUrlMock.mockReturnValue(mockFormUrl);
@@ -90,7 +108,7 @@ describe("getFormRenderingData", () => {
 
     fetchMock.mockResolvedValue({
       status: 200,
-      json: vi.fn().mockResolvedValue(null),
+      json: vi.fn().mockResolvedValue({}),
     });
 
     await expect(

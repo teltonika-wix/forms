@@ -28,9 +28,13 @@ export const getFormRenderingData = async ({
 
   const response = await formDataResponse.json();
 
-  if (!response || !response.data) {
-    throw new Error(`Response data doesn't provided`);
+  if (response && typeof response === "object" && "code" in response) {
+    return response as FormRenderingDataResponse;
   }
 
-  return response.data;
+  if (response && typeof response === "object" && "data" in response) {
+    return response.data as FormRenderingDataResponse;
+  }
+
+  throw new Error(`Response data doesn't provided`);
 };
