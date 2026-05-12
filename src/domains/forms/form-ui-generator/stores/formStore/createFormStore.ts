@@ -75,6 +75,7 @@ export const createFormStore = (): FormStore => {
     getIsFormActive,
     updateFormInputValue: (inputName, value) => {
       updateFormInputData({ formState, inputName, value, key: "value" });
+      updateFormInputData({ formState, inputName, value: "", key: "errorMessage" });
     },
     updateFormInputError: (inputName, errorMessage) => {
       updateFormInputData({

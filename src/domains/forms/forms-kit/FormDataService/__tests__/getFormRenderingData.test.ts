@@ -5,7 +5,7 @@ import type { FormSecrets } from "../../types";
 import type { ServerFormRenderingParams } from "../../types/formInputParams";
 import { addDefaultLocation } from "../defaultValues/addDefaultLocation";
 import { getFormRenderingData } from "../getFormRenderingData";
-import { type IPAddressInfo, getIpInfo } from "../ipInfo";
+import { type IPAddressInfo, getBrowserIpInfo, getIpInfo } from "../ipInfo";
 
 vi.mock("../../FormClients/FormServerClient", () => ({
   FormServerClient: {
@@ -20,6 +20,7 @@ vi.mock("../../FormClients/FormWebClient", () => ({
 }));
 
 vi.mock("../ipInfo", () => ({
+  getBrowserIpInfo: vi.fn(),
   getIpInfo: vi.fn(),
 }));
 
@@ -29,6 +30,7 @@ vi.mock("../defaultValues/addDefaultLocation", () => ({
 
 const getServerFormRenderingDataMock = FormServerClient.getFormRenderingData as unknown as Mock;
 const getBrowserFormRenderingDataMock = FormWebClient.getFormRenderingData as unknown as Mock;
+const getBrowserIpInfoMock = getBrowserIpInfo as unknown as Mock;
 const getIpInfoMock = getIpInfo as unknown as Mock;
 const addDefaultLocationMock = addDefaultLocation as unknown as Mock;
 
@@ -78,7 +80,56 @@ describe("getFormRenderingData", () => {
       formUrlParameters: mockFormUrlParameters,
       formWebClientEndpoint: mockFormWebClientEndpoint,
     });
+    expect(getBrowserIpInfoMock).not.toHaveBeenCalled();
     expect(result).toEqual(createFormRenderingData());
+  });
+
+  it("should add default location on the browser side when location input exists", async () => {
+    const initialInputs = [{ component: "LocationSelectComponent", defaultValue: "" }];
+    const formRenderingDataWithLocation = {
+      inputs: initialInputs,
+    };
+    const formRenderingDataWithDefaultLocation = {
+      inputs: [{ component: "LocationSelectComponent", defaultValue: "United States" }],
+    };
+
+    getBrowserFormRenderingDataMock.mockResolvedValue(formRenderingDataWithLocation);
+    getBrowserIpInfoMock.mockResolvedValue(mockIpInfo);
+    addDefaultLocationMock.mockReturnValue(formRenderingDataWithDefaultLocation.inputs);
+    globalThis.window = {} as unknown as Window & typeof globalThis;
+
+    const result = await getFormRenderingData({
+      formUrlParameters: mockFormUrlParameters,
+      formWebClientEndpoint: mockFormWebClientEndpoint,
+    });
+
+    expect(getBrowserIpInfoMock).toHaveBeenCalledWith({
+      formWebClientEndpoint: mockFormWebClientEndpoint,
+      isDev: undefined,
+    });
+    expect(addDefaultLocationMock).toHaveBeenCalledWith({
+      formInputComponents: initialInputs,
+      ipInfo: mockIpInfo,
+    });
+    expect(result).toEqual(formRenderingDataWithDefaultLocation);
+  });
+
+  it("should return browser rendering data without location defaults if browser ip info is missing", async () => {
+    const formRenderingDataWithLocation = {
+      inputs: [{ component: "LocationSelectComponent", defaultValue: "" }],
+    };
+
+    getBrowserFormRenderingDataMock.mockResolvedValue(formRenderingDataWithLocation);
+    getBrowserIpInfoMock.mockResolvedValue(null);
+    globalThis.window = {} as unknown as Window & typeof globalThis;
+
+    const result = await getFormRenderingData({
+      formUrlParameters: mockFormUrlParameters,
+      formWebClientEndpoint: mockFormWebClientEndpoint,
+    });
+
+    expect(addDefaultLocationMock).not.toHaveBeenCalled();
+    expect(result).toEqual(formRenderingDataWithLocation);
   });
 
   it("should throw an error if formWebClientEndpoint is not provided in the browser", async () => {

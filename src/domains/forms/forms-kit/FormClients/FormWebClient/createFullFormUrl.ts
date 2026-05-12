@@ -1,13 +1,12 @@
 import { createUrlWithParams } from "src/utilities";
-import type { ExactFormUrlParameters } from "../../types";
 import type { FormWebClientParams } from "./types";
 
 export type CreateFullFormUrlParams = Pick<
   FormWebClientParams,
   "formWebClientEndpoint" | "isDev"
 > & {
-  endpoint: "/form" | "/submit";
-  searchParams: ExactFormUrlParameters;
+  endpoint: "/form" | "/submit" | "/location";
+  searchParams: Record<string, string>;
 };
 
 export const createFullFormUrl = ({
