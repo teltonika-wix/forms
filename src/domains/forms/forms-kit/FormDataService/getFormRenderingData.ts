@@ -2,12 +2,11 @@ import { FormServerClient } from "../FormClients/FormServerClient";
 import { FormWebClient } from "../FormClients/FormWebClient";
 import type {
   BrowserFormRenderingParams,
-  FormInputComponentData,
   FormRenderingDataResponse,
   ServerFormRenderingParams,
 } from "../types";
 import { addDefaultLocation } from "./defaultValues/addDefaultLocation";
-import { getBrowserIpInfo, getIpInfo } from "./ipInfo";
+import { getIpInfo } from "./ipInfo";
 
 export type GetFormRenderingData = {
   (
@@ -25,10 +24,6 @@ export const getFormRenderingData: GetFormRenderingData = async ({
   formUrlParameters,
   isDev,
 }) => {
-  const hasLocationSelectComponent = (formInputComponents: FormInputComponentData[]): boolean => {
-    return formInputComponents.some((input) => input.component === "LocationSelectComponent");
-  };
-
   if (typeof window !== "undefined") {
     if (!formWebClientEndpoint) {
       throw new Error(
@@ -40,24 +35,6 @@ export const getFormRenderingData: GetFormRenderingData = async ({
       formUrlParameters,
       formWebClientEndpoint,
       isDev,
-    });
-
-    if (!hasLocationSelectComponent(formRenderingData.inputs)) {
-      return formRenderingData;
-    }
-
-    const browserIpInfo = await getBrowserIpInfo({
-      formWebClientEndpoint,
-      isDev,
-    });
-
-    if (!browserIpInfo) {
-      return formRenderingData;
-    }
-
-    formRenderingData.inputs = addDefaultLocation({
-      formInputComponents: formRenderingData.inputs,
-      ipInfo: browserIpInfo,
     });
 
     return formRenderingData;

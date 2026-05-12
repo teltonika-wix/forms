@@ -8,7 +8,8 @@ import { useFormSubmit } from "./composables/useFormSubmit";
 import type { FormProps } from "./types";
 import { addFormInputsToStore } from "./utils/addFormInputsToStore";
 import { formComponentsMap } from "./utils/formComponentsMap";
-import { onMounted } from "vue";
+import { getBrowserIpInfo } from "src/domains/forms/forms-kit/FormDataService/ipInfo";
+import { onMounted, provide, ref } from "vue";
 import type { FormSubmitEventHandler } from "./composables/types";
 import { Button } from "src/legacy/core/components/Button";
 
@@ -26,8 +27,8 @@ const emit = defineEmits<{
 }>();
 
 const { form: formCode } = formUrlParameters;
-const { addFormMessage, getIsFormActive } = useFormStore(formCode);
-const { inputs: formInputs } = formRenderingData;
+const { addFormMessage, getIsFormActive, updateFormInputValue } = useFormStore(formCode);
+const formInputs = ref(formRenderingData.inputs);
 const { submitHandler, isSubmitting } = useFormSubmit({
   formCode,
   recaptchaSiteKey,
@@ -37,11 +38,54 @@ const { submitHandler, isSubmitting } = useFormSubmit({
   formSubmitEventHandler: (...params) => emit("onFormSubmitEvent", ...params),
 });
 
+provide("apiUrl", formWebClientEndpoint);
+
+const getFormInputKey = (
+  formInputData: {
+    component: string;
+    defaultValue?: string;
+    attributes?: { name?: string };
+  },
+  index: number,
+) => {
+  return `${formInputData.component}-${formInputData.attributes?.name || index}-${formInputData.defaultValue || ""}`;
+};
+
 onMounted(() => {
-  addFormInputsToStore({ formCode, formInputs });
+  addFormInputsToStore({ formCode, formInputs: formInputs.value });
   const { successMessageData, errorMessageData } = extractFormMessages(formRenderingData);
   addFormMessage("successfullySent", successMessageData);
   addFormMessage("failedSent", errorMessageData);
+
+  const locationInputs = formInputs.value.filter((input) => {
+    return input.component === "LocationSelectComponent" || input.component === "SelectInput";
+  });
+
+  if (!locationInputs.length) {
+    return;
+  }
+
+  void getBrowserIpInfo({ formWebClientEndpoint, isDev }).then((ipInfo) => {
+    const countryName = ipInfo?.countryName;
+
+    if (!countryName) {
+      return;
+    }
+
+    formInputs.value = formInputs.value.map((input) => {
+      if (input.component !== "LocationSelectComponent" && input.component !== "SelectInput") {
+        return input;
+      }
+
+      const inputName = input.attributes?.name;
+
+      if (inputName) {
+        updateFormInputValue(inputName, countryName);
+      }
+
+      return { ...input, defaultValue: countryName };
+    });
+  });
 });
 
 const isFormActive = getIsFormActive();
@@ -49,7 +93,10 @@ const isFormActive = getIsFormActive();
 
 <template>
   <form v-if="isFormActive" class="w-full" @submit.prevent="submitHandler">
-    <template v-for="formInputData in formInputs" :key="formInputData.component">
+    <template
+      v-for="(formInputData, index) in formInputs"
+      :key="getFormInputKey(formInputData, index)"
+    >
       <SourceComponent
         v-if="formInputData.component === 'SourceComponent'"
         :formInputData="formInputData"

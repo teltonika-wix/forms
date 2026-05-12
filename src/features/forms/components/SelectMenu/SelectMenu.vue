@@ -10,7 +10,7 @@ import {
   changeActiveMenuItem,
 } from "./components/SelectMenuDropdown";
 import type { SelectMenuProps } from "./types";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, inject, onMounted, ref, watch } from "vue";
 
 const props = defineProps<SelectMenuProps>();
 const menuItemsRef = ref(props.selectMenuOptions);
