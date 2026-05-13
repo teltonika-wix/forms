@@ -21,6 +21,5 @@ export const updateFormInputData = <Key extends keyof FormInputData>({
   if (!formInputData) {
     return;
   }
-  console.log(key, value);
   formState.inputsState[inputName] = { ...formInputData, [key]: value };
 };
